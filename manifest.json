@@ -1,0 +1,40 @@
+{
+    "manifest_version": 3,
+    "name": "Optimus",
+    "description": "A Chrome extension that serves as combined pomodoro timer and website blocker.",
+    "version": "1.0",
+    "authors": [{
+        "name": "Jude Thaddeau Data",
+        "email": "78249269+jtd-117@users.noreply.github.com"
+    }],
+
+    "permissions": [],
+
+    "icons": {
+        "64": "",
+        "128": "",
+        "256": ""
+    },
+
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "64": "",
+            "128": "",
+            "256": ""
+        }
+    },
+
+    "options_page": "options.html",
+
+    "content_scripts": [
+        {
+            "js": ["content_script.js"],
+            "matches": ["*://*/*"]
+        }
+    ],
+
+    "background": {
+        "service_worker": "background.js"
+    }
+}
