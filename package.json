@@ -8,7 +8,8 @@
         "dev": "webpack --config webpack.dev.js",
         "start": "webpack serve --open --config webpack.dev.js",
         "lint": "eslint ./src/**/*.js",
-        "format": "prettier . --write"
+        "format": "prettier . --write",
+        "test": "jest"
     },
     "keywords": [],
     "author": "Jude Thaddeau Data",
