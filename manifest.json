@@ -3,10 +3,12 @@
     "name": "Optimus",
     "description": "A Chrome extension that serves as combined pomodoro timer and website blocker.",
     "version": "1.0",
-    "authors": [{
-        "name": "Jude Thaddeau Data",
-        "email": "78249269+jtd-117@users.noreply.github.com"
-    }],
+    "authors": [
+        {
+            "name": "Jude Thaddeau Data",
+            "email": "78249269+jtd-117@users.noreply.github.com"
+        }
+    ],
 
     "permissions": [],
 
