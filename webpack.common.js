@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
     // Each root-level JS file may have different dependency graphs
@@ -20,6 +21,10 @@ module.exports = {
             template: "src/main.html",
             filename: "main.html",
             chunks: ["main"],
+        }),
+
+        new CopyWebpackPlugin({
+            patterns: [{ from: "src/manifest.json", to: "" }],
         }),
     ],
 
