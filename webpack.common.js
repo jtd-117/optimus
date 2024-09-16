@@ -5,7 +5,10 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 module.exports = {
     // Each root-level JS file may have different dependency graphs
     entry: {
-        main: "./src/main.js",
+        background: "./src/background/background.js",
+        content: "./src/content/content.js",
+        options: "./src/options/options.js",
+        popup: "./src/popup/popup.js",
     },
 
     // Refers to the compiled `dist` directory
@@ -18,13 +21,19 @@ module.exports = {
     // Allows 3rd party software (e.g. HTML, ESLint, etc...) to integrate with Webpack
     plugins: [
         new HtmlWebpackPlugin({
-            template: "src/main.html",
-            filename: "main.html",
-            chunks: ["main"],
+            template: "./src/options/options.html",
+            filename: "options.html",
+            chunks: ["options"],
+        }),
+
+        new HtmlWebpackPlugin({
+            template: "./src/popup/popup.html",
+            filename: "popup.html",
+            chunks: ["popup"],
         }),
 
         new CopyWebpackPlugin({
-            patterns: [{ from: "src/manifest.json", to: "" }],
+            patterns: [{ from: "./src/manifest.json", to: "" }],
         }),
     ],
 

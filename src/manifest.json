@@ -1,6 +1,6 @@
 {
     "manifest_version": 3,
-    "name": "Optimus",
+    "name": "optimus",
     "description": "A Chrome extension that serves as combined pomodoro timer and website blocker.",
     "version": "1.0",
     "authors": [
@@ -31,7 +31,7 @@
 
     "content_scripts": [
         {
-            "js": ["content_script.js"],
+            "js": ["content.js"],
             "matches": ["*://*/*"]
         }
     ],
