@@ -35,6 +35,10 @@ module.exports = {
         new CopyWebpackPlugin({
             patterns: [{ from: "./src/manifest.json", to: "" }],
         }),
+
+        new CopyWebpackPlugin({
+            patterns: [{ from: "./src/assets", to: "" }],
+        }),
     ],
 
     // Tells Webpack how to process types of files (i.e. modules) to make them recognisable

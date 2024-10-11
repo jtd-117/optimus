@@ -3,7 +3,7 @@
     "name": "optimus",
     "description": "A Chrome extension that serves as combined pomodoro timer and website blocker.",
     "version": "1.0",
-    "authors": [
+    "author": [
         {
             "name": "Jude Thaddeau Data",
             "email": "78249269+jtd-117@users.noreply.github.com"
@@ -13,17 +13,19 @@
     "permissions": [],
 
     "icons": {
-        "64": "",
-        "128": "",
-        "256": ""
+        "16": "./logos/optimus-logo-16.png",
+        "32": "./logos/optimus-logo-32.png",
+        "48": "./logos/optimus-logo-48.png",
+        "128": "./logos/optimus-logo-128.png"
     },
 
     "action": {
         "default_popup": "popup.html",
         "default_icon": {
-            "64": "",
-            "128": "",
-            "256": ""
+            "16": "./logos/optimus-logo-16.png",
+            "32": "./logos/optimus-logo-32.png",
+            "48": "./logos/optimus-logo-48.png",
+            "128": "./logos/optimus-logo-128.png"
         }
     },
 
