@@ -1,0 +1,8 @@
+@use "../general";
+@use "../flexbox";
+
+@mixin nav {
+    nav.popup {
+        @content;
+    }
+}

@@ -1,0 +1,16 @@
+@use "../../../node_modules/scss-reset/reset";
+@use "../general";
+@use "./popup-header";
+@use "./popup-nav";
+@use "./popup-timer";
+@use "./popup-block";
+
+body {
+    inline-size: 400px;
+    block-size: auto;
+
+    display: flex;
+    flex-flow: column nowrap;
+
+    font-family: "monomaniac-one", sans-serif;
+}

@@ -1,0 +1,9 @@
+@use "../general";
+@use "../flexbox";
+
+@mixin header {
+    header.popup {
+        @content;
+    }
+}
+

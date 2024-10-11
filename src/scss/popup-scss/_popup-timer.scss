@@ -1,0 +1,8 @@
+@use "../general";
+@use "../flexbox";
+
+@mixin timer {
+    section.popup.timer {
+        @content;
+    }
+}

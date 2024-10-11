@@ -1,0 +1,8 @@
+@use "../general";
+@use "../flexbox";
+
+@mixin block {
+    section.popup.block {
+        @content;
+    }
+}

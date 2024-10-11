@@ -3,4 +3,4 @@
  * @description Manages the behaviour and functionality of the extension's settings page.
  */
 
-import "./options.scss";
+import "../scss/options-scss/options.scss";
