@@ -1,3 +1,5 @@
+@use "./flexbox";
+
 @font-face {
     font-family: "monomaniac-one";
     src: url("../../assets/Monomaniac_One/MonomaniacOne-Regular.ttf");
@@ -11,3 +13,31 @@ $fluro-purple: #ff00e5;
 $fluro-yellow: #faff00;
 $fluro-cyan: #00ffe0;
 $fluro-red: #ff0000;
+
+@mixin section-items($padding-x: 10px, $padding-y: 5px) {
+    padding-inline: $padding-x;
+    padding-block: $padding-y;
+    background-color: $dark-gray;
+}
+
+$btn-border: 2px solid $white;
+@mixin btn($size: 16px, $inline: 32px, $block: 32px) {
+    button {
+        inline-size: $inline;
+        block-size: $block;
+
+        @include flexbox.center();
+
+        color: $white;
+        font-size: $size;
+
+        background-color: $light-gray;
+        border-bottom: $btn-border;
+        border-right: $btn-border;
+
+        &:hover {
+            color: $fluro-purple;
+            border-color: $fluro-purple;
+        }
+    }
+}

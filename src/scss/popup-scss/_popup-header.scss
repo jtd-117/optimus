@@ -1,9 +1,30 @@
 @use "../general";
 @use "../flexbox";
 
+$close-btn-size: 24px;
+
 @mixin header {
     header.popup {
-        @content;
+        @include general.section-items();
+
+        @include flexbox.center();
+        justify-content: space-between;
+
+        section {
+
+            @include flexbox.center();
+
+            img {
+                inline-size: 48px;
+                block-size: auto;
+            }
+
+            h1 {
+                margin-inline-start: 10px;
+                color: general.$fluro-blue;
+                font-size: 24px;
+            }
+        }
+        @include general.btn(16px, $close-btn-size, $close-btn-size);
     }
 }
-
