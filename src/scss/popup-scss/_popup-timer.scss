@@ -3,7 +3,7 @@
 
 @mixin timer {
     section.popup.timer {
-        @include general.section-items();
+        @include general.section-items($padding-y: 10px);
 
         @include flexbox.center(column);
 
@@ -19,7 +19,7 @@
 
             @include flexbox.center();
             
-            @include general.btn(24px, 10%, 40px);
+            @include general.btn(24px, 36px, 36px);
             button {
                 margin-inline: 5px;
             }

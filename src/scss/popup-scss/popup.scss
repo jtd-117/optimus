@@ -6,7 +6,7 @@
 @use "./popup-block";
 
 body {
-    inline-size: 400px;
+    inline-size: 360px;
     block-size: auto;
 
     display: flex;
@@ -17,5 +17,5 @@ body {
     @include popup-header.header;
     @include popup-nav.nav;
     @include popup-timer.timer;
-    //@include popup-block.block;
+    @include popup-block.block;
 }

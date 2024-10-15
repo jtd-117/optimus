@@ -43,16 +43,17 @@ $btn-border: 2px solid $white;
     }
 }
 
+$display-border: 1px solid $fluro-yellow;
 @mixin display-timer($padding: 30px) {
     h3 {
         padding-inline: $padding;
 
-        @include flexbox.center();
-
         color: $white;
         font-size: 24px;
+        text-align: center;
+        vertical-align: middle;
 
         background-color: $light-gray;
-        border: $btn-border;
+        border: $display-border;
     }
 }

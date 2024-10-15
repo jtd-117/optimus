@@ -3,6 +3,37 @@
 
 @mixin block {
     section.popup.block {
-        @content;
+        @include general.section-items($padding-y: 10px);
+        @include flexbox.center(column);
+
+        border-top: general.$section-border;
+
+        h2 {
+            margin-block-end: 5px;
+            color: general.$fluro-yellow;
+        }
+
+        section {
+            inline-size: 100%;
+            @include flexbox.center();
+
+            @include general.display-timer($padding: 5px);
+            h3 {
+                inline-size: 80%;
+                block-size: 40px;
+                padding-block-start: 5px;
+
+                font-size: 16px;
+
+                overflow-x: scroll;
+                white-space: nowrap;
+            }
+
+            @include general.btn(24px, 40px, 40px);
+            button {
+                margin-inline-start: 5px;
+            }
+        }
+
     }
 }
