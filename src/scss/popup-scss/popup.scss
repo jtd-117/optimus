@@ -15,4 +15,7 @@ body {
     font-family: "monomaniac-one", sans-serif;
 
     @include popup-header.header;
+    @include popup-nav.nav;
+    //@include popup-timer.timer;
+    //@include popup-block.block;
 }

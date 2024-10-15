@@ -3,6 +3,13 @@
 
 @mixin nav {
     nav.popup {
-        @content;
+        @include general.section-items();
+
+        @include flexbox.center();
+        justify-content: space-around;
+
+        border-top: general.$section-border;
+
+        @include general.btn($inline: 30%);
     }
 }
