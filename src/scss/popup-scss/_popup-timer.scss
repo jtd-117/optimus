@@ -3,6 +3,28 @@
 
 @mixin timer {
     section.popup.timer {
-        @content;
+        @include general.section-items();
+
+        @include flexbox.center(column);
+
+        border-top: general.$section-border;
+
+        h2 {
+            margin-block-end: 5px;
+            color: general.$fluro-yellow;
+        }
+
+        section {
+            inline-size: 100%;
+
+            @include flexbox.center();
+            
+            @include general.btn(24px, 10%, 40px);
+            button {
+                margin-inline: 5px;
+            }
+
+            @include general.display-timer();
+        }
     }
 }

@@ -16,6 +16,6 @@ body {
 
     @include popup-header.header;
     @include popup-nav.nav;
-    //@include popup-timer.timer;
+    @include popup-timer.timer;
     //@include popup-block.block;
 }
