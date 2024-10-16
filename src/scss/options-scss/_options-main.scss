@@ -1,0 +1,12 @@
+@use "./options-nav";
+@use "./options-content";
+
+@mixin main {
+    main.options{
+        display: flex;
+        flex-flow: row nowrap;
+
+        //@include options-nav.nav();
+        //@include options-content.content();
+    }
+}

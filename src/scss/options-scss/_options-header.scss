@@ -1,0 +1,29 @@
+@use "../general";
+@use "../flexbox";
+
+@mixin header {
+    header.options {
+        @include flexbox.center();
+        justify-content: flex-start;
+
+        @include general.section-items();
+
+        border-bottom: general.$section-border;
+
+        section {
+            margin-inline-start: 10%;
+            @include flexbox.center();
+
+            img {
+                inline-size: 64px;
+                block-size: auto;
+            }
+
+            h1 {
+                margin-inline-start: 10px;
+                color: general.$fluro-blue;
+                font-size: 32px;
+            }
+        }
+    }
+}

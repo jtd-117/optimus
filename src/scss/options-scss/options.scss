@@ -8,6 +8,6 @@ body {
     flex-flow: column nowrap;
     font-family: "monomaniac-one", sans-serif;
     
-    //@include options-header.header;
-    //@include options-main.main;
+    @include options-header.header();
+    @include options-main.main();
 }
