@@ -17,8 +17,8 @@
             inline-size: 100%;
             @include flexbox.center();
 
-            @include general.display-timer($padding: 5px);
-            h3 {
+            @include general.display($padding: 5px);
+            h3#block-display {
                 inline-size: 80%;
                 block-size: 40px;
                 padding-block-start: 5px;
@@ -29,7 +29,7 @@
                 white-space: nowrap;
             }
 
-            @include general.btn(24px, 40px, 40px);
+            @include general.btn($size: 24px, $inline: 40px, $block: 40px);
             button {
                 margin-inline-start: 5px;
             }

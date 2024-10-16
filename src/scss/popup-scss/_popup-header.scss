@@ -25,6 +25,6 @@ $close-btn-size: 24px;
                 font-size: 24px;
             }
         }
-        @include general.btn(16px, $close-btn-size, $close-btn-size);
+        @include general.btn($inline: $close-btn-size, $block: $close-btn-size);
     }
 }

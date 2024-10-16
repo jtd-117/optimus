@@ -5,7 +5,7 @@
     section.popup.timer {
         @include general.section-items($padding-y: 10px);
 
-        @include flexbox.center(column);
+        @include flexbox.center($direction: column);
 
         border-top: general.$section-border;
 
@@ -19,12 +19,16 @@
 
             @include flexbox.center();
             
-            @include general.btn(24px, 36px, 36px);
+            @include general.btn($size: 24px, $inline: 42px, $block: 42px);
             button {
-                margin-inline: 5px;
+                padding-block-end: 4px;
+                margin-inline: 4px;
             }
 
-            @include general.display-timer();
+            @include general.display();
+            h3#timer-display {
+                padding-block-end: 5px;
+            }
         }
     }
 }

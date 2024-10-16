@@ -40,18 +40,23 @@ $btn-border: 2px solid $white;
             color: $fluro-purple;
             border-color: $fluro-purple;
         }
+
+        &:active {
+            color: $fluro-red;
+            border-color: $fluro-red;
+        }
     }
 }
 
 $display-border: 1px solid $fluro-yellow;
-@mixin display-timer($padding: 30px) {
-    h3 {
+@mixin display($padding: 30px) {
+    h3#timer-display,
+    h3#block-display {
         padding-inline: $padding;
 
         color: $white;
         font-size: 24px;
         text-align: center;
-        vertical-align: middle;
 
         background-color: $light-gray;
         border: $display-border;
