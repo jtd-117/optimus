@@ -6,7 +6,7 @@
         @include flexbox.center();
         justify-content: flex-start;
 
-        @include general.section-items();
+        @include general.section-items($padding-y: 10px);
 
         border-bottom: general.$section-border;
 
@@ -15,14 +15,14 @@
             @include flexbox.center();
 
             img {
-                inline-size: 64px;
+                inline-size: 72px;
                 block-size: auto;
             }
 
             h1 {
                 margin-inline-start: 10px;
                 color: general.$fluro-blue;
-                font-size: 32px;
+                font-size: 48px;
             }
         }
     }

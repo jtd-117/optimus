@@ -5,8 +5,9 @@
     main.options{
         display: flex;
         flex-flow: row nowrap;
+        flex: 1;
 
-        //@include options-nav.nav();
-        //@include options-content.content();
+        @include options-nav.nav();
+        @include options-content.content();
     }
 }

@@ -1,0 +1,12 @@
+@use "../general";
+@use "../flexbox";
+
+@mixin content {
+    section#content {
+        display: flex;
+        flex-flow: column nowrap;
+        flex: 4;
+
+        @include general.section-items();
+    }
+}
