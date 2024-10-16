@@ -1,8 +1,13 @@
 @use "../../../node_modules/scss-reset/reset";
+@use "./options-header";
+@use "./options-main";
 @use "../general";
 
 body {
     display: flex;
     flex-flow: column nowrap;
     font-family: "monomaniac-one", sans-serif;
+    
+    //@include options-header.header;
+    //@include options-main.main;
 }
