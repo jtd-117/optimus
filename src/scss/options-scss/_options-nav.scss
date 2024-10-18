@@ -17,7 +17,6 @@ $nav-font-size: 24px;
             top: 0;
 
             h1 {
-                padding-inline: 20px;
                 margin-block: 10px;
 
                 color: general.$fluro-yellow;
@@ -25,7 +24,7 @@ $nav-font-size: 24px;
                 border-bottom: 2px solid general.$fluro-yellow;
             }
 
-            @include general.btn($size: 24px, $inline: 75%, $block: 48px);
+            @include general.btn($size: 24px, $inline: 140px, $block: 48px);
             button {
                 margin-block: 20px;
             }

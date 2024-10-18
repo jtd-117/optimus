@@ -3,10 +3,31 @@
 
 @mixin content {
     section#content {
-        display: flex;
-        flex-flow: column nowrap;
+        @include flexbox.center($direction: column);
+        justify-content: flex-start;
+        align-items: flex-start;
         flex: 4;
 
-        @include general.section-items();
+        @include general.section-items($padding-x: 5%, $padding-y: 20px);
+        
+        article {
+
+            h1 {
+                color: general.$fluro-purple;
+                font-size: general.$main-header-size;
+                text-transform: uppercase;
+            }
+
+            section {
+                margin-block: 20px;
+
+                font-size: general.$text-size;
+
+                h2 {
+                    color: general.$fluro-yellow;
+                    font-size: general.$sub-header-size;
+                }
+            }
+        }
     }
 }

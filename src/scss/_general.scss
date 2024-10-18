@@ -14,6 +14,10 @@ $fluro-yellow: #faff00;
 $fluro-cyan: #00ffe0;
 $fluro-red: #ff0000;
 
+$main-header-size: 32px;
+$sub-header-size: 24px;
+$text-size: 16px;
+
 $section-border: 0.1px solid $white;
 @mixin section-items($padding-x: 10px, $padding-y: 5px) {
     padding-inline: $padding-x;
