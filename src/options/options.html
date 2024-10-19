@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/x-icon" href="./assets/logos/optimus-logo-128.png">
         <script src="./options.js" defer></script>
         <title>Optimus | Options</title>
     </head>
@@ -14,7 +15,7 @@
             </section>
         </header>
         <main class="options">
-            <nav>
+            <nav class="options">
                 <div id="sticky-nav">
                     <h1>Menu</h1>
                     <button class="manual" title="user manual" aria-label="user manual">Manual</button>
@@ -23,22 +24,22 @@
                     <button class="transfer" title="settings transfer" aria-label="settings transfer">Transfer</button>
                 </div>
             </nav>
-            <section id="content">
+            <section class="options" id="content">
                 <article class="manual">
                     <h1>User Manual</h1>
                     <section>
                         <h2>Content:</h2>
                         <ol>
-                            <li><a href="">About</a></li>
-                            <li><a href="">Timer Settings</a></li>
-                            <li><a href="">Website Blocking</a></li>
-                            <li><a href="">Settings Transfer</a></li>
-                            <li><a href="">GitHub Repository</a></li>
-                            <li><a href="">Donate</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#timer-settings">Timer Settings</a></li>
+                            <li><a href="#website-blocking">Website Blocking</a></li>
+                            <li><a href="#settings-transfer">Settings Transfer</a></li>
+                            <li><a href="#github-repository">GitHub Repository</a></li>
+                            <li><a href="#donate">Donate</a></li>
                         </ol>
                     </section>
                     <section>
-                        <h2>About:</h2>
+                        <h2 id="about">About:</h2>
                         <p><a href="">Optimus</a> is a Chrome extension designed to maximise browser productivity by offering the following tools:</p>
                         <ul>
                             <li>Timer</li>
@@ -53,13 +54,13 @@
                         </ul>
                     </section>
                     <section>
-                        <h2>Timer Settings:</h2>
+                        <h2 id="timer-settings">Timer Settings:</h2>
                         <p><a href="">Timer Settings</a> can be accessed via the `Timer` button under the `Menu` navigation section within the options page, or under the extension popup.</p>
                         <br>
                         <p>Here, users can adjust the number of <span class="note">hours</span>, <span class="note">minutes</span> and <span class="note">seconds</span> the timer will run for during a session. </p>
                     </section>
                     <section>
-                        <h2>Website Blocking:</h2>
+                        <h2 id="website-blocking">Website Blocking:</h2>
                         <p>The <a href="">Block List</a> can be accessed via the `Block` button under the `Menu` navigation section within the options page, or under the extension popup.</p>
                         <br>
                         <p>Here, users can <span class="note">add</span> and <span class="note">delete</span> websites from the block list. Also note that you can add blocked websites via the popup page.</p>
@@ -69,19 +70,19 @@
                         <p>For details on how to block specific pages or entire websites, visit Block settings page.</p>
                     </section>
                     <section>
-                        <h2>Settings Transfer:</h2>
+                        <h2 id="settings-transfer">Settings Transfer:</h2>
                         <p>The Transfer page allows users to <span class="note">import</span> or <span class="note">export</span> their configured settings via a single <span class="note">json</span> file.</p>
                         <br>
                         <p>If users have several devices with Google Chrome installed as a browser, settings can be <span class="note">restored</span> via the aforementioned JSON file.</p>
                     <section>
-                        <h2>GitHub Repository:</h2>
+                        <h2 id="github-repository">GitHub Repository:</h2>
                         <p>The codebase for this project can be found under the <a href="https://github.com/jtd-117/optimus">optimus</a> repository on GitHub.</p>
                         <br>
                         <p>All relevant files including code, documentation, issues, etc... can be found in the aforementioned repository.</p>
                     </section>
                     </section>
                     <section>
-                        <h2>Donate:</h2>
+                        <h2 id="donate">Donate:</h2>
                         <p>Users can support me through my <a href="">PayPal</a>.</p>
                         <br>
                         <p>It is <span class="note">you</span>, the user, that makes developing applications worthwhile and what ultimately allows me to make a living.</p>
@@ -94,6 +95,14 @@
                 </article>
                 <article class="timer">
                     <h1>Timer Settings</h1>
+                    <section>
+                    <h2>Current Settings:</h2>
+                    <ul>
+                        <li>Below is a <span class="note">preview</span> of the popup timer using the <span class="note">current</span> settings</li>
+                        <li>The timer below is formatted as <span class="note">hours:minutes:seconds</span></li>
+                        <li>Click the ‘Edit’ button and complete the form to change timer settings</li>
+                    </ul>
+                    </section>
                 </article>
                 <article class="block">
                     <h1>Website Blocking</h1>
