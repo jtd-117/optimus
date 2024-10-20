@@ -9,9 +9,8 @@
         flex: 4;
 
         @include general.section-items($padding-x: 5%, $padding-y: 20px);
-        
-        article {
 
+        article {
             h1 {
                 inline-size: fit-content;
 
@@ -31,16 +30,19 @@
                     color: general.$fluro-yellow;
                     font-size: general.$sub-header-size;
                 }
+
+                @include general.btn($inline: 160px);
             }
 
             section#timer-preview {
-                    @include flexbox.center();
-                    h3#timer-display {
-                        margin-inline-end: 40px;
-                    }
+                @include flexbox.center();
+                justify-content: flex-start;
+                h3#timer-display {
+                    margin-inline-end: 40px;
+                }
 
-                    @include general.display();
-                    @include general.btn($inline: 160px);
+                @include general.display();
+                @include general.btn($inline: 160px);
             }
         }
     }

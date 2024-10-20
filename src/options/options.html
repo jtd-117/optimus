@@ -93,11 +93,10 @@
                 <article class="timer">
                     <h1>Timer Settings</h1>
                     <section>
-                    <h2>Current Settings:</h2>
-                    <ul>
-                        <li>Below is a <span class="note">preview</span> of the popup timer using the <span class="note">current</span> settings formatted as <span class="note">hours:minutes:seconds</span></li>
-                        <li>Click the ‘Edit’ button and complete the form to change timer settings</li>
-                    </ul>
+                        <h2>Current Settings:</h2>
+                        <p>Below is a <span class="note">preview</span> of the popup timer using the <span class="note">current</span> settings formatted as <span class="note">hours:minutes:seconds</span>.</p>
+                        <br>
+                        <p>Click the ‘Edit Timer’ button and complete the form to change timer settings.</p>
                     </section>
                     <section id="timer-preview">
                         <h3 id="timer-display" aria-label="timer display">00:00:00</h3>
@@ -121,7 +120,7 @@
                                     <label for="timer-seconds">SECONDS:</label>
                                     <input type="number" min="0" max="59" placeholder="ss">
                                 </div>
-                                <div class="form-container">
+                                <div class="form-finish-container">
                                     <button id="cancel-timer-form" formmethod="dialog">Cancel</button>
                                     <button id="submit-timer-form">Submit</button>
                                 </div>
@@ -135,9 +134,53 @@
                 </article>
                 <article class="block">
                     <h1>Website Blocking</h1>
+                    <section>
+                        <h2>Blocked Website List:</h2>
+                        <section>
+                            <p>Click the ‘Edit Block List’ button and complete the form to change the list.</p>
+                            <br>
+                            <button id="block-edit" aria-label="edit blocked websites">Edit Block List</button>
+
+
+
+
+                            <dialog id="blocking-list-form">
+                                <form method="dialog">
+                                    <h3>Edit Blocked Website(s):</h3>
+                                    <p>Click the `Submit` button to update the block list.</p>
+                                    <br>
+                                    <p>Drag the bottom right corner of the container below to <span class="note">increase</span> or <span class="note">decrease</span> your view.</p>
+                                    <textarea id="block-list-textarea" rows="2" cols="60"></textarea>
+                                    <div class="form-finish-container">
+                                        <button id="cancel-blocking-form" formmethod="dialog">Cancel</button>
+                                        <button id="submit-blocking-form">Submit</button>
+                                    </div>
+                                </form>
+                            </dialog>
+
+
+
+
+                        </section>
+                        <section>
+                            <p>Below is a list of user-selected blocked websites:</p>
+                            <ul id="blocking-list"></ul>
+                        </section>
+                    </section>
                 </article>
                 <article class="transfer">
                     <h1>Settings Transfer</h1>
+                    <section>
+                        <h2>Exports and Imports:</h2>
+                        <p>Your timer and block settings can be <span class="note">exported</span> to your local device via a single <span class="note">json</span> file.</p>
+                        <br>
+                        <p>If you have this Chrome extension deleted or installed in other devices, the aforementioned <span class="note">json</span> file can be <span class="note">imported</span> to <span class="note">restore</span> your settings.</p>
+                        <br>
+                        <div class="form-finish-container">
+                            <button id="cancel-blocking-form" formmethod="dialog">Cancel</button>
+                            <button id="submit-blocking-form">Submit</button>
+                        </div>
+                    </section>
                 </article>
             </section>
         </main>

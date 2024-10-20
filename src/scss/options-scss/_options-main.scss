@@ -2,7 +2,7 @@
 @use "./options-content";
 
 @mixin main {
-    main.options{
+    main.options {
         display: flex;
         flex-flow: row nowrap;
         flex: 1;
