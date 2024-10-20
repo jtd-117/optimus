@@ -47,17 +47,14 @@
                         </ul>
                         <br>
                         <p>When the timer is activated via the play button︎︎, user-selected websites on the block list <span class="note">cannot</span> be accessed until the timer is <span class="note">reset</span> via the reset button.</p>
-                        <br>
-                        <ul>
-                            <li>Pressing the pause button does <span class="note">not</span> grant back access to blocked websites. This can only be done via the reset button.</li>
-                            <li>Websites <span class="note">cannot</span> be <span class="note">removed</span> from the block list while the timer is active</li>
-                        </ul>
                     </section>
                     <section>
                         <h2 id="timer-settings">Timer Settings:</h2>
                         <p><a href="">Timer Settings</a> can be accessed via the `Timer` button under the `Menu` navigation section within the options page, or under the extension popup.</p>
                         <br>
-                        <p>Here, users can adjust the number of <span class="note">hours</span>, <span class="note">minutes</span> and <span class="note">seconds</span> the timer will run for during a session. </p>
+                        <p>Here, users can adjust the number of <span class="note">hours</span>, <span class="note">minutes</span> and <span class="note">seconds</span> the timer will run for during a session.</p>
+                        <br>
+                        <p><span class="note">note:</span> Pressing the pause button does <span class="note">not</span> grant back access to blocked websites. This can only be done via the reset button.</p>
                     </section>
                     <section>
                         <h2 id="website-blocking">Website Blocking:</h2>
@@ -65,7 +62,7 @@
                         <br>
                         <p>Here, users can <span class="note">add</span> and <span class="note">delete</span> websites from the block list. Also note that you can add blocked websites via the popup page.</p>
                         <br>
-                        <p>Websites on this list <span class="note">cannot</span> be accessed when the timer is active.</p>
+                        <p>Websites on this list <span class="note">cannot</span> be accessed or deleted from the block list when the timer is active.</p>
                         <br>
                         <p>For details on how to block specific pages or entire websites, visit Block settings page.</p>
                     </section>
@@ -98,10 +95,42 @@
                     <section>
                     <h2>Current Settings:</h2>
                     <ul>
-                        <li>Below is a <span class="note">preview</span> of the popup timer using the <span class="note">current</span> settings</li>
-                        <li>The timer below is formatted as <span class="note">hours:minutes:seconds</span></li>
+                        <li>Below is a <span class="note">preview</span> of the popup timer using the <span class="note">current</span> settings formatted as <span class="note">hours:minutes:seconds</span></li>
                         <li>Click the ‘Edit’ button and complete the form to change timer settings</li>
                     </ul>
+                    </section>
+                    <section id="timer-preview">
+                        <h3 id="timer-display" aria-label="timer display">00:00:00</h3>
+                        <button id="timer-edit" aria-label="edit timer settings">Edit Timer</button>
+
+
+
+
+                        <dialog id="timer-settings-form">
+                            <form method="dialog">
+                                <h3>Edit Timer Settings:</h3>
+                                <div class="form-container">
+                                    <label for="timer-hours">HOURS:</label>
+                                    <input type="number" min="0" max="23" placeholder="hh">
+                                </div>
+                                <div class="form-container">
+                                    <label for="timer-minutes">MINUTES:</label>
+                                    <input type="number" min="0" max="59" placeholder="mm">
+                                </div>
+                                <div class="form-container">
+                                    <label for="timer-seconds">SECONDS:</label>
+                                    <input type="number" min="0" max="59" placeholder="ss">
+                                </div>
+                                <div class="form-container">
+                                    <button id="cancel-timer-form" formmethod="dialog">Cancel</button>
+                                    <button id="submit-timer-form">Submit</button>
+                                </div>
+                            </form>
+                        </dialog>
+
+
+
+
                     </section>
                 </article>
                 <article class="block">

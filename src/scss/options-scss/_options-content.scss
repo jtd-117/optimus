@@ -13,9 +13,13 @@
         article {
 
             h1 {
+                inline-size: fit-content;
+
                 color: general.$fluro-purple;
                 font-size: general.$main-header-size;
                 text-transform: uppercase;
+
+                border-bottom: 2px solid general.$fluro-purple;
             }
 
             section {
@@ -27,6 +31,16 @@
                     color: general.$fluro-yellow;
                     font-size: general.$sub-header-size;
                 }
+            }
+
+            section#timer-preview {
+                    @include flexbox.center();
+                    h3#timer-display {
+                        margin-inline-end: 40px;
+                    }
+
+                    @include general.display();
+                    @include general.btn($inline: 160px);
             }
         }
     }

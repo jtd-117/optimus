@@ -65,4 +65,8 @@ $display-border: 1px solid $fluro-yellow;
         background-color: $light-gray;
         border: $display-border;
     }
+
+    h3#timer-display {
+        padding-block-end: 5px;
+    }
 }

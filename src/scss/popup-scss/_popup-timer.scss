@@ -26,9 +26,6 @@
             }
 
             @include general.display();
-            h3#timer-display {
-                padding-block-end: 5px;
-            }
         }
     }
 }
