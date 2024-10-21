@@ -1,5 +1,6 @@
 @use "../general";
 @use "../flexbox";
+@use "./options-forms";
 
 @mixin content {
     section#content {
@@ -31,18 +32,15 @@
                     font-size: general.$sub-header-size;
                 }
 
-                @include general.btn($inline: 160px);
-            }
-
-            section#timer-preview {
-                @include flexbox.center();
-                justify-content: flex-start;
-                h3#timer-display {
-                    margin-inline-end: 40px;
-                }
-
                 @include general.display();
-                @include general.btn($inline: 160px);
+                h3#timer-display {
+                    inline-size: fit-content;
+                    margin-bottom: 20px;
+                }
+                @include options-forms.all();
+
+                @include general.btn($inline: 140px);
+                @include options-forms.finish();
             }
         }
     }

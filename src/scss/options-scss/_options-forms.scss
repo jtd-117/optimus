@@ -1,0 +1,85 @@
+@use "../general";
+@use "../flexbox";
+
+@mixin finish {
+    div.form-finish {
+        @include flexbox.center($wrap: wrap);
+        justify-content: flex-start;
+
+        button {
+            margin-inline-end: 10px;
+            margin-block-end: 10px;
+        }
+    }
+}
+
+@mixin all {
+    dialog {
+        @include general.section-items();
+        color: general.$white;
+
+        form {
+            padding: 10px;
+            
+            h3 {
+                color: general.$fluro-yellow;
+                font-size: general.$sub-header-size;
+            }
+        }
+
+        &::backdrop {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+    }
+
+    dialog#timer-form {
+        form {
+            div.form-container {
+                margin: 5px;
+
+                label {
+                    display: inline-block;
+                    inline-size: 80px;
+
+                    color: general.$fluro-purple;
+                }
+            }
+        }
+    }
+
+    dialog#blocking-form {
+        form {
+            details {
+                padding-inline: 10px;
+                padding-block: 5px;
+                background-color: general.$light-gray;
+                border-right: 1px solid general.$white;
+                border-bottom: 1px solid general.$white;
+
+                ul {
+                    li {
+                        color: general.$white;
+                    }
+                }
+
+                &:hover {
+                    color: general.$fluro-purple;
+                    border-color: general.$fluro-purple;
+                }
+            }
+
+            textarea {
+                inline-size: 100%;
+                block-size: calc(2 * general.$sub-header-size);
+                min-height: calc(2 * general.$sub-header-size);
+                max-height: calc(4 * general.$sub-header-size);
+                margin-block: 10px;
+
+                display: inline-block;
+                overflow-y: auto;
+
+                border-bottom: 4px solid general.$fluro-red;
+            }
+        }
+    }    
+}

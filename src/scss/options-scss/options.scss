@@ -8,6 +8,7 @@ body {
     flex-flow: column nowrap;
     font-family: "monomaniac-one", sans-serif;
     color: general.$white;
+    background-color: general.$dark-gray;
 
     @include options-header.header();
     @include options-main.main();
@@ -38,4 +39,8 @@ a {
 span.note {
     color: general.$fluro-red;
     text-transform: uppercase;
+}
+
+span.example {
+    color: general.$fluro-yellow;
 }
