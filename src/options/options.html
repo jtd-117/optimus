@@ -110,15 +110,15 @@
                                 <h3>Edit Timer Settings:</h3>
                                 <div class="form-container">
                                     <label for="timer-hours">HOURS:</label>
-                                    <input type="number" min="0" max="23" placeholder="hh">
+                                    <input id="timer-hours" type="number" min="0" max="23" placeholder="hh">
                                 </div>
                                 <div class="form-container">
                                     <label for="timer-minutes">MINUTES:</label>
-                                    <input type="number" min="0" max="59" placeholder="mm">
+                                    <input id="timer-minutes" type="number" min="0" max="59" placeholder="mm">
                                 </div>
                                 <div class="form-container">
                                     <label for="timer-seconds">SECONDS:</label>
-                                    <input type="number" min="0" max="59" placeholder="ss">
+                                    <input id="timer-seconds" type="number" min="0" max="59" placeholder="ss">
                                 </div>
                                 <div class="form-finish-container">
                                     <button id="cancel-timer-form" formmethod="dialog">Cancel</button>
@@ -144,13 +144,13 @@
 
 
 
-                            <dialog id="blocking-list-form">
+                            <dialog id="blocking-list-form" open>
                                 <form method="dialog">
                                     <h3>Edit Blocked Website(s):</h3>
                                     <p>Click the `Submit` button to update the block list.</p>
                                     <br>
                                     <p>Drag the bottom right corner of the container below to <span class="note">increase</span> or <span class="note">decrease</span> your view.</p>
-                                    <textarea id="block-list-textarea" rows="2" cols="60"></textarea>
+                                    <textarea id="block-list-textarea" rows="4" cols="60"></textarea>
                                     <div class="form-finish-container">
                                         <button id="cancel-blocking-form" formmethod="dialog">Cancel</button>
                                         <button id="submit-blocking-form">Submit</button>
@@ -177,8 +177,8 @@
                         <p>If you have this Chrome extension deleted or installed in other devices, the aforementioned <span class="note">json</span> file can be <span class="note">imported</span> to <span class="note">restore</span> your settings.</p>
                         <br>
                         <div class="form-finish-container">
-                            <button id="cancel-blocking-form" formmethod="dialog">Cancel</button>
-                            <button id="submit-blocking-form">Submit</button>
+                            <button id="submit-export">Export</button>
+                            <button id="submit-import">Import</button>
                         </div>
                     </section>
                 </article>
