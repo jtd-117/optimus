@@ -118,8 +118,8 @@
                                         <input id="timer-seconds" type="number" min="0" max="59" placeholder="s">
                                     </div>
                                     <div class="form-finish">
-                                        <button id="cancel-timer-form" formmethod="dialog">Cancel</button>
-                                        <button id="submit-timer-form">Submit</button>
+                                        <button id="timer-cancel" formmethod="dialog">Cancel</button>
+                                        <button id="timer-submit">Submit</button>
                                     </div>
                                 </form>
                             </dialog>
@@ -134,7 +134,7 @@
                             <p>Click the ‘Edit Block List’ button and complete the form to change the list.</p>
                             <br>
                             <button id="block-edit" aria-label="edit blocked websites">Edit Block List</button>
-                            <dialog id="blocking-form">
+                            <dialog id="block-form">
                                 <form method="dialog">
                                     <h3>Edit Blocked Website(s):</h3>
                                     <p>Click the `Submit` button to update the block list.</p>
@@ -150,17 +150,17 @@
                                     </details>
                                     <br>
                                     <p>Drag the bottom right corner of the container below to <span class="note">increase</span> or <span class="note">decrease</span> your view.</p>
-                                    <textarea id="block-list-textarea" rows="4" cols="60"></textarea>
+                                    <textarea id="block-list" rows="4" cols="60"></textarea>
                                     <div class="form-finish">
-                                        <button id="cancel-blocking-form" formmethod="dialog">Cancel</button>
-                                        <button id="submit-blocking-form">Submit</button>
+                                        <button id="block-cancel" formmethod="dialog">Cancel</button>
+                                        <button id="block-submit">Submit</button>
                                     </div>
                                 </form>
                             </dialog>
                         </section>
                         <section>
                             <p>Below is a list of user-selected blocked websites:</p>
-                            <ul id="blocking-list"></ul>
+                            <ul id="block-list"></ul>
                         </section>
                     </section>
                 </article>
@@ -174,8 +174,8 @@
                             <p>If you have this Chrome extension deleted or installed in other devices, the aforementioned <span class="note">json</span> file can be <span class="note">imported</span> to <span class="note">restore</span> your settings.</p>
                             <br>
                             <div class="form-finish">
-                                <button id="submit-export">Export</button>
-                                <button id="submit-import">Import</button>
+                                <button id="export-submit">Export</button>
+                                <button id="import-submit">Import</button>
                             </div>
                         </section>
                     </section>

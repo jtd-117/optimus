@@ -47,7 +47,7 @@
         }
     }
 
-    dialog#blocking-form {
+    dialog#block-form {
         form {
             details {
                 padding-inline: 10px;
@@ -60,11 +60,6 @@
                     li {
                         color: general.$white;
                     }
-                }
-
-                &:hover {
-                    color: general.$fluro-purple;
-                    border-color: general.$fluro-purple;
                 }
             }
 
