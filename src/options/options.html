@@ -19,67 +19,85 @@
                 <div id="sticky-nav">
                     <h1>Menu</h1>
                     <button class="manual" title="user manual" aria-label="user manual">Manual</button>
-                    <button class="timer" title="timer settings" aria-label="timer settings">Timer</button>
-                    <button class="block" title="website blocking" aria-label="website blocking">Blocking</button>
-                    <button class="transfer" title="settings transfer" aria-label="settings transfer">Transfer</button>
+                    <button class="timer" title="session timer settings" aria-label="session timer settings">Timer</button>
+                    <button class="blocking" title="website blocking settings" aria-label="website blocking settings">Blocking</button>
+                    <button class="transfer" title="transfer settings" aria-label="transfer settings">Transfer</button>
                 </div>
             </nav>
             <section class="options" id="content">
-                <article class="manual">
+                <article id="user-manual">
                     <h1>User Manual</h1>
-                    <section>
-                        <h2>Content:</h2>
+                    <section id="manual-contents">
+                        <h2>Contents:</h2>
                         <ol>
-                            <li><a href="#about">About</a></li>
-                            <li><a href="#timer-settings">Timer Settings</a></li>
-                            <li><a href="#website-blocking">Website Blocking</a></li>
-                            <li><a href="#settings-transfer">Settings Transfer</a></li>
-                            <li><a href="#github-repository">GitHub Repository</a></li>
-                            <li><a href="#donate">Donate</a></li>
+                            <li><a href="#manual-about">About</a></li>
+                            <li><a href="#manual-timer">Session Timer</a></li>
+                            <li><a href="#manual-blocking">Website Blocking</a></li>
+                            <li><a href="#manual-transfer">Transfer Settings</a></li>
+                            <li><a href="#manual-permissions">Extension Permissions</a></li>
+                            <li><a href="#manual-github">GitHub Repository</a></li>
+                            <li><a href="#manual-donate">Donate</a></li>
                         </ol>
                     </section>
-                    <section>
-                        <h2 id="about">About:</h2>
+                    <section id="manual-about">
+                        <h2>About:</h2>
                         <p><a href="">Optimus</a> is a Chrome extension designed to maximise browser productivity by offering the following tools:</p>
                         <ul>
-                            <li>Timer</li>
+                            <li>Session Timer</li>
                             <li>Website Blocking</li>
                         </ul>
                         <br>
-                        <p>When the timer is activated via the play button︎︎, user-selected websites on the block list <span class="note">cannot</span> be accessed until the timer is <span class="note">reset</span> via the reset button.</p>
+                        <p>When the timer is activated via the <span class="note">popup</span> play button︎︎, user-selected websites on the block list <span class="note">cannot</span> be accessed until the timer has <span class="note">elapsed</span>, or <span class="note">reset</span> via the reset button.</p>
                     </section>
-                    <section>
-                        <h2 id="timer-settings">Timer Settings:</h2>
-                        <p><a href="">Timer Settings</a> can be accessed via the `Timer` button under the `Menu` navigation section within the options page, or under the extension popup.</p>
+                    <section id="manual-timer">
+                        <h2>Session Timer:</h2>
+                        <p>The session timer serves as a <span class="note">countdown</span> timer for how long websites on the <a href="#manual-blocking">block list</a> will be inaccessible for.</p>
+                        <br>
+                        <p>The session timer is accessed via the extension <span class="note">popup</span> and has the following buttons:</p>
+                        <ul>
+                            <li><span class="note">Play</span> - start the session countdown</li>
+                            <li><span class="note">Pause</span> - freeze the session but continue to keep the websites blocked</li>
+                            <li><span class="note">Reset</span> - to restart the session timer</li>
+                        </ul>
+                        <br>
+                        <p><a href="#session-timer-settings">Session Timer Settings</a> can be accessed via the <span class="example">`Timer`</span> button under the <span class="example">`Menu`</span> navigation section within the options page, or under the extension popup.</p>
                         <br>
                         <p>Here, users can adjust the number of <span class="note">hours</span>, <span class="note">minutes</span> and <span class="note">seconds</span> the timer will run for during a session.</p>
-                        <br>
-                        <p><span class="note">note:</span> Pressing the pause button does <span class="note">not</span> grant back access to blocked websites. This can only be done via the reset button.</p>
                     </section>
-                    <section>
-                        <h2 id="website-blocking">Website Blocking:</h2>
-                        <p>The <a href="">Block List</a> can be accessed via the `Block` button under the `Menu` navigation section within the options page, or under the extension popup.</p>
+                    <section id="manual-blocking">
+                        <h2>Website Blocking:</h2>
+                        <p>Websites on the block list <span class="note">cannot</span> be <span class="note">accessed</span> via the Chrome broswer or <span class="note">edited</span> within <a href="#website-blocking-settings">website blocking settings</a> <span class="note">while</span> the <a href="#session-timer-settings">session timer</a> is <span class="note">active</span>.</p>
                         <br>
-                        <p>Here, users can <span class="note">add</span> and <span class="note">delete</span> websites from the block list. Also note that you can add blocked websites via the popup page.</p>
+                        <p>The <a href="#website-blocking-settings">block list</a> can be found via the <span class="example">`Blocking`</span> button under the <span class="example">`Menu`</span> navigation section within the options page, or under the extension popup.</p>
                         <br>
-                        <p>Websites on this list <span class="note">cannot</span> be accessed or deleted from the block list when the timer is active.</p>
+                        <p>Here, users can <span class="note">add</span> or <span class="note">delete</span> websites from the block list. Also note that you can add blocked websites via the popup page.</p>
                         <br>
-                        <p>For details on how to block specific pages or entire websites, visit Block settings page.</p>
+                        <p>When completing the website blocking <span class="note">form</span>, there is a dropdown that shows how to enter website URLs properly.</p>
                     </section>
-                    <section>
-                        <h2 id="settings-transfer">Settings Transfer:</h2>
-                        <p>The Transfer page allows users to <span class="note">import</span> or <span class="note">export</span> their configured settings via a single <span class="note">json</span> file.</p>
+                    <section id="manual-transfer">
+                        <h2>Settings Transfer:</h2>
+                        <p>The <a href="#transfer-settings">Transfer Settings</a> page allows users to <span class="note">import</span> or <span class="note">export</span> their configured settings via a single <span class="note">json</span> file.</p>
                         <br>
-                        <p>If users have several devices with Google Chrome installed as a browser, settings can be <span class="note">restored</span> via the aforementioned JSON file.</p>
-                    <section>
-                        <h2 id="github-repository">GitHub Repository:</h2>
+                        <p>If users have several devices with Google Chrome installed as a browser, along with the Optimus extension installed, settings can be <span class="note">restored</span> via an exported JSON file.</p>
+                    </section>
+                    <section id="manual-permissions">
+                        <h2>Extension Permissions:</h2>
+                        <p>With user data and privacy being a sensitive topic, this project is <span class="note">committed</span> to being <span class="note">transparent</span> in the types of user data that this Chrome extension can be accessed.</p>
+                        <br>
+                        <p>This Chrome extension requires the following <a href="https://developer.chrome.com/docs/extensions/reference/permissions-list">permissions</a> to function:</p>
+                        <ul>
+                            <li>Permission 1</li>
+                            <li>Permission 2</li>
+                        </ul>
+                    </section>
+                    <section id="manual-github">
+                        <h2>GitHub Repository:</h2>
                         <p>The codebase for this project can be found under the <a href="https://github.com/jtd-117/optimus">optimus</a> repository on GitHub.</p>
                         <br>
                         <p>All relevant files including code, documentation, issues, etc... can be found in the aforementioned repository.</p>
                     </section>
-                    </section>
-                    <section>
-                        <h2 id="donate">Donate:</h2>
+                    <section id="manual-donate">
+                        <h2>Donate:</h2>
                         <p>Users can support me through my <a href="">PayPal</a>.</p>
                         <br>
                         <p>It is <span class="note">you</span>, the user, that makes developing applications worthwhile and what ultimately allows me to make a living.</p>
@@ -87,18 +105,18 @@
                         <p>Thank you so much.</p>
                         <br>
                         <p>Jude Thaddeau Data</p>
-                        <p>GitHub: <a href="">jtd-117</a></p>
+                        <p>GitHub: <a href="https://github.com/jtd-117">jtd-117</a></p>
                     </section>
                 </article>
-                <article class="timer">
-                    <h1>Timer Settings</h1>
+                <article id="session-timer-settings">
+                    <h1>Session Timer Settings</h1>
                     <section>
                         <h2>Timer Preview:</h2>
                         <section>
                             <p>Below is a <span class="note">preview</span> of the popup timer using the <span class="note">current</span> settings formatted as <span class="note">hours:minutes:seconds</span>.</p>
                             <br>
                             <h3 id="timer-display" aria-label="timer display">00:00:00</h3>
-                            <p>Click the ‘Edit Timer’ button and complete the form to change timer settings.</p>
+                            <p>Click the <span class="example">‘Edit Timer’</span> button and complete the form to change timer settings.</p>
                             <br>
                             <button id="timer-edit" aria-label="edit timer settings">Edit Timer</button>
                             <dialog id="timer-form">
@@ -107,15 +125,15 @@
                                     <p>Click the `Submit` button to update timer settings.</p>
                                     <div class="form-container">
                                         <label for="timer-hours">HOURS:</label>
-                                        <input id="timer-hours" type="number" min="0" max="23" placeholder="h">
+                                        <input id="timer-hours" type="number" min="0" max="23" placeholder="hh">
                                     </div>
                                     <div class="form-container">
                                         <label for="timer-minutes">MINUTES:</label>
-                                        <input id="timer-minutes" type="number" min="0" max="59" placeholder="m">
+                                        <input id="timer-minutes" type="number" min="0" max="59" placeholder="mm">
                                     </div>
                                     <div class="form-container">
                                         <label for="timer-seconds">SECONDS:</label>
-                                        <input id="timer-seconds" type="number" min="0" max="59" placeholder="s">
+                                        <input id="timer-seconds" type="number" min="0" max="59" placeholder="ss">
                                     </div>
                                     <div class="form-finish">
                                         <button id="timer-cancel" formmethod="dialog">Cancel</button>
@@ -126,12 +144,12 @@
                         </section>
                     </section>        
                 </article>
-                <article class="block">
-                    <h1>Website Blocking</h1>
+                <article id="website-blocking-settings">
+                    <h1>Website Blocking Settings</h1>
                     <section>
                         <h2>Block List:</h2>
                         <section>
-                            <p>Click the ‘Edit Block List’ button and complete the form to change the list.</p>
+                            <p>Click the <span class="example">‘Edit Block List’</span> button and complete the form to change the list.</p>
                             <br>
                             <button id="block-edit" aria-label="edit blocked websites">Edit Block List</button>
                             <dialog id="block-form">
@@ -164,8 +182,8 @@
                         </section>
                     </section>
                 </article>
-                <article class="transfer">
-                    <h1>Settings Transfer</h1>
+                <article id="transfer-settings">
+                    <h1>Transfer Settings</h1>
                     <section>
                         <h2>Exports and Imports:</h2>
                             <section>
