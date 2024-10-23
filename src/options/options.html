@@ -39,74 +39,89 @@
                             <li><a href="#manual-donate">Donate</a></li>
                         </ol>
                     </section>
-                    <section id="manual-about">
-                        <h2>About:</h2>
-                        <p><a href="">Optimus</a> is a Chrome extension designed to maximise browser productivity by offering the following tools:</p>
-                        <ul>
-                            <li>Session Timer</li>
-                            <li>Website Blocking</li>
-                        </ul>
-                        <br>
-                        <p>When the timer is activated via the <span class="note">popup</span> play button︎︎, user-selected websites on the block list <span class="note">cannot</span> be accessed until the timer has <span class="note">elapsed</span>, or <span class="note">reset</span> via the reset button.</p>
-                    </section>
-                    <section id="manual-timer">
-                        <h2>Session Timer:</h2>
-                        <p>The session timer serves as a <span class="note">countdown</span> timer for how long websites on the <a href="#manual-blocking">block list</a> will be inaccessible for.</p>
-                        <br>
-                        <p>The session timer is accessed via the extension <span class="note">popup</span> and has the following buttons:</p>
-                        <ul>
-                            <li><span class="note">Play</span> - start the session countdown</li>
-                            <li><span class="note">Pause</span> - freeze the session but continue to keep the websites blocked</li>
-                            <li><span class="note">Reset</span> - to restart the session timer</li>
-                        </ul>
-                        <br>
-                        <p><a href="#session-timer-settings">Session Timer Settings</a> can be accessed via the <span class="example">`Timer`</span> button under the <span class="example">`Menu`</span> navigation section within the options page, or under the extension popup.</p>
-                        <br>
-                        <p>Here, users can adjust the number of <span class="note">hours</span>, <span class="note">minutes</span> and <span class="note">seconds</span> the timer will run for during a session.</p>
-                    </section>
-                    <section id="manual-blocking">
-                        <h2>Website Blocking:</h2>
-                        <p>Websites on the block list <span class="note">cannot</span> be <span class="note">accessed</span> via the Chrome broswer or <span class="note">edited</span> within <a href="#website-blocking-settings">website blocking settings</a> <span class="note">while</span> the <a href="#session-timer-settings">session timer</a> is <span class="note">active</span>.</p>
-                        <br>
-                        <p>The <a href="#website-blocking-settings">block list</a> can be found via the <span class="example">`Blocking`</span> button under the <span class="example">`Menu`</span> navigation section within the options page, or under the extension popup.</p>
-                        <br>
-                        <p>Here, users can <span class="note">add</span> or <span class="note">delete</span> websites from the block list. Also note that you can add blocked websites via the popup page.</p>
-                        <br>
-                        <p>When completing the website blocking <span class="note">form</span>, there is a dropdown that shows how to enter website URLs properly.</p>
-                    </section>
-                    <section id="manual-transfer">
-                        <h2>Settings Transfer:</h2>
-                        <p>The <a href="#transfer-settings">Transfer Settings</a> page allows users to <span class="note">import</span> or <span class="note">export</span> their configured settings via a single <span class="note">json</span> file.</p>
-                        <br>
-                        <p>If users have several devices with Google Chrome installed as a browser, along with the Optimus extension installed, settings can be <span class="note">restored</span> via an exported JSON file.</p>
-                    </section>
-                    <section id="manual-permissions">
-                        <h2>Extension Permissions:</h2>
-                        <p>With user data and privacy being a sensitive topic, this project is <span class="note">committed</span> to being <span class="note">transparent</span> in the types of user data that this Chrome extension can be accessed.</p>
-                        <br>
-                        <p>This Chrome extension requires the following <a href="https://developer.chrome.com/docs/extensions/reference/permissions-list">permissions</a> to function:</p>
-                        <ul>
-                            <li>Permission 1</li>
-                            <li>Permission 2</li>
-                        </ul>
-                    </section>
-                    <section id="manual-github">
-                        <h2>GitHub Repository:</h2>
-                        <p>The codebase for this project can be found under the <a href="https://github.com/jtd-117/optimus">optimus</a> repository on GitHub.</p>
-                        <br>
-                        <p>All relevant files including code, documentation, issues, etc... can be found in the aforementioned repository.</p>
-                    </section>
-                    <section id="manual-donate">
-                        <h2>Donate:</h2>
-                        <p>Users can support me through my <a href="">PayPal</a>.</p>
-                        <br>
-                        <p>It is <span class="note">you</span>, the user, that makes developing applications worthwhile and what ultimately allows me to make a living.</p>
-                        <br>
-                        <p>Thank you so much.</p>
-                        <br>
-                        <p>Jude Thaddeau Data</p>
-                        <p>GitHub: <a href="https://github.com/jtd-117">jtd-117</a></p>
-                    </section>
+                    <details id="manual-about" open>
+                        <summary>About</summary>
+                        <section>
+                            <p><a href="">Optimus</a> is a Chrome extension designed to maximise browser productivity by offering the following tools:</p>
+                            <ul>
+                                <li>Session Timer</li>
+                                <li>Website Blocking</li>
+                            </ul>
+                            <br>
+                            <p>When the timer is activated via the <span class="note">popup</span> play button︎︎, user-selected websites on the block list <span class="note">cannot</span> be accessed until the timer has <span class="note">elapsed</span>, or <span class="note">reset</span> via the reset button.</p>
+                        </section>
+                    </details>
+                    <details id="manual-timer">
+                        <summary>Session Timer</summary>
+                        <section>
+                            <p>The session timer serves as a <span class="note">countdown</span> timer for how long websites on the <a href="#manual-blocking">block list</a> will be inaccessible for.</p>
+                            <br>
+                            <p>The session timer is accessed via the extension <span class="note">popup</span> and has the following buttons:</p>
+                            <ul>
+                                <li><span class="note">Play</span> - start the session countdown</li>
+                                <li><span class="note">Pause</span> - freeze the session but continue to keep the websites blocked</li>
+                                <li><span class="note">Reset</span> - to restart the session timer</li>
+                            </ul>
+                            <br>
+                            <p><a href="#session-timer-settings">Session Timer Settings</a> can be accessed via the <span class="example">`Timer`</span> button under the <span class="example">`Menu`</span> navigation section within the options page, or under the extension popup.</p>
+                            <br>
+                            <p>Here, users can adjust the number of <span class="note">hours</span>, <span class="note">minutes</span> and <span class="note">seconds</span> the timer will run for during a session.</p>
+                        </section>
+                    </details>
+                    <details id="manual-blocking">
+                        <summary>Website Blocking</summary>
+                        <section>
+                            <p>Websites on the block list <span class="note">cannot</span> be <span class="note">accessed</span> via the Chrome broswer or <span class="note">edited</span> within <a href="#website-blocking-settings">website blocking settings</a> <span class="note">while</span> the <a href="#session-timer-settings">session timer</a> is <span class="note">active</span>.</p>
+                            <br>
+                            <p>The <a href="#website-blocking-settings">block list</a> can be found via the <span class="example">`Blocking`</span> button under the <span class="example">`Menu`</span> navigation section within the options page, or under the extension popup.</p>
+                            <br>
+                            <p>Here, users can <span class="note">add</span> or <span class="note">delete</span> websites from the block list. Also note that you can add blocked websites via the popup page.</p>
+                            <br>
+                            <p>When completing the website blocking <span class="note">form</span>, there is a dropdown that shows how to enter website URLs properly.</p>
+                        </section>
+                    </details>
+                    <details id="manual-transfer">
+                        <summary>Settings Transfer</summary>
+                        <section>
+                            <h2>Settings Transfer:</h2>
+                            <p>The <a href="#transfer-settings">Transfer Settings</a> page allows users to <span class="note">import</span> or <span class="note">export</span> their configured settings via a single <span class="note">json</span> file.</p>
+                            <br>
+                            <p>If users have several devices with Google Chrome installed as a browser, along with the Optimus extension installed, settings can be <span class="note">restored</span> via an exported JSON file.</p>
+                        </section>
+                    </details>
+                    <details id="manual-permissions">
+                        <summary>Extension Permissions</summary>
+                        <section>
+                            <p>With user data and privacy being a sensitive topic, this project is <span class="note">committed</span> to being <span class="note">transparent</span> in the types of user data that this Chrome extension can be accessed.</p>
+                            <br>
+                            <p>This Chrome extension requires the following <a href="https://developer.chrome.com/docs/extensions/reference/permissions-list">permissions</a> to function:</p>
+                            <ul>
+                                <li>Permission 1</li>
+                                <li>Permission 2</li>
+                            </ul>
+                        </section>
+                    </details>
+                    <details id="manual-github">
+                        <summary>GitHub Repository</summary>
+                        <section>
+                            <p>The codebase for this project can be found under the <a href="https://github.com/jtd-117/optimus">optimus</a> repository on GitHub.</p>
+                            <br>
+                            <p>All relevant files including code, documentation, issues, etc... can be found in the aforementioned repository.</p>
+                        </section>
+                    </details>
+                    <details id="manual-donate">
+                        <summary>Donate</summary>
+                        <section>
+                            <p>Users can support me through my <a href="">PayPal</a>.</p>
+                            <br>
+                            <p>It is <span class="note">you</span>, the user, that makes developing applications worthwhile and what ultimately allows me to make a living.</p>
+                            <br>
+                            <p>Thank you so much.</p>
+                            <br>
+                            <p>Jude Thaddeau Data</p>
+                            <p>GitHub: <a href="https://github.com/jtd-117">jtd-117</a></p>
+                        </section>
+                    </details>
                 </article>
                 <article id="session-timer-settings">
                     <h1>Session Timer Settings</h1>
@@ -122,7 +137,7 @@
                             <dialog id="timer-form">
                                 <form method="dialog">
                                     <h3>Edit Timer Settings:</h3>
-                                    <p>Click the `Submit` button to update timer settings.</p>
+                                    <p>Click the <span class="example">`Submit`</span> button to update timer settings.</p>
                                     <div class="form-container">
                                         <label for="timer-hours">HOURS:</label>
                                         <input id="timer-hours" type="number" min="0" max="23" placeholder="hh">
@@ -155,8 +170,7 @@
                             <dialog id="block-form">
                                 <form method="dialog">
                                     <h3>Edit Blocked Website(s):</h3>
-                                    <p>Click the `Submit` button to update the block list.</p>
-                                    <br>
+                                    <p>Click the <span class="example">`Submit`</span> button to update the block list.</p>
                                     <details>
                                         <summary>Rules For Entering URLs</summary>
                                         <ul>
@@ -166,8 +180,7 @@
                                             <li>Blocking <span class="note">all</span> subpages: <span class="example">website/*</span></li>
                                         </ul>
                                     </details>
-                                    <br>
-                                    <p>Drag the bottom right corner of the container below to <span class="note">increase</span> or <span class="note">decrease</span> your view.</p>
+                                    <p>Below is an <span class="note">editable</span> form of the <span class="note">current</span> block list:</p>    
                                     <textarea id="block-list" rows="4" cols="60"></textarea>
                                     <div class="form-finish">
                                         <button id="block-cancel" formmethod="dialog">Cancel</button>

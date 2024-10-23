@@ -35,13 +35,20 @@
     dialog#timer-form {
         form {
             div.form-container {
-                margin: 5px;
+                margin-inline: 5px;
+                margin-block: 15px;
 
                 label {
                     display: inline-block;
                     inline-size: 80px;
 
                     color: general.$fluro-purple;
+                }
+
+                input[type="number"] {
+                    padding-inline: 10px;
+                    padding-block: 5px;
+                    font-family: sans-serif;
                 }
             }
         }
@@ -52,9 +59,15 @@
             details {
                 padding-inline: 10px;
                 padding-block: 5px;
+                margin-block: 10px;
                 background-color: general.$light-gray;
                 border-right: 1px solid general.$white;
                 border-bottom: 1px solid general.$white;
+
+                summary {
+                    color: general.$white;
+                    font-size: general.$text-size;
+                }
 
                 ul {
                     li {
@@ -65,15 +78,19 @@
 
             textarea {
                 inline-size: 100%;
-                block-size: calc(2 * general.$sub-header-size);
-                min-height: calc(2 * general.$sub-header-size);
-                max-height: calc(4 * general.$sub-header-size);
+                min-height: calc(4 * general.$sub-header-size);
+                max-height: calc(6 * general.$sub-header-size);
+                padding: 10px;
                 margin-block: 10px;
 
                 display: inline-block;
-                overflow-y: auto;
+                overflow:auto;
+                white-space: nowrap;
 
                 border-bottom: 4px solid general.$fluro-red;
+
+                font-family: sans-serif;
+                line-height: calc(1.05 * general.$sub-header-size);
             }
         }
     }    
