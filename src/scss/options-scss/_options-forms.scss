@@ -1,18 +1,6 @@
 @use "../general";
 @use "../flexbox";
 
-@mixin finish {
-    div.form-finish {
-        @include flexbox.center($wrap: wrap);
-        justify-content: flex-start;
-
-        button {
-            margin-inline-end: 10px;
-            margin-block-end: 10px;
-        }
-    }
-}
-
 @mixin all {
     dialog {
         @include general.section-items();

@@ -58,7 +58,9 @@
                 @include options-forms.all();
 
                 @include general.btn($inline: 140px);
-                @include options-forms.finish();
+                button {
+                    margin-block-start: 10px;
+                }
             }
         }
     }
