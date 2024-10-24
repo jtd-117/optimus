@@ -4,31 +4,32 @@
  */
 
 import "../scss/options-scss/options.scss";
+import * as slr from "./options-selectors";
 import * as ctr from "./options-controller";
 
 const initEventListeners = () => {
-    const timerEdit = document.getElementById("timer-edit");
-    const timerCancel = document.getElementById("timer-cancel");
+    const timerEdit = document.getElementById(slr.ids.TIMER_E);
+    const timerCancel = document.getElementById(slr.ids.TIMER_C);
 
-    const blockEdit = document.getElementById("block-edit");
-    const blockCancel = document.getElementById("block-cancel");
+    const blockEdit = document.getElementById(slr.ids.BLOCK_E);
+    const blockCancel = document.getElementById(slr.ids.BLOCK_C);
 
     timerEdit.addEventListener("click", (e) => {
         e.preventDefault();
-        ctr.openForm("timer-form");
+        ctr.openForm(slr.ids.TIMER_F);
     });
     timerCancel.addEventListener("click", (e) => {
         e.preventDefault();
-        ctr.closeForm("timer-form");
+        ctr.closeForm(slr.ids.TIMER_F);
     });
 
     blockEdit.addEventListener("click", (e) => {
         e.preventDefault();
-        ctr.openForm("block-form");
+        ctr.openForm(slr.ids.BLOCK_F);
     });
     blockCancel.addEventListener("click", (e) => {
         e.preventDefault();
-        ctr.closeForm("block-form");
+        ctr.closeForm(slr.ids.BLOCK_F);
     });
 };
 
