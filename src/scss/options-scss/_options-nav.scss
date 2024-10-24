@@ -24,10 +24,39 @@ $nav-font-size: 24px;
                 border-bottom: 2px solid general.$fluro-yellow;
             }
 
-            @include general.btn($size: 24px, $inline: 140px, $block: 48px);
-            button {
-                margin: 20px;
+            div {
+                @include flexbox.center($direction: column);
+                @include general.btn($size: general.$sub-header-size, $inline: 140px, $block: 48px);
+                button {
+                    margin: 15px;
+                }
             }
+        }
+
+        @media (max-width: 650px) {
+            position: sticky;
+            top: 0;
+
+            border-right: none;
+            border-bottom: general.$section-border;
+
+            div#sticky-nav {
+
+                h1 {
+                    display: none;
+                }
+
+                div {
+                    display: flex;
+                    flex-flow: row wrap;
+                    @include general.btn($size: general.$text-size, $inline: 96px, $block: 32px);
+                    
+                    button {
+                        margin: 10px;
+                    }
+                }
+            }
+            
         }
     }
 }

@@ -9,5 +9,9 @@
 
         @include options-nav.nav();
         @include options-content.content();
+
+        @media (max-width: 650px) {
+            flex-flow: column wrap;
+        }
     }
 }
