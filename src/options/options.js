@@ -14,23 +14,11 @@ const initEventListeners = () => {
     const blockEdit = document.getElementById(slr.ids.BLOCK_E);
     const blockCancel = document.getElementById(slr.ids.BLOCK_C);
 
-    timerEdit.addEventListener("click", (e) => {
-        e.preventDefault();
-        ctr.openForm(slr.ids.TIMER_F);
-    });
-    timerCancel.addEventListener("click", (e) => {
-        e.preventDefault();
-        ctr.closeForm(slr.ids.TIMER_F);
-    });
+    timerEdit.addEventListener("click", (event) => ctr.openForm(slr.ids.TIMER_F, event));
+    timerCancel.addEventListener("click", (event) => ctr.closeForm(slr.ids.TIMER_F, event));
 
-    blockEdit.addEventListener("click", (e) => {
-        e.preventDefault();
-        ctr.openForm(slr.ids.BLOCK_F);
-    });
-    blockCancel.addEventListener("click", (e) => {
-        e.preventDefault();
-        ctr.closeForm(slr.ids.BLOCK_F);
-    });
+    blockEdit.addEventListener("click", (event) => ctr.openForm(slr.ids.BLOCK_F, event));
+    blockCancel.addEventListener("click", (event) => ctr.closeForm(slr.ids.BLOCK_F, event));
 };
 
 document.addEventListener("DOMContentLoaded", initEventListeners);

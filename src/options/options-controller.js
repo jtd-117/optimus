@@ -12,8 +12,9 @@ export {
  * @description Opens the modal of a dialog tag
  * @param {String} dialogId The ID of the dialog tag
  */
-const openForm = (dialogId) => {
+const openForm = (dialogId, event) => {
     const dialog = document.getElementById(dialogId);
+    event.preventDefault();
     if (dialog) {
         dialog.showModal();
     }
@@ -23,8 +24,9 @@ const openForm = (dialogId) => {
  * @description Closes the modal of a dialog tag
  * @param {String} dialogId The ID of the dialog tag
  */
-const closeForm = (dialogId) => {
+const closeForm = (dialogId, event) => {
     const dialog = document.getElementById(dialogId);
+    event.preventDefault();
     if (dialog) {
         dialog.close();
     }
