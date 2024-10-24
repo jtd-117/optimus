@@ -11,7 +11,7 @@
         border-bottom: general.$section-border;
 
         section {
-            margin-inline-start: 10%;
+            margin-inline-start: 5%;
             @include flexbox.center();
 
             img {
@@ -23,7 +23,9 @@
                 padding-block-end: 5px;
                 margin-inline-start: 10px;
                 color: general.$fluro-blue;
-                font-size: 48px;
+                font-size: calc(general.$main-header-size + 8px);
+
+
             }
         }
     }
