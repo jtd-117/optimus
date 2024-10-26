@@ -11,5 +11,5 @@ module.exports = {
     verbose: true,
 
     // Tell Jest where to look for tests
-    roots: ["<rootDir>/tests"],
+    roots: ["<rootDir>/src/tests"],
 };
