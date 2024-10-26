@@ -26,7 +26,11 @@ $nav-font-size: 24px;
 
             div {
                 @include flexbox.center($direction: column);
-                @include general.btn($size: general.$sub-header-size, $inline: 140px, $block: 48px);
+                @include general.btn(
+                    $size: general.$sub-header-size,
+                    $inline: 140px,
+                    $block: 48px
+                );
                 button {
                     margin: 15px;
                 }
@@ -41,7 +45,6 @@ $nav-font-size: 24px;
             border-bottom: general.$section-border;
 
             div#sticky-nav {
-
                 h1 {
                     display: none;
                 }
@@ -49,14 +52,17 @@ $nav-font-size: 24px;
                 div {
                     display: flex;
                     flex-flow: row wrap;
-                    @include general.btn($size: general.$text-size, $inline: 96px, $block: 32px);
-                    
+                    @include general.btn(
+                        $size: general.$text-size,
+                        $inline: 96px,
+                        $block: 32px
+                    );
+
                     button {
                         margin: 10px;
                     }
                 }
             }
-            
         }
     }
 }

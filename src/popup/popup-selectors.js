@@ -3,10 +3,7 @@
  * @description Stores the string enums for HTML classes and IDs in popup.html
  */
 
-export {
-    ids,
-    classes,
-}
+export { ids, classes };
 
 /**
  * @description An enum of IDs used in the popup.html

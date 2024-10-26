@@ -3,9 +3,7 @@
  * @description Stores the string enums for HTML classes and IDs in options.html
  */
 
-export {
-    ids
-}
+export { ids };
 
 /**
  * @description An enum of IDs used in the options.html

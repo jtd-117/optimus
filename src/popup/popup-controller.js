@@ -3,9 +3,7 @@
  * @description Handles the frontend for popup.html
  */
 
-export {
-    closePopup,
-}
+export { closePopup };
 
 /**
  * @description Closes the Chrome extension popup from the menu

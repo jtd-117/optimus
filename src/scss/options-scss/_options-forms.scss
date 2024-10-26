@@ -8,7 +8,7 @@
 
         form {
             padding: 10px;
-            
+
             h3 {
                 color: general.$fluro-yellow;
                 font-size: general.$sub-header-size;
@@ -71,7 +71,7 @@
                 margin-block: 10px;
 
                 display: inline-block;
-                overflow:auto;
+                overflow: auto;
                 white-space: nowrap;
 
                 border-bottom: 4px solid general.$fluro-red;
@@ -79,7 +79,7 @@
                 line-height: calc(1.05 * general.$sub-header-size);
             }
         }
-    }    
+    }
 }
 
 @mixin finish {

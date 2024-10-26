@@ -3,10 +3,7 @@
  * @description Handles the frontend for options.html
  */
 
-export {
-    openForm,
-    closeForm,
-};
+export { openForm, closeForm };
 
 /**
  * @description Opens the modal of a dialog tag
@@ -18,7 +15,7 @@ const openForm = (dialogId, event) => {
     if (dialog) {
         dialog.showModal();
     }
-}
+};
 
 /**
  * @description Closes the modal of a dialog tag
@@ -30,4 +27,4 @@ const closeForm = (dialogId, event) => {
     if (dialog) {
         dialog.close();
     }
-}
+};
