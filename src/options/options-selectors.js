@@ -1,6 +1,6 @@
 /**
  * @file options-selectors.js
- * @description Stores the string enums for HTML classes and IDs
+ * @description Stores the string enums for HTML classes and IDs in options.html
  */
 
 export {
@@ -8,7 +8,7 @@ export {
 }
 
 /**
- * @description An enum of IDs used in the option's page
+ * @description An enum of IDs used in the options.html
  */
 const ids = Object.freeze({
     TIMER_E: "timer-edit",
