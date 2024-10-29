@@ -33,6 +33,10 @@ const closeForm = (dialogId, event) => {
     }
 };
 
+/**
+ * @description Limits user input to 2 numbers to the input tag of type number
+ * @param {String} timerValueId The ID of the input tag for the timer value
+ */
 const sliceTimerFormValues = (timerValueId) => {
     const timerValue = document.getElementById(timerValueId);
     timerValue.value = timerValue.value.slice(0, 2);
