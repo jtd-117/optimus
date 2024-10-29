@@ -34,8 +34,21 @@
                 }
 
                 input[type="number"] {
-                    inline-size: 70px;
-                    padding: 5px;
+
+                    &:valid,
+                    &:invalid {
+                        border-top: none;
+                        border-left: none;
+                        border-right: none;
+                    }
+
+                    &:valid {
+                        border-bottom: 2px solid general.$light-gray;
+                    }
+                
+                    &:invalid {
+                        border-bottom: 2px solid general.$fluro-red;
+                    }
                 }
             }
         }
@@ -74,7 +87,10 @@
                 overflow: auto;
                 white-space: nowrap;
 
-                border-bottom: 4px solid general.$fluro-red;
+                border-top: none;
+                border-left: none;
+                border-right: none;
+                border-bottom: 2px solid general.$light-gray;
 
                 line-height: calc(1.05 * general.$sub-header-size);
             }

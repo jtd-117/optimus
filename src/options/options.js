@@ -10,23 +10,37 @@ import * as ctr from "./options-controller";
 const initEventListeners = () => {
     const timerEdit = document.getElementById(slr.ids.TIMER_E);
     const timerCancel = document.getElementById(slr.ids.TIMER_C);
+    const timerHours = document.getElementById(slr.ids.TIMER_HH);
+    const timerMinutes = document.getElementById(slr.ids.TIMER_MM);
+    const timerSeconds = document.getElementById(slr.ids.TIMER_SS);
 
     const blockEdit = document.getElementById(slr.ids.BLOCK_E);
     const blockCancel = document.getElementById(slr.ids.BLOCK_C);
 
-    timerEdit.addEventListener("click", (event) =>
-        ctr.openForm(slr.ids.TIMER_F, event),
-    );
-    timerCancel.addEventListener("click", (event) =>
-        ctr.closeForm(slr.ids.TIMER_F, event),
-    );
+    // STEP 1: Timer Buttons
+    timerEdit.addEventListener("click", (event) =>{
+        ctr.openForm(slr.ids.TIMER_F, event);
+    });
+    timerCancel.addEventListener("click", (event) => {
+        ctr.closeForm(slr.ids.TIMER_F, event);
+    });
+    timerHours.addEventListener("input", () => {
+        ctr.sliceTimerFormValues(slr.ids.TIMER_HH);
+    });
+    timerMinutes.addEventListener("input", () => {
+        ctr.sliceTimerFormValues(slr.ids.TIMER_MM);
+    });
+    timerSeconds.addEventListener("input", () => {
+        ctr.sliceTimerFormValues(slr.ids.TIMER_SS);
+    });
 
-    blockEdit.addEventListener("click", (event) =>
-        ctr.openForm(slr.ids.BLOCK_F, event),
-    );
-    blockCancel.addEventListener("click", (event) =>
-        ctr.closeForm(slr.ids.BLOCK_F, event),
-    );
+    // STEP 2: Block Buttons
+    blockEdit.addEventListener("click", (event) => {
+        ctr.openForm(slr.ids.BLOCK_F, event);
+    });
+    blockCancel.addEventListener("click", (event) => {
+        ctr.closeForm(slr.ids.BLOCK_F, event);
+    });
 };
 
 document.addEventListener("DOMContentLoaded", initEventListeners);

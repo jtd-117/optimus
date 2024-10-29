@@ -3,7 +3,11 @@
  * @description Handles the frontend for options.html
  */
 
-export { openForm, closeForm };
+export { 
+    openForm, 
+    closeForm, 
+    sliceTimerFormValues
+};
 
 /**
  * @description Opens the modal of a dialog tag
@@ -27,4 +31,9 @@ const closeForm = (dialogId, event) => {
     if (dialog) {
         dialog.close();
     }
+};
+
+const sliceTimerFormValues = (timerValueId) => {
+    const timerValue = document.getElementById(timerValueId);
+    timerValue.value = timerValue.value.slice(0, 2);
 };
