@@ -1,7 +1,7 @@
 @use "../general";
 @use "../flexbox";
 
-$close-btn-size: 24px;
+$nav-btn-size: 24px;
 
 @mixin header {
     header.popup {
@@ -10,9 +10,12 @@ $close-btn-size: 24px;
         @include flexbox.center();
         justify-content: space-between;
 
-        section {
+        section,
+        nav {
             @include flexbox.center();
+        }
 
+        section {
             img {
                 inline-size: 48px;
                 block-size: auto;
@@ -24,6 +27,17 @@ $close-btn-size: 24px;
                 font-size: 24px;
             }
         }
-        @include general.btn($inline: $close-btn-size, $block: $close-btn-size);
+
+        nav.popup {
+            @include general.btn($inline: $nav-btn-size, $block: $nav-btn-size);
+            button {
+                margin-inline: 5px;
+            }
+
+            button#settings {
+                font-size: $nav-btn-size;
+                padding-block-end: 5px;
+            }
+        }
     }
 }
