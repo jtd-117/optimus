@@ -7,12 +7,4 @@ module.exports = merge(common, {
 
     // Helps Debugging
     devtool: "inline-source-map",
-
-    // Enables Live Reloading Web Server
-    devServer: {
-        static: "./dist",
-    },
-    optimization: {
-        runtimeChunk: "single",
-    },
 });
