@@ -9,6 +9,7 @@ import * as ctr from "./options-controller";
 
 const initEventListeners = () => {
     const timerEdit = document.getElementById(slr.ids.TIMER_E);
+    const timerSubmit = document.getElementById(slr.ids.TIMER_S);
     const timerCancel = document.getElementById(slr.ids.TIMER_C);
     const timerHours = document.getElementById(slr.ids.TIMER_HH);
     const timerMinutes = document.getElementById(slr.ids.TIMER_MM);
@@ -24,6 +25,9 @@ const initEventListeners = () => {
     timerCancel.addEventListener("click", (event) => {
         ctr.closeForm(slr.ids.TIMER_F, event);
     });
+    timerSubmit.addEventListener("click", (event) => {
+        ctr.validateTimerValues(event);
+    });
     timerHours.addEventListener("input", () => {
         ctr.sliceTimerFormValues(slr.ids.TIMER_HH);
     });
@@ -33,6 +37,8 @@ const initEventListeners = () => {
     timerSeconds.addEventListener("input", () => {
         ctr.sliceTimerFormValues(slr.ids.TIMER_SS);
     });
+
+
 
     // STEP 2: Block Buttons
     blockEdit.addEventListener("click", (event) => {

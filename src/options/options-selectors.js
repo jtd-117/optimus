@@ -13,6 +13,7 @@ const ids = Object.freeze({
     TIMER_S: "timer-submit",
     TIMER_C: "timer-cancel",
     TIMER_F: "timer-form",
+    TIMER_FW: "timer-form-warning",
 
     TIMER_HH: "timer-hours",
     TIMER_MM: "timer-minutes",

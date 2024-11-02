@@ -324,7 +324,7 @@
                                     to update timer settings.
                                 </p>
                                 <div class="form-container">
-                                    <label for="timer-hours">HOURS:</label>
+                                    <label for="timer-hours">HOURS:<span class="note">*</span></label>
                                     <input
                                         id="timer-hours"
                                         type="number"
@@ -335,7 +335,7 @@
                                     />
                                 </div>
                                 <div class="form-container">
-                                    <label for="timer-minutes">MINUTES:</label>
+                                    <label for="timer-minutes">MINUTES:<span class="note">*</span></label>
                                     <input
                                         id="timer-minutes"
                                         type="number"
@@ -346,7 +346,7 @@
                                     />
                                 </div>
                                 <div class="form-container">
-                                    <label for="timer-seconds">SECONDS:</label>
+                                    <label for="timer-seconds">SECONDS:<span class="note">*</span></label>
                                     <input
                                         id="timer-seconds"
                                         type="number"
@@ -356,6 +356,7 @@
                                         required
                                     />
                                 </div>
+                                <p id="timer-form-warning" hidden><span class="note">warning:</span> all timer values cannot be 0 or empty</p>
                                 <div class="form-finish">
                                     <button id="timer-submit">Submit</button>
                                     <button
