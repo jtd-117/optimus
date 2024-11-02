@@ -8,9 +8,11 @@ import * as slr from "./popup-selectors";
 import * as ctr from "./popup-controller";
 
 const initEventListener = () => {
+    const settingsBtn = document.getElementById(slr.ids.SETTINGS);
     const closeBtn = document.getElementById(slr.ids.CLOSE);
 
     closeBtn.addEventListener("click", (event) => ctr.closePopup(event));
+    settingsBtn.addEventListener("click", (event) => ctr.openOptions(event));
 };
 
-document.addEventListener("DOMContentLoaded", initEventListener);
+document.addEventListener("DOMContentLoaded", initEventListener());

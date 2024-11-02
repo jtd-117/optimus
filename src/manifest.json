@@ -10,7 +10,10 @@
         }
     ],
 
-    "permissions": [],
+    "permissions": [
+        "storage",
+        "nativeMessaging"
+    ],
 
     "icons": {
         "16": "./assets/logos/optimus-logo-16.png",

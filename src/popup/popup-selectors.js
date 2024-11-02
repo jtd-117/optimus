@@ -9,6 +9,7 @@ export { ids, classes };
  * @description An enum of IDs used in the popup.html
  */
 const ids = Object.freeze({
+    SETTINGS: "settings",
     CLOSE: "close",
     REPLAY: "replay",
     PLAY: "play",
