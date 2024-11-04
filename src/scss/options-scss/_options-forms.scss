@@ -34,6 +34,7 @@
                 }
 
                 input[type="number"] {
+                    text-align: center;
 
                     &:valid,
                     &:invalid {
@@ -48,6 +49,10 @@
                 
                     &:invalid {
                         border-bottom: 2px solid general.$fluro-red;
+                    }
+
+                    &::placeholder {
+                        text-align: center;
                     }
                 }
             }

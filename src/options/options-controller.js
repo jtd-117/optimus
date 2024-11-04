@@ -86,6 +86,9 @@ const checkNonZeroTimer = (timerSubmitId) => {
 
     if (Number(hours.value) === 0 && Number(minutes.value) === 0 && Number(seconds.value) === 0) {
         warningMessage.style.display = "inline";
+        [hours, minutes, seconds].forEach((unit) => {
+            unit.style.borderColor = "#ff0000";
+        });
         return false;
     }
     warningMessage.style.display = "none";
