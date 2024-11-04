@@ -3,13 +3,29 @@
  * @description Handles the frontend for options.html
  */
 
-import * as slr from "./options-selectors";
+import ids from "./options-selectors";
 
-export { 
+export {
+    handleNavDisplay,
     openForm, 
     closeForm, 
     sliceTimerFormValues,
     validateTimerValues,
+};
+
+/**
+ * @description Displays the selected section from options page's menu
+ * @param {string} navBtn The navBtn that has been clicked on to hide other articles
+ */
+const handleNavDisplay = (navBtn) => {
+    const articles = document.querySelectorAll("main section.options#content article");
+    articles.forEach((article) => {        
+        if (article.className === navBtn.className) {
+            article.style.display = "block";
+        } else {
+            article.style.display = "none";
+        }
+    });
 };
 
 /**
@@ -29,9 +45,9 @@ const openForm = (dialogId, event) => {
  * @description Resets the timer form values after submission
  */
 const resetTimerValues = () => {
-    const hours = document.getElementById(slr.ids.TIMER_HH);
-    const minutes = document.getElementById(slr.ids.TIMER_MM);
-    const seconds = document.getElementById(slr.ids.TIMER_SS);
+    const hours = document.getElementById(ids.TIMER_HH);
+    const minutes = document.getElementById(ids.TIMER_MM);
+    const seconds = document.getElementById(ids.TIMER_SS);
     hours.value = '';
     minutes.value = '';
     seconds.value = '';
@@ -63,10 +79,10 @@ const sliceTimerFormValues = (timerValueId) => {
  * @returns {Boolean} `true` if the timer valid, `false` otherwise
  */
 const checkNonZeroTimer = (timerSubmitId) => {
-    const hours = document.getElementById(slr.ids.TIMER_HH);
-    const minutes = document.getElementById(slr.ids.TIMER_MM);
-    const seconds = document.getElementById(slr.ids.TIMER_SS);
-    const warningMessage = document.getElementById(slr.ids.TIMER_FW);
+    const hours = document.getElementById(ids.TIMER_HH);
+    const minutes = document.getElementById(ids.TIMER_MM);
+    const seconds = document.getElementById(ids.TIMER_SS);
+    const warningMessage = document.getElementById(ids.TIMER_FW);
 
     if (Number(hours.value) === 0 && Number(minutes.value) === 0 && Number(seconds.value) === 0) {
         warningMessage.style.display = "inline";

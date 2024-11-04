@@ -25,30 +25,30 @@
             <nav class="options">
                 <div id="sticky-nav">
                     <h1>Menu</h1>
-                    <div>
+                    <div id="nav-btns">
                         <button
-                            class="manual"
+                            class="user-manual"
                             title="user manual"
                             aria-label="user manual"
                         >
                             Manual
                         </button>
                         <button
-                            class="timer"
+                            class="session-timer-settings"
                             title="session timer settings"
                             aria-label="session timer settings"
                         >
                             Timer
                         </button>
                         <button
-                            class="blocking"
+                            class="website-blocking-settings"
                             title="website blocking settings"
                             aria-label="website blocking settings"
                         >
                             Blocking
                         </button>
                         <button
-                            class="transfer"
+                            class="transfer-settings"
                             title="transfer settings"
                             aria-label="transfer settings"
                         >
@@ -58,7 +58,7 @@
                 </div>
             </nav>
             <section class="options" id="content">
-                <article id="user-manual">
+                <article class="user-manual">
                     <h1>User Manual</h1>
                     <section id="manual-contents">
                         <h2>Contents:</h2>
@@ -300,10 +300,10 @@
                         </section>
                     </details>
                 </article>
-                <article id="session-timer-settings">
+                <article class="session-timer-settings" hidden>
                     <h1>Session Timer Settings</h1>
                     <section>
-                        <h2>Editing The Session Timer</h2>
+                        <h2>Editing The Session Timer:</h2>
                         <p>
                             Click the
                             <span class="example">‘Edit Timer’</span> button and
@@ -370,7 +370,7 @@
                         </dialog>
                     </section>
                     <section>
-                        <h2>Timer Preview</h2>
+                        <h2>Timer Preview:</h2>
                         <p>
                             Below is a <span class="note">preview</span> of the
                             popup timer using the
@@ -383,7 +383,7 @@
                         </h3>
                     </section>
                 </article>
-                <article id="website-blocking-settings">
+                <article class="website-blocking-settings" hidden>
                     <h1>Website Blocking Settings</h1>
                     <section>
                         <h2>Editing The Block List:</h2>
@@ -473,7 +473,7 @@
                         <ul id="block-list"></ul>
                     </section>
                 </article>
-                <article id="transfer-settings">
+                <article class="transfer-settings" hidden>
                     <h1>Transfer Settings</h1>
                     <section>
                         <h2>Export:</h2>

@@ -4,48 +4,55 @@
  */
 
 import "../scss/options-scss/options.scss";
-import * as slr from "./options-selectors";
+import ids from "./options-selectors";
 import * as ctr from "./options-controller";
 
 const initEventListeners = () => {
-    const timerEdit = document.getElementById(slr.ids.TIMER_E);
-    const timerSubmit = document.getElementById(slr.ids.TIMER_S);
-    const timerCancel = document.getElementById(slr.ids.TIMER_C);
-    const timerHours = document.getElementById(slr.ids.TIMER_HH);
-    const timerMinutes = document.getElementById(slr.ids.TIMER_MM);
-    const timerSeconds = document.getElementById(slr.ids.TIMER_SS);
 
-    const blockEdit = document.getElementById(slr.ids.BLOCK_E);
-    const blockCancel = document.getElementById(slr.ids.BLOCK_C);
+    // STEP 1: Navigation Buttons
+    const navBtns = document.getElementById(ids.NAV_BTNS).querySelectorAll("button");
+    navBtns.forEach((navBtn) => {
+        navBtn.addEventListener("click", () => {
+            ctr.handleNavDisplay(navBtn)
+        });
+    });
 
-    // STEP 1: Timer Buttons
+    // STEP 2: Timer Settings Buttons
+    const timerEdit = document.getElementById(ids.TIMER_E);
+    const timerSubmit = document.getElementById(ids.TIMER_S);
+    const timerCancel = document.getElementById(ids.TIMER_C);
+    const timerHours = document.getElementById(ids.TIMER_HH);
+    const timerMinutes = document.getElementById(ids.TIMER_MM);
+    const timerSeconds = document.getElementById(ids.TIMER_SS);
+
     timerEdit.addEventListener("click", (event) =>{
-        ctr.openForm(slr.ids.TIMER_F, event);
+        ctr.openForm(ids.TIMER_F, event);
     });
     timerCancel.addEventListener("click", (event) => {
-        ctr.closeForm(slr.ids.TIMER_F, event);
+        ctr.closeForm(ids.TIMER_F, event);
     });
     timerSubmit.addEventListener("click", (event) => {
         ctr.validateTimerValues(event);
     });
     timerHours.addEventListener("input", () => {
-        ctr.sliceTimerFormValues(slr.ids.TIMER_HH);
+        ctr.sliceTimerFormValues(ids.TIMER_HH);
     });
     timerMinutes.addEventListener("input", () => {
-        ctr.sliceTimerFormValues(slr.ids.TIMER_MM);
+        ctr.sliceTimerFormValues(ids.TIMER_MM);
     });
     timerSeconds.addEventListener("input", () => {
-        ctr.sliceTimerFormValues(slr.ids.TIMER_SS);
+        ctr.sliceTimerFormValues(ids.TIMER_SS);
     });
 
+    // STEP 3: Block Settings Buttons
+    const blockEdit = document.getElementById(ids.BLOCK_E);
+    const blockCancel = document.getElementById(ids.BLOCK_C)
 
-
-    // STEP 2: Block Buttons
     blockEdit.addEventListener("click", (event) => {
-        ctr.openForm(slr.ids.BLOCK_F, event);
+        ctr.openForm(ids.BLOCK_F, event);
     });
     blockCancel.addEventListener("click", (event) => {
-        ctr.closeForm(slr.ids.BLOCK_F, event);
+        ctr.closeForm(ids.BLOCK_F, event);
     });
 };
 

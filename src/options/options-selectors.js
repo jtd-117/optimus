@@ -3,8 +3,6 @@
  * @description Stores the string enums for HTML classes and IDs in options.html
  */
 
-export { ids };
-
 /**
  * @description An enum of IDs used in the options.html
  */
@@ -26,4 +24,8 @@ const ids = Object.freeze({
 
     EXPORT_S: "export-submit",
     IMPORT_S: "import-submit",
+
+    NAV_BTNS: "nav-btns",
 });
+
+export default ids;
