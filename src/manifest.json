@@ -11,8 +11,8 @@
     ],
 
     "permissions": [
-        "storage",
-        "nativeMessaging"
+        "nativeMessaging",
+        "storage"
     ],
 
     "icons": {
