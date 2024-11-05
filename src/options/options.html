@@ -86,7 +86,7 @@
                         <summary>About</summary>
                         <section>
                             <p>
-                                <a href="">Optimus</a> is a Chrome extension
+                                Optimus is a Chrome extension
                                 designed to maximise browser productivity by
                                 offering the following tools:
                             </p>
@@ -102,8 +102,7 @@
                                 <span class="note">cannot</span> be accessed
                                 until the timer has
                                 <span class="note">elapsed</span>, or
-                                <span class="note">reset</span> via the reset
-                                button.
+                                <span class="note">reset</span>.
                             </p>
                         </section>
                     </details>
@@ -114,8 +113,7 @@
                                 The session timer serves as a
                                 <span class="note">countdown</span> timer for
                                 how long websites on the
-                                <a href="#manual-blocking">block list</a> will
-                                be inaccessible for.
+                                block list will be inaccessible for.
                             </p>
                             <br />
                             <p>
@@ -140,24 +138,18 @@
                             </ul>
                             <br />
                             <p>
-                                <a href="#session-timer-settings"
-                                    >Session Timer Settings</a
-                                >
-                                can be accessed via the
-                                <span class="example">`Timer`</span> button
-                                under the
-                                <span class="example">`Menu`</span> navigation
-                                section within the options page, or under the
-                                extension popup.
+                                Session timer settings can be accessed via the 'Blocking' button on the options page.
                             </p>
-                            <br />
+                            <br/>
                             <p>
                                 Here, users can adjust the number of
                                 <span class="note">hours</span>,
                                 <span class="note">minutes</span> and
                                 <span class="note">seconds</span> the timer will
-                                run for during a session.
+                                run for.
                             </p>
+                            <br/>
+                            <p>Note that session timer settings <span class="note">cannot</span> be <span class="note">edited</span> while the timer is <span class="note">active</span>.</p>
                         </section>
                     </details>
                     <details id="manual-blocking">
@@ -168,42 +160,25 @@
                                 <span class="note">cannot</span> be
                                 <span class="note">accessed</span> via the
                                 Chrome broswer or
-                                <span class="note">edited</span> within
-                                <a href="#website-blocking-settings"
-                                    >website blocking settings</a
-                                >
-                                <span class="note">while</span> the
-                                <a href="#session-timer-settings"
-                                    >session timer</a
-                                >
-                                is <span class="note">active</span>.
+                                <span class="note">edited</span> while the session timer is 
+                                <span class="note">active</span>.
                             </p>
                             <br />
                             <p>
-                                The
-                                <a href="#website-blocking-settings"
-                                    >block list</a
-                                >
-                                can be found via the
-                                <span class="example">`Blocking`</span> button
-                                under the
-                                <span class="example">`Menu`</span> navigation
-                                section within the options page, or under the
-                                extension popup.
+                                The block list can be found via the 'Blocking' button in the the options page.
                             </p>
                             <br />
                             <p>
-                                Here, users can <span class="note">add</span> or
-                                <span class="note">delete</span> websites from
-                                the block list. Also note that you can add
-                                blocked websites via the popup page.
+                                Here, users can <span class="note">add</span> or <span class="note">delete</span> websites from
+                                the block list. 
                             </p>
-                            <br />
+                            <br>
                             <p>
-                                When completing the website blocking
-                                <span class="note">form</span>, there is a
-                                dropdown that shows how to enter website URLs
-                                properly.
+                                The extension popup also allows users to block websites they are currently on.
+                            </p>
+                            <br/>
+                            <p>
+                                When completing the <span class="note">website blocking form</span>, please adhere to website blocking <span class="note">guide</span> when entering links.
                             </p>
                         </section>
                     </details>
@@ -211,11 +186,7 @@
                         <summary>Settings Transfer</summary>
                         <section>
                             <p>
-                                The
-                                <a href="#transfer-settings"
-                                    >Transfer Settings</a
-                                >
-                                page allows users to
+                                The 'Transfer Settings' page allows users to
                                 <span class="note">import</span> or
                                 <span class="note">export</span> their
                                 configured settings via a single
@@ -229,6 +200,10 @@
                                 <span class="note">restored</span> via an
                                 exported JSON file.
                             </p>
+                            <br>
+                            <p>
+                                Users can also <span class="note">reset</span> timer and website blocking settings to it's original state.
+                            </p>
                         </section>
                     </details>
                     <details id="manual-permissions">
@@ -240,7 +215,7 @@
                                 <span class="note">committed</span> to being
                                 <span class="note">transparent</span> in the
                                 types of user data that this Chrome extension
-                                can accessed.
+                                can access and use.
                             </p>
                             <br />
                             <p>
@@ -252,28 +227,27 @@
                                 to function:
                             </p>
                             <ul>
-                                <li>Permission 1</li>
-                                <li>Permission 2</li>
+                                <li>nativeMessaging</li>
+                                <li>storage</li>
                             </ul>
+                            <br>
+                            <p>
+                                The <a href="https://developer.chrome.com/docs/extensions/develop/concepts/native-messaging">nativeMessaging</a> 
+                                permission is used to...
+                            </p>
+                            <br>
+                            <p>
+                                The <a href="https://developer.chrome.com/docs/extensions/reference/api/storage">storage</a> 
+                                permission is used to...
+                            </p>
                         </section>
                     </details>
                     <details id="manual-github">
                         <summary>GitHub Repository</summary>
                         <section>
-                            <p>
-                                The codebase for this project can be found under
-                                the
-                                <a href="https://github.com/jtd-117/optimus"
-                                    >optimus</a
-                                >
-                                repository on GitHub.
-                            </p>
-                            <br />
-                            <p>
-                                All relevant files including code,
-                                documentation, issues, etc... can be found in
-                                the aforementioned repository.
-                            </p>
+                            <p>The <a href="https://github.com/jtd-117/optimus">Optimus</a> codebase contains all relevant files and documents used to build this extension</p>
+                            <br>
+                            <p>My Github profile is <a href="https://github.com/jtd-117">jtd-117</a>, where users can see my other projects.</p>
                         </section>
                     </details>
                     <details id="manual-donate">
@@ -287,8 +261,10 @@
                             <p>
                                 It is <span class="note">you</span>, the user,
                                 that makes developing applications worthwhile
-                                and what ultimately allows me to make a living.
+                                and fun.
                             </p>
+                            <br>
+                            <p>Please <span class="note">do not</span> hesitate to leave <a href="">constructive feedback</a> on <span class="note">how</span> to make this Chrome extension better.</p>
                             <br />
                             <p>Thank you so much.</p>
                             <br />
@@ -305,9 +281,7 @@
                     <section>
                         <h2>Editing The Session Timer:</h2>
                         <p>
-                            Click the
-                            <span class="example">‘Edit Timer’</span> button and
-                            complete the form to change timer settings.
+                            Click the 'Edit Timer' button and complete the form to change timer settings.
                         </p>
                         <button
                             id="timer-edit"
@@ -319,9 +293,7 @@
                             <form method="dialog">
                                 <h3>Edit Timer Settings:</h3>
                                 <p>
-                                    Click the
-                                    <span class="example">`Submit`</span> button
-                                    to update timer settings.
+                                    Click the 'Submit' button to update timer settings.
                                 </p>
                                 <div class="form-container">
                                     <label for="timer-hours">HOURS:<span class="note">*</span></label>
@@ -372,10 +344,9 @@
                     <section>
                         <h2>Timer Preview:</h2>
                         <p>
-                            Below is a <span class="note">preview</span> of the
-                            popup timer using the
+                            Below is a preview of the popup timer using the 
                             <span class="note">current</span> settings formatted
-                            as <span class="note">hours:minutes:seconds</span>.
+                            as <span class="note">hours</span>:<span class="note">minutes</span>:<span class="note">seconds</span>.
                         </p>
                         <br />
                         <h3 id="timer-display" aria-label="timer display">
@@ -388,9 +359,7 @@
                     <section>
                         <h2>Editing The Block List:</h2>
                         <p>
-                            Click the
-                            <span class="example">‘Edit Block List’</span>
-                            button and complete the form to change the list.
+                            Click the 'Edit Block List' button and complete the form to change blocked websites.
                         </p>
                         <button
                             id="block-edit"
@@ -402,9 +371,7 @@
                             <form method="dialog">
                                 <h3>Edit Blocked Website(s):</h3>
                                 <p>
-                                    Click the
-                                    <span class="example">`Submit`</span> button
-                                    to update the block list.
+                                    Click the 'Submit' button to update the block list.
                                 </p>
                                 <details>
                                     <summary>Rules For Entering URLs</summary>
@@ -415,28 +382,24 @@
                                         </li>
                                         <li>
                                             Do
-                                            <span class="note">not</span> enter
-                                            <span class="example">www.</span>
+                                            <span class="note">not</span> enter www.
+                                        </li>
+                                        <li>
+                                            Do 
+                                            <span class="note">note</span> enter https:// or http://
                                         </li>
                                         <li>
                                             Blocking an
                                             <span class="note">entire</span>
-                                            website:
-                                            <span class="example">website</span>
+                                            website: websiteName
                                         </li>
                                         <li>
-                                            Blocking a website page:
-                                            <span class="example"
-                                                >website/page</span
-                                            >
+                                            Blocking a website <span class="note">page</span>: websiteName/page
                                         </li>
                                         <li>
                                             Blocking
                                             <span class="note">all</span>
-                                            subpages:
-                                            <span class="example"
-                                                >website/*</span
-                                            >
+                                            subpages: websiteName/*
                                         </li>
                                     </ul>
                                 </details>
@@ -496,6 +459,13 @@
                             <span class="note">restore</span> your settings.
                         </p>
                         <button id="import-submit">Import</button>
+                    </section>
+                    <section>
+                        <h2>Reset Settings:</h2>
+                        <p>
+                            Restore the <span class="note">original</span> settings when this extension was downloaded (i.e. <span class="note">25</span> minute timer and <span class="note">no</span> blocked websites).
+                        </p>
+                        <button id="reset-settings">Reset Settings</button>
                     </section>
                 </article>
             </section>
