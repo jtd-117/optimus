@@ -5,7 +5,7 @@
 
 import "../scss/options-scss/options.scss";
 import ids from "./options-selectors";
-import * as ctr from "./options-controller";
+import * as ctr from "./controller";
 
 const initEventListeners = () => {
 
