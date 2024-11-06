@@ -1,6 +1,6 @@
 /**
- * @file popup-selectors.js
- * @description Stores the string enums for HTML classes and IDs in popup.html
+ * @file selectors.js
+ * @description An enumeration of selector strings used in popup.html
  */
 
 export { ids, classes };

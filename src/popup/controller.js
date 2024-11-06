@@ -1,6 +1,6 @@
 /**
- * @file popup-controller.js
- * @description Handles the frontend for popup.html
+ * @file controller.js
+ * @description Serves as the controller for popup.html
  */
 
 export { 

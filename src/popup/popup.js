@@ -1,11 +1,11 @@
 /**
  * @file popup.js
- * @description Controls the behaviour and functionality of the extension's popup interface.
+ * @description Provides script functionality for popup.html
  */
 
 import "../scss/popup-scss/popup.scss";
-import * as slr from "./popup-selectors";
-import * as ctr from "./popup-controller";
+import * as slr from "./selectors";
+import * as ctr from "./controller";
 
 const initEventListener = () => {
     const settingsBtn = document.getElementById(slr.ids.SETTINGS);
