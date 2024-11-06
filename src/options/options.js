@@ -26,6 +26,7 @@ const initEventListeners = () => {
     const timerSeconds = document.getElementById(ids.TIMER_SS);
 
     timerEdit.addEventListener("click", (event) =>{
+        ctr.resetTimerValues();
         ctr.openForm(ids.TIMER_F, event);
     });
     timerCancel.addEventListener("click", (event) => {

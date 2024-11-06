@@ -8,7 +8,8 @@ import ids from "./selectors";
 export {
     handleNavDisplay,
     openForm, 
-    closeForm, 
+    closeForm,
+    resetTimerValues,
     sliceTimerFormValues,
     validateTimerValues,
 };
@@ -36,8 +37,19 @@ const openForm = (dialogId, event) => {
     const dialog = document.getElementById(dialogId);
     event.preventDefault();
     if (dialog) {
-        resetTimerValues();
         dialog.showModal();
+    }
+};
+
+/**
+ * @description Closes the modal of a dialog tag
+ * @param {string} dialogId The ID of the dialog tag
+ */
+const closeForm = (dialogId, event) => {
+    const dialog = document.getElementById(dialogId);
+    event.preventDefault();
+    if (dialog) {
+        dialog.close();
     }
 };
 
@@ -51,18 +63,6 @@ const resetTimerValues = () => {
     hours.value = '';
     minutes.value = '';
     seconds.value = '';
-};
-
-/**
- * @description Closes the modal of a dialog tag
- * @param {string} dialogId The ID of the dialog tag
- */
-const closeForm = (dialogId, event) => {
-    const dialog = document.getElementById(dialogId);
-    event.preventDefault();
-    if (dialog) {
-        dialog.close();
-    }
 };
 
 /**
