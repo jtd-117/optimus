@@ -1,6 +1,6 @@
 /**
- * @file options-selectors.js
- * @description Stores the string enums for HTML classes and IDs in options.html
+ * @file selectors.js
+ * @description An enumeration of selector strings used in options.html
  */
 
 /**

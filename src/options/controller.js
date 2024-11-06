@@ -1,9 +1,9 @@
 /**
- * @file options-controller.js
- * @description Handles the frontend for options.html
+ * @file controller.js
+ * @description Serves as the controller for options.html
  */
 
-import ids from "./options-selectors";
+import ids from "./selectors";
 
 export {
     handleNavDisplay,

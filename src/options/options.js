@@ -1,10 +1,10 @@
 /**
  * @file options.js
- * @description Manages the behaviour and functionality of the extension's settings page.
+ * @description Provides script functionality for options.html
  */
 
 import "../scss/options-scss/options.scss";
-import ids from "./options-selectors";
+import ids from "./selectors";
 import * as ctr from "./controller";
 
 const initEventListeners = () => {
