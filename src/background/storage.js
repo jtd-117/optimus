@@ -1,17 +1,18 @@
 /**
- * @file background-storage.js
- * @description Responsible for all logic involving the Chrome storage API
+ * @file storage.js
+ * @description Manages access or edits to the Chrome extension's storage
  * @link {https://developer.chrome.com/docs/extensions/reference/api/storage}
  */
 
 export { 
-    defaultSettings, 
-    transferSettings,
+    initSettings,
     setTimerSettings,
     setBlockingSettings,
     getTimerSettings,
     getBlockingSettings,
 };
+
+import * as utils from "../scripts/utils";
 
 /**
  * @description A template for timer and website blocking settings
@@ -37,7 +38,7 @@ const deleteSettings = async () => {
  * @description Initialises extension settings upon download or via import
  * @param {Object} data The default settings of the extension
  */
-const transferSettings = async (data = defaultSettings) => {
+const initSettings = async (data = defaultSettings) => {
 
 };
 
