@@ -3,8 +3,6 @@
  * @description An enumeration of selector strings used in popup.html
  */
 
-export { ids, classes };
-
 /**
  * @description An enum of IDs used in the popup.html
  */
@@ -27,3 +25,8 @@ const classes = Object.freeze({
     MANUAL: "manual",
     BLOCK: "block",
 });
+
+export { 
+    ids, 
+    classes,
+};

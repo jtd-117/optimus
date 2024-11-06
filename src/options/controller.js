@@ -5,15 +5,6 @@
 
 import ids from "./selectors";
 
-export {
-    handleNavDisplay,
-    openForm, 
-    closeForm,
-    resetTimerValues,
-    sliceTimerFormValues,
-    validateTimerValues,
-};
-
 /**
  * @description Displays the selected section from options page's menu
  * @param {string} navBtn The navBtn that has been clicked on to hide other articles
@@ -108,4 +99,13 @@ const validateTimerValues = (event, timerSubmitId) => {
         return;
     }
     // STEP 2: Only submit form details if values are valid
+};
+
+export {
+    handleNavDisplay,
+    openForm, 
+    closeForm,
+    resetTimerValues,
+    sliceTimerFormValues,
+    validateTimerValues,
 };

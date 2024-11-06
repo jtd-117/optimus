@@ -3,10 +3,6 @@
  * @description A compilation of utility functions used across different Chrome scripts
  */
 
-export {
-    asyncWrapper,
-};
-
 /**
  * @description Provides a mechanism for abstracting asynchronous error handling
  * @param {Promise} promise An asynchronous operation
@@ -19,4 +15,8 @@ const asyncWrapper = async (promise) => {
     } catch(error) {
         return [null, error]
     }
+};
+
+export {
+    asyncWrapper,
 };

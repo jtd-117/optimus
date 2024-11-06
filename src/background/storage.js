@@ -4,14 +4,6 @@
  * @link {https://developer.chrome.com/docs/extensions/reference/api/storage}
  */
 
-export { 
-    initSettings,
-    setTimerSettings,
-    setBlockingSettings,
-    getTimerSettings,
-    getBlockingSettings,
-};
-
 import * as utils from "../scripts/utils";
 
 /**
@@ -71,3 +63,11 @@ const getTimerSettings = async () => {
 const getBlockingSettings = async () => {
 
 }
+
+export { 
+    initSettings,
+    setTimerSettings,
+    setBlockingSettings,
+    getTimerSettings,
+    getBlockingSettings,
+};

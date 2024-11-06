@@ -3,11 +3,6 @@
  * @description Serves as the controller for popup.html
  */
 
-export { 
-    closePopup,
-    openOptions,
-};
-
 /**
  * @description Closes the Chrome extension popup from the menu
  * @param {event} event The action that caused the popup to close
@@ -25,3 +20,8 @@ const openOptions = (event) => {
     event.preventDefault();
     chrome.runtime.openOptionsPage();
 }
+
+export { 
+    closePopup,
+    openOptions,
+};
