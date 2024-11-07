@@ -32,15 +32,29 @@ const settingsKeys = Object.freeze({
  * @param {Object} data The default settings of the extension
  * @returns {Boolean} `true` if operation was sucessful, `false` otherwise
  */
-const initSettings = async (initSettings = defaultSettingsTemplate) => {
+const initSettings = async (settings = defaultSettingsTemplate) => {
 
-    // NOTE: `initSettings` is validated in `options.js`
-    const [,error] = await asyncWrapper(chrome.storage.local.set(initSettings));
+    // NOTE: `settings` is validated in `options.js`
+    const [,error] = await asyncWrapper(chrome.storage.local.set(settings));
     if (error) {
-        console.error("Failed to save `initSettings` in `chrome.storage.local`", error);
+        console.error("Failed to save `settings` in `chrome.storage.local`", error);
         return false;
     }
     return true;
+};
+
+/**
+ * @description An asynchronous wrapper function for the GET operation in Chrome's storage API
+ * @param {settingsKeys} key A string being settingsKeys.TIMER or settingsKeys.BLOCK
+ * @returns {Object|Array<string>|null} Object if settingsKeys.TIMER, array of strings of settingsKeys.BLOCK, `null` if reject
+ */
+const getLocalStorageWrapper = async (key) => {
+    const [data, error] = await asyncWrapper(chrome.storage.local.get(key));
+    if (error) {
+        console.error(`Failed to retrieve ${key} settings from 'chrome.storage.local'`, error);
+        return null;
+    }
+    return data[key];
 };
 
 /**
@@ -48,12 +62,7 @@ const initSettings = async (initSettings = defaultSettingsTemplate) => {
  * @returns {Object} Contains the keys 'hours', 'minutes' and 'seconds'
  */
 const getSessionTimerSettings = async () => {
-    const [data, error] = await asyncWrapper(chrome.storage.local.get(settingsKeys.TIMER));
-    if (error) {
-        console.error("Failed to retrieve session timer settings from `chrome.storage.local`");
-        return null;
-    }
-    return data[settingsKeys.TIMER];
+    return getLocalStorageWrapper(settingsKeys.TIMER);
 };
 
 /**
@@ -61,30 +70,34 @@ const getSessionTimerSettings = async () => {
  * @returns {Array<string>} Contains user-selected blocked website links as strings
  */
 const getWebsiteBlockingSettings = async () => {
-    const [data, error] = await asyncWrapper(chrome.storage.local.get(settingsKeys.BLOCK));
+    return getLocalStorageWrapper(settingsKeys.BLOCK);
+};
+
+/**
+ * @description An asynchronous wrapper function for the SET operation in Chrome's storage API
+ * @param {settingsKeys} key A string being settingsKeys.TIMER or settingsKeys.BLOCK
+ * @param {Object/Array<string>} data If settingsKeys.TIMER an Object, otherwise an array for settingsKeys.BLOCK
+ * @returns {Boolean} `true` if update was successful, `false` otherwise
+ */
+const setLocalStorageWrapper = async (key, data) => {
+
+    // NOTE: `keyData` is validated in `options.js`
+    const [,error] = await asyncWrapper(chrome.storage.local.set(data));
     if (error) {
-        console.error("Failed to retrieve website blocking settings from `chrome.storage.local`");
-        return null;
+        console.error(`Failed to update ${key} settings in 'chrome.storage.local'`, error);
+        return false;
     }
-    return data[settingsKeys.BLOCK];
+    return true;
 };
 
 /**
  * @description Updates session timer settings
- * @param {Object} newSettings Contains the keys 'hours', 'minutes' and 'seconds'
+ * @param {Object} timerData Contains the keys 'hours', 'minutes' and 'seconds'
  * @returns {Boolean} `true` if update was successful, `false` otherwise
  */
-const setSessionTimerSettings = async (newSettings) => {
-
-    // NOTE: `newSettings` is validated in `options.js`
-    const [,error] = await asyncWrapper(chrome.storage.local.set({
-        timer : newSettings,
-    }));
-    if (error) {
-        console.error("Failed to update session timer settings in `chrome.storage.local`", error);
-        return false;
-    }
-    return true;
+const setSessionTimerSettings = async (timerData) => {
+    const data = { timer: timerData };
+    return setLocalStorageWrapper(settingsKeys.TIMER, data);
 };
 
 /**
@@ -92,18 +105,10 @@ const setSessionTimerSettings = async (newSettings) => {
  * @param {Array<string>} newSettings Contains user-selected blocked website links as strings
  * @returns {Boolean} `true` if update was successful, `false` otherwise
  */
-const setWebsiteBlockingSettings = async (newSettings) => {
-
-    // NOTE: `newSettings` is validated in `options.js`
-    const [,error] = await asyncWrapper(chrome.storage.local.set({
-        blocking: newSettings,
-    }));
-    if (error) {
-        console.error("Failed to update website blocking settings in `chrome.storage.local`", error);
-        return false;
-    }
-    return true;
-}
+const setWebsiteBlockingSettings = async (blockingData) => {
+    const data = { blocking: blockingData };
+    return setLocalStorageWrapper(settingsKeys.BLOCK, data);
+};
 
 export { 
     settingsKeys,
