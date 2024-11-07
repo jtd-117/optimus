@@ -69,7 +69,7 @@ const sliceTimerFormValues = (timerValueId) => {
  * @description Ensures that timer settings does not have zero values for hours, minutes and seconds
  * @returns {Boolean} `true` if the timer valid, `false` otherwise
  */
-const checkNonZeroTimer = (timerSubmitId) => {
+const checkNonZeroTimer = () => {
     const hours = document.getElementById(ids.TIMER_HH);
     const minutes = document.getElementById(ids.TIMER_MM);
     const seconds = document.getElementById(ids.TIMER_SS);
