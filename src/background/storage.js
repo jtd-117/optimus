@@ -31,6 +31,19 @@ const settingsKeys = Object.freeze({
 });
 
 /**
+ * @description Checks if a key is either "null", "timer" or "blocking"
+ * @param {string} key A string denoting the one of 2 primary keys for extension settings object
+ * @returns {Boolean} `true` if valid, `false` otherwise
+ */
+const validatePrimarySettingsKey = (key) => {
+    if ((key !== null) && (key !== settingsKeys.TIMER) && (key !== settingsKeys.BLOCK)) {
+        console.error("`key` is of an invalid value or type");
+        return false
+    }
+    return true;
+}
+
+/**
  * @description Initialises extension settings upon download or via import
  * @param {Object} data The default settings of the extension
  */
@@ -47,17 +60,13 @@ const initSettings = async (data = defaultSettingsTemplate) => {
 
 /**
  * @description Retrieves extension settings as an entire object or by key
- * @param {settingsKeys} key (optional) either "timer" or "blocking"
+ * @param {string} key (optional) either "timer" or "blocking"
  * @returns {Object|Array<string>|null} If there is no `key`, returns entire settings as an Object, if key is "timer" returns an Object, Array for "blocking" key, otherwise null if invalid or failure
  */
 const getSettings = async (key = null) => {
-    
-    // STEP 1: Ensure the key is valid
-    if ((key !== null) && (key !== settingsKeys.TIMER) && (key !== settingsKeys.BLOCK)) {
-        console.error("`key` is of an invalid value or type");
+    if (!validatePrimarySettingsKey(key)) {
         return null;
     }
-    // STEP 2: Retrieve extension settings by key
     const [settingsData, error] = await asyncWrapper(chrome.storage.local.get(key));
     if (error) {
         console.error(`Failed to retrieve ${key} key from chrome.storage.local`);
@@ -71,11 +80,15 @@ const getSettings = async (key = null) => {
 
 /**
  * @description Updates extension settings for either the timer or website blocking list
- * @param {settingsKeys} key "timer" or "blocking"
+ * @param {string} key "timer" or "blocking"
  * @param {Object|Array<string>} keyData If `key` is "timer", keyData is Object, otherwise Array for "blocking"
  */
 const updateSettings = async (key, keyData) => {
     
+    // STEP 1: 
+
+
+    // STEP 2: 
 };
 
 export { 
