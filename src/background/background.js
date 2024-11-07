@@ -8,3 +8,6 @@ import * as stg from "./storage";
 chrome.runtime.onInstalled.addListener(() => {
     stg.initSettings();
 });
+
+const data = await stg.getSettings();
+console.log(data);
