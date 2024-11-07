@@ -20,80 +20,22 @@ const defaultSettingsTemplate = Object.freeze({
 });
 
 /**
- * @description An enum of settings keys used for updateSettings and getSettings functions
- */
-const settingsKeys = Object.freeze({
-    TIMER: "timer",
-    TIMER_HH: "hours",
-    TIMER_MM: "minutes",
-    TIMER_SS: "seconds",
-    BLOCK: "blocking",
-});
-
-/**
- * @description Checks if a key is either "null", "timer" or "blocking"
- * @param {string} key A string denoting the one of 2 primary keys for extension settings object
- * @returns {Boolean} `true` if valid, `false` otherwise
- */
-const validatePrimarySettingsKey = (key) => {
-    if ((key !== null) && (key !== settingsKeys.TIMER) && (key !== settingsKeys.BLOCK)) {
-        console.error("`key` is of an invalid value or type");
-        return false
-    }
-    return true;
-}
-
-/**
  * @description Initialises extension settings upon download or via import
  * @param {Object} data The default settings of the extension
+ * @returns {Boolean} `true` if operation was sucessful, `false` otherwise
  */
 const initSettings = async (data = defaultSettingsTemplate) => {
 
-    // STEP 1: If importing non-template settings, ensure all subkeys are valid
-
-    // STEP 2: Initialise extension settings
+    // NOTE: `data` is validated in `options.js`
     const [,error] = await asyncWrapper(chrome.storage.local.set(data));
     if (error) {
         console.error("Failed to save settings in `chrome.storage.local`", error);
+        return false;
     }
-};
-
-/**
- * @description Retrieves extension settings as an entire object or by key
- * @param {string} key (optional) either "timer" or "blocking"
- * @returns {Object|Array<string>|null} If there is no `key`, returns entire settings as an Object, if key is "timer" returns an Object, Array for "blocking" key, otherwise null if invalid or failure
- */
-const getSettings = async (key = null) => {
-    if (!validatePrimarySettingsKey(key)) {
-        return null;
-    }
-    const [settingsData, error] = await asyncWrapper(chrome.storage.local.get(key));
-    if (error) {
-        console.error(`Failed to retrieve ${key} key from chrome.storage.local`);
-        return null;
-    }
-    if (key) {
-        return settingsData[key];
-    }
-    return settingsData;
-};
-
-/**
- * @description Updates extension settings for either the timer or website blocking list
- * @param {string} key "timer" or "blocking"
- * @param {Object|Array<string>} keyData If `key` is "timer", keyData is Object, otherwise Array for "blocking"
- */
-const updateSettings = async (key, keyData) => {
-    
-    // STEP 1: 
-
-
-    // STEP 2: 
+    return true;
 };
 
 export { 
     settingsKeys,
     initSettings,
-    getSettings,
-    updateSettings,
 };
