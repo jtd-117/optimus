@@ -5,3 +5,6 @@
 
 import * as stg from "./storage";
 
+chrome.runtime.onInstalled.addListener(() => {
+    stg.initSettings();
+});

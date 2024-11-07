@@ -17,6 +17,4 @@ const asyncWrapper = async (promise) => {
     }
 };
 
-export {
-    asyncWrapper,
-};
+export default asyncWrapper;

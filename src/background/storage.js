@@ -4,70 +4,32 @@
  * @link {https://developer.chrome.com/docs/extensions/reference/api/storage}
  */
 
-import * as utils from "../scripts/utils";
+import asyncWrapper from "../scripts/utils";
 
 /**
  * @description A template for timer and website blocking settings
  * @note Used for initial bootup of extension
  */
-const defaultSettings = {
+const defaultSettingsTemplate = Object.freeze({
     timer: {
         hours: 0,
         minutes: 25,
         seconds: 0,
     },
-    blocking: [],
-};
-
-/**
- * @description Deletes all timer and website blocking settings
- */
-const deleteSettings = async () => {
-
-};
+    blocking: []
+});
 
 /**
  * @description Initialises extension settings upon download or via import
  * @param {Object} data The default settings of the extension
  */
-const initSettings = async (data = defaultSettings) => {
-
+const initSettings = async (data = { ...defaultSettingsTemplate }) => {
+    const [,error] = await asyncWrapper(chrome.storage.local.set(data));
+    if (error) {
+        console.error("Failed to save settings in chrome.storage.local", error);
+    }
 };
-
-/**
- * @description Assigns new timer data for hours, minutes and seconds
- * @param {Object} data The new timer data
- */
-const setTimerSettings = async (data) => {
-
-};
-
-/**
- * @description Assigns a new array of websites to block
- * @param {Array<string>} data An array of strings representing websites to block
- */
-const setBlockingSettings = async (data) => {
-
-};
-
-/**
- * @description Retrieves timer data using the Chrome storage API
- */
-const getTimerSettings = async () => {
-
-};
-
-/**
- * @description Retrieves the website blocking list using the Chrome storage API
- */
-const getBlockingSettings = async () => {
-
-}
 
 export { 
     initSettings,
-    setTimerSettings,
-    setBlockingSettings,
-    getTimerSettings,
-    getBlockingSettings,
 };
