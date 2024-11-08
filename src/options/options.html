@@ -279,9 +279,9 @@
                 <article class="session-timer-settings" hidden>
                     <h1>Session Timer Settings</h1>
                     <section>
-                        <h2>Editing The Session Timer:</h2>
+                        <h2>Edit:</h2>
                         <p>
-                            Click the 'Edit Timer' button and complete the form to change timer settings.
+                            Click the 'Edit Timer' button and complete the form to <span class="note">update</span> timer settings.
                         </p>
                         <button
                             id="timer-edit"
@@ -342,7 +342,16 @@
                         </dialog>
                     </section>
                     <section>
-                        <h2>Timer Preview:</h2>
+                        <h2>Reset:</h2>
+                        <p>
+                            Click the 'Reset Timer' button to <span class="note">default</span> back to a 25 minute session timer.
+                        </p>
+                        <button id="timer-reset" aria-label="reset timer settings">
+                            Reset Timer
+                        </button>
+                    </section>
+                    <section>
+                        <h2>Preview:</h2>
                         <p>
                             Below is a preview of the popup timer using the 
                             <span class="note">current</span> settings formatted
@@ -357,9 +366,9 @@
                 <article class="website-blocking-settings" hidden>
                     <h1>Website Blocking Settings</h1>
                     <section>
-                        <h2>Editing The Block List:</h2>
+                        <h2>Edit:</h2>
                         <p>
-                            Click the 'Edit Block List' button and complete the form to change blocked websites.
+                            Click the 'Edit Block List' button and complete the form to <span class="note">update</span> blocked websites.
                         </p>
                         <button
                             id="block-edit"
@@ -427,6 +436,13 @@
                         </dialog>
                     </section>
                     <section>
+                        <h2>Reset:</h2>
+                        <p>
+                            Click the 'Reset Block List' button to <span class="note">remove all</span> blocked websites from the list.
+                        </p>
+                        <button id="block-reset" aria-label="reset block list">Reset Block List</button>
+                    </section>
+                    <section>
                         <h2>Block List:</h2>
                         <p>
                             Below is a
@@ -461,11 +477,15 @@
                         <button id="import-submit">Import</button>
                     </section>
                     <section>
-                        <h2>Reset Settings:</h2>
+                        <h2>Total Reset:</h2>
                         <p>
-                            Restore the <span class="note">original</span> settings when this extension was downloaded (i.e. <span class="note">25</span> minute timer and <span class="note">no</span> blocked websites).
+                            Restore <span class="note">both</span> the session timer and website blocking list to their <span class="note">default</span> settings:
                         </p>
-                        <button id="reset-settings">Reset Settings</button>
+                        <ul>
+                            <li>25 <span class="note">minute</span> timer</li>
+                            <li><span class="note">remove all</span> blocked websites from the list</li>
+                        </ul>
+                        <button id="total-reset">Reset Settings</button>
                     </section>
                 </article>
             </section>
