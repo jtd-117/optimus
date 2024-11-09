@@ -3,8 +3,8 @@
  * @description The backend of the Chrome extension that has access to Chrome APIs.
  */
 
-import * as stg from "./storage";
+import * as stg from "../scripts/storage";
 
-chrome.runtime.onInstalled.addListener(() => {
-    stg.initSettings();
+chrome.runtime.onInstalled.addListener(async () => {
+    await stg.initSettings();
 });
