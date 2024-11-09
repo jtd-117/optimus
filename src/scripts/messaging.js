@@ -17,7 +17,7 @@ const makeSenderMessage = (opName, opData = {}) => {
         operation: opName,
         ...opData,
     };
-}
+};
 
 /**
  * @description Sends a message to another Chrome extension component
