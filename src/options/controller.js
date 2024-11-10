@@ -4,6 +4,7 @@
  */
 
 import ids from "./selectors";
+import * as ops from "./operations";
 
 /**
  * @description Displays the selected section from options page's menu
@@ -88,17 +89,24 @@ const checkNonZeroTimer = () => {
 
 /**
  * @description Submits the timer form values if valid
+ * @param {string} dialogId The ID of the dialog tag
  * @param {Event} event The event that caused this function to run
  */
-const validateTimerValues = (event, timerSubmitId) => {
+const handleTimerForm = async (dialogId, event) => {
 
-    // STEP 1: Check if the timer settings form has valid values
+    // STEP 1: Only update timer settings if values are valid
     const validity = checkNonZeroTimer();
     if (validity === false) {
-        event.preventDefault();
         return;
     }
-    // STEP 2: Only submit form details if values are valid
+    // STEP 2: Ask background.js to update timer
+    const updateStatus = await ops.setTimerSettings();
+    if (updateStatus === false) {
+        // Ask view.js to send a RED toaster
+    } else {
+        // Ask view.js to send a RED toaster
+    }
+    closeForm(dialogId, event);
 };
 
 export {
@@ -107,5 +115,5 @@ export {
     closeForm,
     resetTimerValues,
     sliceTimerFormValues,
-    validateTimerValues,
+    handleTimerForm,
 };

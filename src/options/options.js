@@ -33,7 +33,7 @@ const initEventListeners = () => {
         ctr.closeForm(ids.TIMER_F, event);
     });
     timerSubmit.addEventListener("click", (event) => {
-        ctr.validateTimerValues(event);
+        ctr.handleTimerForm(ids.TIMER_F, event);
     });
     timerHours.addEventListener("input", () => {
         ctr.sliceTimerFormValues(ids.TIMER_HH);
