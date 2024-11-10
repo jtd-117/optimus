@@ -12,7 +12,7 @@ import asyncWrapper from "./utils";
  * @param {Object} opData (optional) Any necessary data needed to perform `opName`
  * @returns {Object} The message to be sent via the chrome.runtime API
  */
-const makeSenderMessage = (opName, opData = {}) => {
+const makeMessage = (opName, opData = {}) => {
     return {
         operation: opName,
         ...opData,
@@ -28,7 +28,7 @@ const makeSenderMessage = (opName, opData = {}) => {
  * @link {https://developer.chrome.com/docs/extensions/reference/api/runtime#method-sendMessage}
  */
 const sendMessage = async (opName, opData, callBack = null) => {
-    const message = makeSenderMessage(opName, opData);
+    const message = makeMessage(opName, opData);
     if (!callBack) {
         return await asyncWrapper(chrome.runtime.sendMessage(message));
     }
@@ -36,6 +36,6 @@ const sendMessage = async (opName, opData, callBack = null) => {
 };
 
 export {
-    makeSenderMessage,
+    makeMessage,
     sendMessage,
 };
