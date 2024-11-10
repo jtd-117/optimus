@@ -10,7 +10,7 @@ import * as msg from "../scripts/messaging";
 /**
  * @description An enumeration for options messaging operations
  */
-const msgOps = Object.freeze({
+const optionsOps = Object.freeze({
     TIMER_S: "set-timer-settings",
     TIMER_G: "get-timer-settings",
     TIMER_R: "reset-timer-settings",
@@ -37,15 +37,15 @@ const setTimerSettings = async () => {
         minutes: mm,
         seconds: ss,
     };
-    const [, error] = await asyncWrapper(msg.sendMessage(msgOps.TIMER_S, data));
+    const [, error] = await asyncWrapper(msg.sendMessage(optionsOps.TIMER_S, data));
     if (error) {
-        console.error(`Failed to ${msgOps.TIMER_S} in background.js`);
+        console.error(`Failed to ${optionsOps.TIMER_S} in background.js`);
         return false;
     }
     return true;
 };
 
 export {
-    msgOps,
+    optionsOps,
     setTimerSettings,
 };
