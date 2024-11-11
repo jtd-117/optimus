@@ -33,7 +33,8 @@ const validateTimerFormValues = () => {
     const mm = document.getElementById(ids.TIMER_MM).value;
     const ss = document.getElementById(ids.TIMER_SS).value;
 
-    if ((+hh === 0 && +mm === 0 && +ss === 0) || (hh === '' || mm === '' || ss === '')) {
+    if ((+hh === 0 && +mm === 0 && +ss === 0) || (hh === '' || mm === '' || ss === '') || 
+        (+hh > 23 || +hh < 0) || (+mm > 59 || +mm < 0) || (+ss > 59 || +ss < 0)) {
         return false;
     }
     return true;
