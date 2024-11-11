@@ -29,19 +29,13 @@ const optionsOps = Object.freeze({
  * @returns {Boolean} `true` if the timer valid, `false` otherwise
  */
 const validateTimerFormValues = () => {
-    const hours = document.getElementById(ids.TIMER_HH);
-    const minutes = document.getElementById(ids.TIMER_MM);
-    const seconds = document.getElementById(ids.TIMER_SS);
-    const warningMessage = document.getElementById(ids.TIMER_FW);
+    const hh = document.getElementById(ids.TIMER_HH).value;
+    const mm = document.getElementById(ids.TIMER_MM).value;
+    const ss = document.getElementById(ids.TIMER_SS).value;
 
-    if (Number(hours.value) === 0 && Number(minutes.value) === 0 && Number(seconds.value) === 0) {
-        warningMessage.style.display = "inline";
-        [hours, minutes, seconds].forEach((unit) => {
-            unit.style.borderColor = "#ff0000";
-        });
+    if ((+hh === 0 && +mm === 0 && +ss === 0) || (hh === '' || mm === '' || ss === '')) {
         return false;
     }
-    warningMessage.style.display = "none";
     return true;
 };
 

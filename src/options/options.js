@@ -37,8 +37,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // STEP 1: Ensure TIMER form has valid values
         const formValidity = ctr.validateTimerFormValues();
+        vw.handleTimerFormError(formValidity);
         if (formValidity === false) {
-            // Generate RED (i.e. form fail message) toaster
             event.preventDefault();
         
         // STEP 2: Send a request to background.js to update timer settings

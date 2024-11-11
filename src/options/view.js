@@ -57,6 +57,27 @@ const resetTimerValues = () => {
 };
 
 /**
+ * @description Shows timer form message error given invalid inputs
+ * @param {Boolean} timerFormValidity `true` if the timer form is valid, `false` otherwise
+ */
+const handleTimerFormError = (timerFormValidity) => {
+
+    const hours = document.getElementById(ids.TIMER_HH);
+    const minutes = document.getElementById(ids.TIMER_MM);
+    const seconds = document.getElementById(ids.TIMER_SS);
+    const warningMessage = document.getElementById(ids.TIMER_FW);
+
+    if (timerFormValidity === false) {
+        warningMessage.style.display = "inline";
+        [hours, minutes, seconds].forEach((unit) => {
+            unit.style.borderColor = "#ff0000";
+        });
+    } else {
+        warningMessage.style.display = "none";
+    }
+}
+
+/**
  * @description Limits user input to 2 numbers to the input tag of type number
  * @param {String} timerValueId The ID of the input tag for the timer value
  */
@@ -70,5 +91,6 @@ export {
     openForm, 
     closeForm,
     resetTimerValues,
+    handleTimerFormError,
     sliceTimerFormValues,
 };
