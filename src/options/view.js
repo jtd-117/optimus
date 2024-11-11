@@ -1,6 +1,6 @@
 /**
- * @file controller.js
- * @description Serves as the controller for options.html
+ * @file view.js
+ * @description Handles logic for user interactions in options.html
  */
 
 import ids from "./selectors";
@@ -102,9 +102,9 @@ const handleTimerForm = async (dialogId, event) => {
     // STEP 2: Ask background.js to update timer
     const updateStatus = await ops.setTimerSettings();
     if (updateStatus === false) {
-        // Ask view.js to send a RED toaster
+        // Display a RED toaster
     } else {
-        // Ask view.js to send a RED toaster
+        // Display a GREEN toaster
     }
     closeForm(dialogId, event);
 };

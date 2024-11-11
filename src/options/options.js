@@ -5,7 +5,7 @@
 
 import "../scss/options-scss/options.scss";
 import ids from "./selectors";
-import * as ctr from "./controller";
+import * as vw from "./view";
 
 const initEventListeners = () => {
 
@@ -13,7 +13,7 @@ const initEventListeners = () => {
     const navBtns = document.getElementById(ids.NAV_BTNS).querySelectorAll("button");
     navBtns.forEach((navBtn) => {
         navBtn.addEventListener("click", () => {
-            ctr.handleNavDisplay(navBtn)
+            vw.handleNavDisplay(navBtn)
         });
     });
 
@@ -26,23 +26,23 @@ const initEventListeners = () => {
     const timerSeconds = document.getElementById(ids.TIMER_SS);
 
     timerEdit.addEventListener("click", (event) =>{
-        ctr.resetTimerValues();
-        ctr.openForm(ids.TIMER_F, event);
+        vw.resetTimerValues();
+        vw.openForm(ids.TIMER_F, event);
     });
     timerCancel.addEventListener("click", (event) => {
-        ctr.closeForm(ids.TIMER_F, event);
+        vw.closeForm(ids.TIMER_F, event);
     });
     timerSubmit.addEventListener("click", (event) => {
-        ctr.handleTimerForm(ids.TIMER_F, event);
+        vw.handleTimerForm(ids.TIMER_F, event);
     });
     timerHours.addEventListener("input", () => {
-        ctr.sliceTimerFormValues(ids.TIMER_HH);
+        vw.sliceTimerFormValues(ids.TIMER_HH);
     });
     timerMinutes.addEventListener("input", () => {
-        ctr.sliceTimerFormValues(ids.TIMER_MM);
+        vw.sliceTimerFormValues(ids.TIMER_MM);
     });
     timerSeconds.addEventListener("input", () => {
-        ctr.sliceTimerFormValues(ids.TIMER_SS);
+        vw.sliceTimerFormValues(ids.TIMER_SS);
     });
 
     // STEP 3: Block Settings Buttons
@@ -50,10 +50,10 @@ const initEventListeners = () => {
     const blockCancel = document.getElementById(ids.BLOCK_C)
 
     blockEdit.addEventListener("click", (event) => {
-        ctr.openForm(ids.BLOCK_F, event);
+        vw.openForm(ids.BLOCK_F, event);
     });
     blockCancel.addEventListener("click", (event) => {
-        ctr.closeForm(ids.BLOCK_F, event);
+        vw.closeForm(ids.BLOCK_F, event);
     });
 };
 
