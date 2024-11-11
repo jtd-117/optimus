@@ -15,7 +15,7 @@ const clientFiles = Object.freeze({
 chrome.runtime.onInstalled.addListener(async () => {
     const initStatus = await stg.initSettings();
     if (initStatus === null) {
-        console.error("Failed to save `defaultSettingsTemplate` in `chrome.storage.local`", error);
+        console.error("Failed to save `defaultSettingsTemplate` in `chrome.storage.local`");
     }
 });
 
