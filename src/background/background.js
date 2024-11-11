@@ -3,6 +3,7 @@
  * @description The backend of the Chrome extension that has access to Chrome APIs.
  */
 
+import { optionsOps } from "../options/controller";
 import * as stg from "./storage";
 
 const clientFiles = Object.freeze({
@@ -12,7 +13,10 @@ const clientFiles = Object.freeze({
 });
 
 chrome.runtime.onInstalled.addListener(async () => {
-    await stg.initSettings();
+    const initStatus = await stg.initSettings();
+    if (initStatus === null) {
+        console.error("Failed to save `defaultSettingsTemplate` in `chrome.storage.local`", error);
+    }
 });
 
 chrome.runtime.onMessage.addListener(async (message, sender, sendResponse) => {
@@ -23,15 +27,23 @@ chrome.runtime.onMessage.addListener(async (message, sender, sendResponse) => {
         
         // Message from content.js
         if (sender.url && sender.url.includes(clientFiles.CONTENT)) {
-            console.log(`Message from ${clientFiles.CONTENT}:`);
+
+            console.log(`Message from ${clientFiles.CONTENT}`);
         }
         // Message from popup.html
         if (sender.url && sender.url.includes(clientFiles.POPUP)) {
-            console.log(`Message from ${clientFiles.POPUP}:`);
+
+            console.log(`Message from ${clientFiles.POPUP}`);
         }
         // Message from options.html
         if (sender.url && sender.url.includes(clientFiles.OPTIONS)) {
-            console.log(`Message from ${clientFiles.OPTIONS}:`);
+            
+            if (message.operation === optionsOps.TIMER_S) {
+                const updateStatus = await stg.setSessionTimerSettings(message.data);
+                if (updateStatus === false) {
+                    console.error(console.error(`Failed to update ${key} settings in 'chrome.storage.local'`));
+                }
+            }
         }
     }
 });
