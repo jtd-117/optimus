@@ -328,7 +328,14 @@
                                         required
                                     />
                                 </div>
-                                <p id="timer-form-warning" hidden><span class="note">error:</span> ensure fields are all filled and not all zero</p>
+                                <div id="timer-form-warning" hidden>
+                                    <span class="note">error(s):</span>
+                                    <ul>
+                                        <li>Ensure all fields are filled and not all zero</li>
+                                        <li>Hours must have a minimum value of 0 and a maximum value 23</li>
+                                        <li>Minutes and Seconds must have a minimum value of 0 and a maximum value of 59</li>
+                                    </ul>
+                                </div>
                                 <div class="form-finish">
                                     <button id="timer-submit">Submit</button>
                                     <button
