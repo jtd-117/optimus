@@ -15,7 +15,7 @@ import asyncWrapper from "./utils";
 const makeMessage = (opName, opData = {}) => {
     return {
         operation: opName,
-        ...opData,
+        data: opData,
     };
 };
 
