@@ -36,10 +36,7 @@ const initSettings = async (settings = defaultSettingsTemplate) => {
 
     // NOTE: `settings` is validated in `options.js`
     const [,error] = await asyncWrapper(chrome.storage.local.set(settings));
-    if (error) {
-        console.error("Failed to save `settings` in `chrome.storage.local`", error);
-        return false;
-    }
+    if (error) return false;
     return true;
 };
 
@@ -50,10 +47,7 @@ const initSettings = async (settings = defaultSettingsTemplate) => {
  */
 const getLocalStorageWrapper = async (key) => {
     const [data, error] = await asyncWrapper(chrome.storage.local.get(key));
-    if (error) {
-        console.error(`Failed to retrieve ${key} settings from 'chrome.storage.local'`, error);
-        return null;
-    }
+    if (error) return null;
     return data[key];
 };
 
@@ -110,7 +104,8 @@ const setWebsiteBlockingSettings = async (blockingData) => {
     return setLocalStorageWrapper(settingsKeys.BLOCK, data);
 };
 
-export { 
+export {
+    defaultSettingsTemplate,
     settingsKeys,
     initSettings,
     getSessionTimerSettings,
