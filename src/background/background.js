@@ -19,7 +19,7 @@ chrome.runtime.onInstalled.addListener(async () => {
     }
 });
 
-chrome.runtime.onMessage.addListener(async (message, sender, sendResponse) => {
+chrome.runtime.onMessage.addListener(async (message, sender) => {
 
     // Only ACCEPT messages from Optimus extension components
     const optimusId = chrome.runtime.id;
