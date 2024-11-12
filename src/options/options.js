@@ -9,7 +9,7 @@ import ids from "./selectors";
 import * as vw from "./view";
 import * as ctr from "./controller";
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
 
     // STEP 1: Navigation buttons
     const navBtns = document.getElementById(ids.NAV_BTNS).querySelectorAll("button");
@@ -77,11 +77,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // STEP 4: Transfer settings buttons
 
 
-    // STEP 5: Retrieve and display timer settings
-    
-
-    // STEP 6: Retrieve and display blocking settings
-
+    // STEP 5: Retrieve and display timer and blocking settings
+    await ctr.getTimerSettingsRequest();
+    //await ctr.getBlockingSettingsRequest();
 });
 
 chrome.runtime.onMessage.addListener((message, sender) => {
