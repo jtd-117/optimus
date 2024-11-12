@@ -4,14 +4,9 @@
  */
 
 import { optionsOps } from "../options/controller";
+import keyFiles from "../scripts/key-files";
 import * as msg from "../scripts/messaging";
 import * as stg from "./storage";
-
-const clientFiles = Object.freeze({
-    CONTENT: "content.js",
-    POPUP: "popup.html",
-    OPTIONS: "options.html",
-});
 
 chrome.runtime.onInstalled.addListener(async () => {
     await stg.initSettings();
@@ -24,16 +19,16 @@ chrome.runtime.onMessage.addListener(async (message, sender) => {
     if (sender.id === optimusId) {
         
         // CASE 1: Message from content.js
-        if (sender.url && sender.url.includes(clientFiles.CONTENT)) {
+        if (sender.url && sender.url.includes(`${keyFiles.CT}.js`)) {
 
-            console.log(`Message received from ${clientFiles.CONTENT}`);
+            console.log(`Message received from ${keyFiles.CT}.js`);
 
             // CASE 1A: get website blocking settings
         }
         // CASE 2: Message from popup.html
-        if (sender.url && sender.url.includes(clientFiles.POPUP)) {
+        if (sender.url && sender.url.includes(`${keyFiles.PP}.html`)) {
 
-            console.log(`Message recieved from ${clientFiles.POPUP}`);
+            console.log(`Message recieved from ${keyFiles.PP}.html`);
 
             // CASE 2A: get session timer settings
 
@@ -44,7 +39,7 @@ chrome.runtime.onMessage.addListener(async (message, sender) => {
             // CASE 2C: set website blocking settings
         }
         // CASE 3: Message from options.html
-        if (sender.url && sender.url.includes(clientFiles.OPTIONS)) {
+        if (sender.url && sender.url.includes(`${keyFiles.OS}.html`)) {
             
             // CASE 3A: set session timer settings
             if (message.operation === optionsOps.TIMER_S) {
@@ -68,7 +63,7 @@ chrome.storage.onChanged.addListener(async (changes, namespace) => {
         
         // CASE A: Send updated session timer settings to options.js and popup.js UI
         if (key === stg.settingsKeys.TIMER) {
-            const [timerData, ] = await stg.getSessionTimerSettings();
+            const timerData = await stg.getSessionTimerSettings();
             await msg.sendMessage(optionsOps.TIMER_S, timerData);
             //await msg.sendMessage(popupOps. UNKNWON , timerData);
 
