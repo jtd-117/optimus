@@ -27,12 +27,9 @@ const makeMessage = (opName, opData = {}) => {
  * @returns {[Promise, Error]} A response, if any, sent by the target component
  * @link {https://developer.chrome.com/docs/extensions/reference/api/runtime#method-sendMessage}
  */
-const sendMessage = async (opName, opData, callBack = null) => {
+const sendMessage = async (opName, opData) => {
     const message = makeMessage(opName, opData);
-    if (!callBack) {
-        return await asyncWrapper(chrome.runtime.sendMessage(message));
-    }
-    return await asyncWrapper(chrome.runtime.sendMessage(message, callBack));
+    return await asyncWrapper(chrome.runtime.sendMessage(message));
 };
 
 export {
