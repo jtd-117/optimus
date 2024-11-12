@@ -40,6 +40,19 @@ const validateTimerFormValues = () => {
 };
 
 /**
+ * @description Sends a request to background.js to get timer settings
+ * @returns {Boolean} `true` if background.js sends timer settings, `false` otherwise
+ */
+const getTimerSettingsRequest = async () => {
+    const [, error] = await msg.sendMessage(optionsOps.TIMER_G, null);
+    if (error) {
+        console.error(`Failed to ${optionsOps.TIMER_G} in background.js`, error);
+        return false;
+    }
+    return true;
+}
+
+/**
  * @description Sends a request to background.js to update timer settings
  * @returns {Boolean} `true` if background.js successfully changed timer settings, `false` otherwise
  */
@@ -63,5 +76,6 @@ const setTimerSettingsRequest = async () => {
 export {
     optionsOps,
     validateTimerFormValues,
+    getTimerSettingsRequest,
     setTimerSettingsRequest,
 };
