@@ -4,6 +4,7 @@
  */
 
 import "../scss/options-scss/options.scss";
+import keyFiles from "../scripts/key-files";
 import ids from "./selectors";
 import * as vw from "./view";
 import * as ctr from "./controller";
@@ -83,8 +84,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-/* NOTE: Need to communicate with background.js to reflect settings changes
 chrome.runtime.onMessage.addListener((message, sender) => {
 
+    const optimusId = chrome.runtime.id;
+    if (sender.id === optimusId && sender.url && sender.url.includes(`${keyFiles.BD}.js`)) {
+        console.log(message.data);
+    }
 });
-*/
