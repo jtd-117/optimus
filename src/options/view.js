@@ -86,6 +86,31 @@ const sliceTimerFormValues = (timerValueId) => {
     timerValue.value = timerValue.value.slice(0, 2);
 };
 
+/**
+ * @description HELPER - Adds a zero to numbers less than 10 for session timer data
+ * @param {Object} timerData contains the keys hours, minutes and seconds
+ * @returns {Object} Same as `timerData` but key values are formatted as strings with an extra zero if needed
+ */
+const formatTimerData = (timerData) => {
+    return Object.fromEntries(
+        Object.entries(timerData).map(([key, value]) => [
+            key,
+            value < 10 ? String(value).padStart(2, '0') : String(value),
+        ])
+    );
+};
+
+/**
+ * @description Updates the display timer via timer settings retrieved from background.js
+ * @param {Object} timerData contains the keys hours, minutes and seconds
+ */
+const updateTimerDisplay = (timerData) => {
+    const timerDisplay = document.getElementById(ids.TIMER_D);
+    timerData = formatTimerData(timerData);
+    console.log(timerData);
+    timerDisplay.textContent = `${timerData.hours}:${timerData.minutes}:${timerData.seconds}`;
+};
+
 export {
     handleNavDisplay,
     openForm, 
@@ -93,4 +118,5 @@ export {
     resetTimerValues,
     handleTimerFormError,
     sliceTimerFormValues,
+    updateTimerDisplay,
 };
