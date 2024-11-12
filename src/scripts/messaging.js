@@ -23,7 +23,6 @@ const makeMessage = (opName, opData = {}) => {
  * @description Sends a message to another Chrome extension component
  * @param {string} opName The name of the operation to be sent to the target component
  * @param {Object} opData (optional) Any necessary data needed to perform `opName`
- * @param {function} callBack (optional) A callback to be used by the target component
  * @returns {[Promise, Error]} A response, if any, sent by the target component
  * @link {https://developer.chrome.com/docs/extensions/reference/api/runtime#method-sendMessage}
  */
