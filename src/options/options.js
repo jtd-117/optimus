@@ -76,6 +76,15 @@ document.addEventListener("DOMContentLoaded", () => {
     // STEP 4: Transfer settings buttons
 
 
-    // STEP 5: Retrieve and display timer and blocking settings
+    // STEP 5: Retrieve and display timer settings
+    
+
+    // STEP 6: Retrieve and display blocking settings
 
 });
+
+/* NOTE: Need to communicate with background.js to reflect settings changes
+chrome.runtime.onMessage.addListener((message, sender) => {
+
+});
+*/
