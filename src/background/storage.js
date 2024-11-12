@@ -62,7 +62,7 @@ const getLocalStorageWrapper = async (key) => {
  * @returns {Object} Contains the keys 'hours', 'minutes' and 'seconds'
  */
 const getSessionTimerSettings = async () => {
-    return getLocalStorageWrapper(settingsKeys.TIMER);
+    return await getLocalStorageWrapper(settingsKeys.TIMER);
 };
 
 /**
@@ -70,7 +70,7 @@ const getSessionTimerSettings = async () => {
  * @returns {Array<string>} Contains user-selected blocked website links as strings
  */
 const getWebsiteBlockingSettings = async () => {
-    return getLocalStorageWrapper(settingsKeys.BLOCK);
+    return await getLocalStorageWrapper(settingsKeys.BLOCK);
 };
 
 /**
@@ -81,7 +81,7 @@ const getWebsiteBlockingSettings = async () => {
  */
 const setLocalStorageWrapper = async (key, data) => {
 
-    // NOTE: `keyData` is validated in `options.js`
+    // NOTE: `data` is validated in `options.js`
     const [,error] = await asyncWrapper(chrome.storage.local.set(data));
     if (error) {
         console.error(`Failed to update '${key}' settings in 'chrome.storage.local'`, error);
