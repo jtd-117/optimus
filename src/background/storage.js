@@ -36,7 +36,10 @@ const initSettings = async (settings = defaultSettingsTemplate) => {
 
     // NOTE: `settings` is validated in `options.js`
     const [,error] = await asyncWrapper(chrome.storage.local.set(settings));
-    if (error) return false;
+    if (error) {
+        console.error(`Failed to set 'defaultSettingsTemplate' to 'chrome.storage.local'`, error);
+        return false;
+    }
     return true;
 };
 
@@ -47,7 +50,10 @@ const initSettings = async (settings = defaultSettingsTemplate) => {
  */
 const getLocalStorageWrapper = async (key) => {
     const [data, error] = await asyncWrapper(chrome.storage.local.get(key));
-    if (error) return null;
+    if (error) {
+        console.error(`Failed to get '${key}' settings from 'chrome.storage.local'`, error);
+        return null;
+    }
     return data[key];
 };
 
@@ -78,7 +84,7 @@ const setLocalStorageWrapper = async (key, data) => {
     // NOTE: `keyData` is validated in `options.js`
     const [,error] = await asyncWrapper(chrome.storage.local.set(data));
     if (error) {
-        console.error(`Failed to update ${key} settings in 'chrome.storage.local'`, error);
+        console.error(`Failed to update '${key}' settings in 'chrome.storage.local'`, error);
         return false;
     }
     return true;
