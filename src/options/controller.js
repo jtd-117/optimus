@@ -53,7 +53,7 @@ const setTimerSettingsRequest = async () => {
         minutes: mm,
         seconds: ss,
     };
-    const [, error] = await asyncWrapper(msg.sendMessage(optionsOps.TIMER_S, data));
+    const [, error] = await msg.sendMessage(optionsOps.TIMER_S, data);
     if (error) {
         console.error(`Failed to ${optionsOps.TIMER_S} in background.js`, error);
         return false;
