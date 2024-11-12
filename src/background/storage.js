@@ -4,7 +4,7 @@
  * @link {https://developer.chrome.com/docs/extensions/reference/api/storage}
  */
 
-import asyncWrapper from "../scripts/utils";
+import asyncWrapper from "../scripts/async-wrapper";
 
 /**
  * @description A template for timer and website blocking settings

@@ -4,7 +4,6 @@
  */
 
 import ids from "./selectors";
-import asyncWrapper from "../scripts/utils";
 import * as msg from "../scripts/messaging";
 
 /**

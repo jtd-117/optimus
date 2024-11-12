@@ -4,7 +4,7 @@
  * @link {https://developer.chrome.com/docs/extensions/develop/concepts/messaging}
  */
 
-import asyncWrapper from "./utils";
+import asyncWrapper from "./async-wrapper";
 
 /**
  * @description Makes a message object used by the sender
