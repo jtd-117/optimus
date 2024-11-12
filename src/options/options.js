@@ -88,6 +88,13 @@ chrome.runtime.onMessage.addListener((message, sender) => {
 
     const optimusId = chrome.runtime.id;
     if (sender.id === optimusId && sender.url && sender.url.includes(`${keyFiles.BD}.js`)) {
-        console.log(message.data);
+        
+        // CASE A: Update session timer display
+        if (message.operation === ctr.optionsOps.TIMER_S || 
+            message.operation === ctr.optionsOps.TIMER_G) {
+            vw.updateTimerDisplay(message.data);
+        }
+        // CASE B: Update the block list
+        
     }
 });
