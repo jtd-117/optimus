@@ -45,12 +45,12 @@ chrome.runtime.onMessage.addListener(async (message, sender) => {
             if (message.operation === optionsOps.TIMER_S) {
                 await stg.setSessionTimerSettings(message.data);
             }
-            
             // CASE 3B: get session timer settings
-
-
+            if (message.operation === optionsOps.TIMER_G) {
+                const timerData = await stg.getSessionTimerSettings();
+                await msg.sendMessage(optionsOps.TIMER_G, timerData);
+            }
             // CASE 3C: set website blocking settings
-
 
             // CASE 3D: get website blocking settings
         }
