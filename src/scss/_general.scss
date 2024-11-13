@@ -70,3 +70,20 @@ $display-border: 1px solid $fluro-yellow;
         padding-block-end: 5px;
     }
 }
+
+@mixin scrollbar-styles() {
+    &::-webkit-scrollbar {
+        margin-block-start: 10px;
+        inline-size: 10px;
+        block-size: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: gray;
+        border-radius: 10px;
+    }
+}

@@ -28,20 +28,7 @@
                 overflow-x: auto;
                 white-space: nowrap;
 
-                &::-webkit-scrollbar {
-                    margin-block-start: 10px;
-                    inline-size: 10px;
-                    block-size: 10px;
-                }
-
-                &::-webkit-scrollbar-track {
-                    background: transparent;
-                }
-
-                &::-webkit-scrollbar-thumb {
-                    background-color: gray;
-                    border-radius: 10px;
-                }
+                @include general.scrollbar-styles();
             }
 
             @include general.btn($size: 24px, $inline: 40px, $block: 40px);
