@@ -62,6 +62,23 @@
                     margin-block-start: 10px;
                 }
                 @include options-forms.finish();
+
+                details {
+                    max-width: 420px;
+                    margin-block-start: 10px;
+
+                    summary {
+                        margin-block: 5px;
+
+                        color: general.$white;
+                        font-size: general.$text-size;
+                    }
+                    
+                    ul#block-list {
+                        overflow-x: auto;
+                        @include general.scrollbar-styles();
+                    }
+                }
             }
         }
     }
