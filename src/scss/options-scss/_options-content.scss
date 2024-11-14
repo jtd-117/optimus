@@ -53,7 +53,8 @@
                 @include general.display();
                 h3#timer-display {
                     inline-size: fit-content;
-                    margin-bottom: 20px;
+                    margin-block-start: 5px;
+                    margin-block-end: 20px;
                 }
                 @include options-forms.all();
 
@@ -63,7 +64,7 @@
                 }
                 @include options-forms.finish();
 
-                details {
+                details#block-list-container {
                     max-width: 750px;
                     max-height: 460px;
                     padding: 0;
@@ -100,7 +101,7 @@
                     }
                 }
 
-                details[open] > summary {
+                details[open]#block-list-container > summary {
                     border-bottom: 1px solid general.$white;
                 }
             }
