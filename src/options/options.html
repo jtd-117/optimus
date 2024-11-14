@@ -300,16 +300,16 @@
                         >
                             Edit Timer
                         </button>
-                        <dialog id="timer-form">
+                        <dialog id="timer-edit-form">
                             <form method="dialog">
                                 <h3>Edit Timer Settings:</h3>
                                 <p>
                                     Click the 'Submit' button to update timer settings.
                                 </p>
                                 <div class="form-container">
-                                    <label for="timer-form-hours">HOUR(S):<span class="note">*</span></label>
+                                    <label for="timer-edit-hours">HOUR(S):<span class="note">*</span></label>
                                     <input
-                                        id="timer-form-hours"
+                                        id="timer-edit-hours"
                                         type="number"
                                         min="0"
                                         max="23"
@@ -318,9 +318,9 @@
                                     />
                                 </div>
                                 <div class="form-container">
-                                    <label for="timer-form-minutes">MINUTE(S):<span class="note">*</span></label>
+                                    <label for="timer-edit-minutes">MINUTE(S):<span class="note">*</span></label>
                                     <input
-                                        id="timer-form-minutes"
+                                        id="timer-edit-minutes"
                                         type="number"
                                         min="0"
                                         max="59"
@@ -329,9 +329,9 @@
                                     />
                                 </div>
                                 <div class="form-container">
-                                    <label for="timer-form-seconds">SECOND(S):<span class="note">*</span></label>
+                                    <label for="timer-edit-seconds">SECOND(S):<span class="note">*</span></label>
                                     <input
-                                        id="timer-form-seconds"
+                                        id="timer-edit-seconds"
                                         type="number"
                                         min="0"
                                         max="59"
@@ -339,7 +339,7 @@
                                         required
                                     />
                                 </div>
-                                <div id="timer-form-warning" hidden>
+                                <div id="timer-edit-warning" hidden>
                                     <span class="note">error(s):</span>
                                     <ul>
                                         <li>Ensure <span class="note">all</span> fields are <span class="note">filled</span></li>
@@ -350,9 +350,9 @@
                                     </ul>
                                 </div>
                                 <div class="form-finish">
-                                    <button id="timer-form-submit">Submit</button>
+                                    <button id="timer-edit-submit">Submit</button>
                                     <button
-                                        id="timer-form-cancel"
+                                        id="timer-edit-cancel"
                                         formmethod="dialog"
                                     >
                                         Cancel
@@ -394,7 +394,7 @@
                         >
                             Edit Block List
                         </button>
-                        <dialog id="block-form">
+                        <dialog id="block-edit-form">
                             <form method="dialog">
                                 <h3>Edit Blocked Website(s):</h3>
                                 <p>
@@ -437,14 +437,14 @@
                                     list:
                                 </p>
                                 <textarea
-                                    id="block-list"
+                                    id="block-list-edit"
                                     rows="4"
                                     cols="60"
                                 ></textarea>
                                 <div class="form-finish">
-                                    <button id="block-form-submit">Submit</button>
+                                    <button id="block-edit-submit">Submit</button>
                                     <button
-                                        id="block-form-cancel"
+                                        id="block-edit-cancel"
                                         formmethod="dialog"
                                     >
                                         Cancel

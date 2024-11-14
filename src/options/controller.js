@@ -26,9 +26,9 @@ const optionsOps = Object.freeze({
  * @returns {Boolean} `true` if the timer valid, `false` otherwise
  */
 const validateTimerFormValues = () => {
-    const hh = document.getElementById(ids.TIMER_F_HH).value;
-    const mm = document.getElementById(ids.TIMER_F_MM).value;
-    const ss = document.getElementById(ids.TIMER_F_SS).value;
+    const hh = document.getElementById(ids.TIMER_E_HH).value;
+    const mm = document.getElementById(ids.TIMER_E_MM).value;
+    const ss = document.getElementById(ids.TIMER_E_SS).value;
 
     if ((+hh === 0 && +mm === 0 && +ss === 0) || (hh === '' || mm === '' || ss === '') || 
         (+hh > 23 || +hh < 0) || (+mm > 59 || +mm < 0) || (+ss > 59 || +ss < 0)) {
