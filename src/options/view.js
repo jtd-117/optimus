@@ -107,7 +107,6 @@ const formatTimerData = (timerData) => {
 const updateTimerDisplay = (timerData) => {
     const timerDisplay = document.getElementById(ids.TIMER_D);
     timerData = formatTimerData(timerData);
-    console.log(timerData);
     timerDisplay.textContent = `${timerData.hours}:${timerData.minutes}:${timerData.seconds}`;
 };
 
