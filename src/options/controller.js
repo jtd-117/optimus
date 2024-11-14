@@ -52,17 +52,10 @@ const getTimerSettingsRequest = async () => {
 
 /**
  * @description Sends a request to background.js to update timer settings
+ * @param {Object} data the new timer settings with fields hours, minutes and seconds 
  * @returns {Boolean} `true` if background.js successfully changed timer settings, `false` otherwise
  */
-const setTimerSettingsRequest = async () => {
-    const hh = document.getElementById(ids.TIMER_F_HH).value;
-    const mm = document.getElementById(ids.TIMER_F_MM).value;
-    const ss = document.getElementById(ids.TIMER_F_SS).value;
-    const data = {
-        hours: hh,
-        minutes: mm,
-        seconds: ss,
-    };
+const setTimerSettingsRequest = async (data) => {
     const [, error] = await msg.sendMessage(optionsOps.TIMER_S, data);
     if (error) {
         console.error(`Failed to ${optionsOps.TIMER_S} in background.js`, error);

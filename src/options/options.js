@@ -8,6 +8,7 @@ import keyFiles from "../scripts/key-files";
 import ids from "./selectors";
 import * as vw from "./view";
 import * as ctr from "./controller";
+import { defaultSettingsTemplate } from "../background/storage";
 
 document.addEventListener("DOMContentLoaded", async () => {
 
@@ -26,6 +27,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const timerFormSeconds = document.getElementById(ids.TIMER_F_SS);
     const timerFormSubmit = document.getElementById(ids.TIMER_F_S);
     const timerFormCancel = document.getElementById(ids.TIMER_F_C);
+    const timerReset = document.getElementById(ids.TIMER_R);
 
     timerEdit.addEventListener("click", (event) =>{
         vw.resetTimerValues();
@@ -44,7 +46,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         
         // STEP 2: Send a request to background.js to update timer settings
         } else {
-            const submitStatus = await ctr.setTimerSettingsRequest();
+            const submitStatus = await ctr.setTimerSettingsRequest({
+                hours: timerFormHours.value,
+                minutes: timerFormMinutes.value,
+                seconds: timerFormSeconds.value,
+            });
             vw.closeForm(ids.TIMER_F, event);
             if (submitStatus) {
                 // Generate a GREEN (i.e. submit success message) toaster
