@@ -48,9 +48,9 @@ const closeForm = (dialogId, event) => {
  * @description Resets the timer form values after submission
  */
 const resetTimerValues = () => {
-    const hours = document.getElementById(ids.TIMER_HH);
-    const minutes = document.getElementById(ids.TIMER_MM);
-    const seconds = document.getElementById(ids.TIMER_SS);
+    const hours = document.getElementById(ids.TIMER_F_HH);
+    const minutes = document.getElementById(ids.TIMER_F_MM);
+    const seconds = document.getElementById(ids.TIMER_F_SS);
     hours.value = '';
     minutes.value = '';
     seconds.value = '';
@@ -62,10 +62,10 @@ const resetTimerValues = () => {
  */
 const handleTimerFormError = (timerFormValidity) => {
 
-    const hours = document.getElementById(ids.TIMER_HH);
-    const minutes = document.getElementById(ids.TIMER_MM);
-    const seconds = document.getElementById(ids.TIMER_SS);
-    const warningMessage = document.getElementById(ids.TIMER_FW);
+    const hours = document.getElementById(ids.TIMER_F_HH);
+    const minutes = document.getElementById(ids.TIMER_F_MM);
+    const seconds = document.getElementById(ids.TIMER_F_SS);
+    const warningMessage = document.getElementById(ids.TIMER_F_W);
 
     if (timerFormValidity === false) {
         warningMessage.style.display = "inline";

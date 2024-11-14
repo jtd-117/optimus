@@ -283,7 +283,7 @@
                         <p>
                             Below is a <span class="note">preview</span> of the popup timer using the 
                             <span class="note">current</span> settings formatted
-                            as <span class="note">hours</span>:<span class="note">minutes</span>:<span class="note">seconds</span>.
+                            as <span class="note">hours:minutes:seconds</span>.
                         </p>
                         <h3 id="timer-display" aria-label="timer display">
                             hh:mm:ss
@@ -307,9 +307,9 @@
                                     Click the 'Submit' button to update timer settings.
                                 </p>
                                 <div class="form-container">
-                                    <label for="timer-hours">HOUR(S):<span class="note">*</span></label>
+                                    <label for="timer-form-hours">HOUR(S):<span class="note">*</span></label>
                                     <input
-                                        id="timer-hours"
+                                        id="timer-form-hours"
                                         type="number"
                                         min="0"
                                         max="23"
@@ -318,9 +318,9 @@
                                     />
                                 </div>
                                 <div class="form-container">
-                                    <label for="timer-minutes">MINUTE(S):<span class="note">*</span></label>
+                                    <label for="timer-form-minutes">MINUTE(S):<span class="note">*</span></label>
                                     <input
-                                        id="timer-minutes"
+                                        id="timer-form-minutes"
                                         type="number"
                                         min="0"
                                         max="59"
@@ -329,9 +329,9 @@
                                     />
                                 </div>
                                 <div class="form-container">
-                                    <label for="timer-seconds">SECOND(S):<span class="note">*</span></label>
+                                    <label for="timer-form-seconds">SECOND(S):<span class="note">*</span></label>
                                     <input
-                                        id="timer-seconds"
+                                        id="timer-form-seconds"
                                         type="number"
                                         min="0"
                                         max="59"
@@ -350,9 +350,9 @@
                                     </ul>
                                 </div>
                                 <div class="form-finish">
-                                    <button id="timer-submit">Submit</button>
+                                    <button id="timer-form-submit">Submit</button>
                                     <button
-                                        id="timer-cancel"
+                                        id="timer-form-cancel"
                                         formmethod="dialog"
                                     >
                                         Cancel
@@ -442,9 +442,9 @@
                                     cols="60"
                                 ></textarea>
                                 <div class="form-finish">
-                                    <button id="block-submit">Submit</button>
+                                    <button id="block-form-submit">Submit</button>
                                     <button
-                                        id="block-cancel"
+                                        id="block-form-cancel"
                                         formmethod="dialog"
                                     >
                                         Cancel
@@ -491,8 +491,8 @@
                             Restore <span class="note">both</span> the session timer and website blocking list to their <span class="note">default</span> settings:
                         </p>
                         <ul>
-                            <li>25 <span class="note">minute</span> timer</li>
-                            <li><span class="note">remove all</span> blocked websites from the list</li>
+                            <li>25 minute session timer</li>
+                            <li>Remove all blocked websites from the block list</li>
                         </ul>
                         <button id="total-reset">Reset Settings</button>
                     </section>

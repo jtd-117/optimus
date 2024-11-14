@@ -12,15 +12,13 @@ import * as msg from "../scripts/messaging";
 const optionsOps = Object.freeze({
     TIMER_S: "set-timer-settings",
     TIMER_G: "get-timer-settings",
-    TIMER_R: "reset-timer-settings",
 
     BLOCK_S: "set-blocking-settings",
     BLOCK_G: "get-blocking-settings",
-    BLOCK_R: "reset-blocking-settings",
 
     EXPORT: "export-settings",
     IMPORT: "import-settings",
-    TOTAL_R: "total-reset",
+    SETTINGS_TR: "total-reset",
 });
 
 /**
@@ -28,9 +26,9 @@ const optionsOps = Object.freeze({
  * @returns {Boolean} `true` if the timer valid, `false` otherwise
  */
 const validateTimerFormValues = () => {
-    const hh = document.getElementById(ids.TIMER_HH).value;
-    const mm = document.getElementById(ids.TIMER_MM).value;
-    const ss = document.getElementById(ids.TIMER_SS).value;
+    const hh = document.getElementById(ids.TIMER_F_HH).value;
+    const mm = document.getElementById(ids.TIMER_F_MM).value;
+    const ss = document.getElementById(ids.TIMER_F_SS).value;
 
     if ((+hh === 0 && +mm === 0 && +ss === 0) || (hh === '' || mm === '' || ss === '') || 
         (+hh > 23 || +hh < 0) || (+mm > 59 || +mm < 0) || (+ss > 59 || +ss < 0)) {
@@ -57,9 +55,9 @@ const getTimerSettingsRequest = async () => {
  * @returns {Boolean} `true` if background.js successfully changed timer settings, `false` otherwise
  */
 const setTimerSettingsRequest = async () => {
-    const hh = document.getElementById(ids.TIMER_HH).value;
-    const mm = document.getElementById(ids.TIMER_MM).value;
-    const ss = document.getElementById(ids.TIMER_SS).value;
+    const hh = document.getElementById(ids.TIMER_F_HH).value;
+    const mm = document.getElementById(ids.TIMER_F_MM).value;
+    const ss = document.getElementById(ids.TIMER_F_SS).value;
     const data = {
         hours: hh,
         minutes: mm,

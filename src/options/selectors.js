@@ -7,24 +7,28 @@
  * @description An enum of IDs used in the options.html
  */
 const ids = Object.freeze({
-    TIMER_E: "timer-edit",
-    TIMER_S: "timer-submit",
-    TIMER_C: "timer-cancel",
-    TIMER_F: "timer-form",
-    TIMER_FW: "timer-form-warning",
+
     TIMER_D: "timer-display",
+    TIMER_E: "timer-edit",
+    TIMER_F: "timer-form",
+    TIMER_F_HH: "timer-form-hours",
+    TIMER_F_MM: "timer-form-minutes",
+    TIMER_F_SS: "timer-form-seconds",
+    TIMER_F_W: "timer-form-warning",
+    TIMER_F_S: "timer-form-submit",
+    TIMER_F_C: "timer-form-cancel",
+    TIMER_R: "timer-reset",
 
-    TIMER_HH: "timer-hours",
-    TIMER_MM: "timer-minutes",
-    TIMER_SS: "timer-seconds",
-
+    BLOCK_L: "block-list",
     BLOCK_E: "block-edit",
-    BLOCK_S: "block-submit",
-    BLOCK_C: "block-cancel",
     BLOCK_F: "block-form",
+    BLOCK_F_S: "block-form-submit",
+    BLOCK_F_C: "block-form-cancel",
+    BLOCK_R: "block-reset",
 
     EXPORT_S: "export-submit",
     IMPORT_S: "import-submit",
+    SETTINGS_TR: "total-reset",
 
     NAV_BTNS: "nav-btns",
 });

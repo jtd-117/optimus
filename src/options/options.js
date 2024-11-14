@@ -21,20 +21,20 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // STEP 2: Timer settings buttons
     const timerEdit = document.getElementById(ids.TIMER_E);
-    const timerSubmit = document.getElementById(ids.TIMER_S);
-    const timerCancel = document.getElementById(ids.TIMER_C);
-    const timerHours = document.getElementById(ids.TIMER_HH);
-    const timerMinutes = document.getElementById(ids.TIMER_MM);
-    const timerSeconds = document.getElementById(ids.TIMER_SS);
+    const timerFormHours = document.getElementById(ids.TIMER_F_HH);
+    const timerFormMinutes = document.getElementById(ids.TIMER_F_MM);
+    const timerFormSeconds = document.getElementById(ids.TIMER_F_SS);
+    const timerFormSubmit = document.getElementById(ids.TIMER_F_S);
+    const timerFormCancel = document.getElementById(ids.TIMER_F_C);
 
     timerEdit.addEventListener("click", (event) =>{
         vw.resetTimerValues();
         vw.openForm(ids.TIMER_F, event);
     });
-    timerCancel.addEventListener("click", (event) => {
+    timerFormCancel.addEventListener("click", (event) => {
         vw.closeForm(ids.TIMER_F, event);
     });
-    timerSubmit.addEventListener("click", async (event) => {
+    timerFormSubmit.addEventListener("click", async (event) => {
 
         // STEP 1: Ensure TIMER form has valid values
         const formValidity = ctr.validateTimerFormValues();
@@ -53,33 +53,32 @@ document.addEventListener("DOMContentLoaded", async () => {
             }
         }
     });
-    timerHours.addEventListener("input", () => {
-        vw.sliceTimerFormValues(ids.TIMER_HH);
+    timerFormHours.addEventListener("input", () => {
+        vw.sliceTimerFormValues(ids.TIMER_F_HH);
     });
-    timerMinutes.addEventListener("input", () => {
-        vw.sliceTimerFormValues(ids.TIMER_MM);
+    timerFormMinutes.addEventListener("input", () => {
+        vw.sliceTimerFormValues(ids.TIMER_F_MM);
     });
-    timerSeconds.addEventListener("input", () => {
-        vw.sliceTimerFormValues(ids.TIMER_SS);
+    timerFormSeconds.addEventListener("input", () => {
+        vw.sliceTimerFormValues(ids.TIMER_F_SS);
     });
 
     // STEP 3: Block settings buttons
     const blockEdit = document.getElementById(ids.BLOCK_E);
-    const blockCancel = document.getElementById(ids.BLOCK_C)
+    const blockFormCancel = document.getElementById(ids.BLOCK_F_C)
 
     blockEdit.addEventListener("click", (event) => {
         vw.openForm(ids.BLOCK_F, event);
     });
-    blockCancel.addEventListener("click", (event) => {
+    blockFormCancel.addEventListener("click", (event) => {
         vw.closeForm(ids.BLOCK_F, event);
     });
 
-    // STEP 4: Transfer settings buttons
-
-
-    // STEP 5: Retrieve and display timer and blocking settings
+    // STEP 4: Retrieve and display timer and blocking settings
     await ctr.getTimerSettingsRequest();
     //await ctr.getBlockingSettingsRequest();
+
+    // STEP 5: Transfer settings buttons
 });
 
 chrome.runtime.onMessage.addListener((message, sender) => {
