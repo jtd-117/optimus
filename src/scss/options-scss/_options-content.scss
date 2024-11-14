@@ -64,20 +64,44 @@
                 @include options-forms.finish();
 
                 details {
-                    max-width: 420px;
-                    margin-block-start: 10px;
+                    max-width: 750px;
+                    max-height: 460px;
+                    padding: 0;
+                    margin-block-start: 5px;
+                    overflow-y: auto;
+                    @include general.scrollbar-styles();
 
                     summary {
-                        margin-block: 5px;
+                        inline-size: 100%;
+                        padding: 10px;
 
                         color: general.$white;
                         font-size: general.$text-size;
+
+                        background-color: general.$light-gray;
+                        position: sticky;
+                        top: 0;
                     }
                     
                     ul#block-list {
+                        padding-block: 10px;
+                        margin-inline-end: 10px;
                         overflow-x: auto;
                         @include general.scrollbar-styles();
                     }
+
+                    @media (max-width: 1200px) {
+                        max-width: 60vw;
+                    }
+
+                    @media (max-width: 650px) {
+                        max-width: 90vw;
+                        max-height: 400px;
+                    }
+                }
+
+                details[open] > summary {
+                    border-bottom: 1px solid general.$white;
                 }
             }
         }
