@@ -1,8 +1,8 @@
 @use "../../../node_modules/scss-reset/reset";
 @use "../general";
-@use "./popup-header";
-@use "./popup-timer";
-@use "./popup-block";
+@use "./header";
+@use "./timer";
+@use "./block";
 
 body {
     inline-size: 360px;
@@ -13,7 +13,7 @@ body {
 
     font-family: "monomaniac-one", sans-serif;
 
-    @include popup-header.header;
-    @include popup-timer.timer;
-    @include popup-block.block;
+    @include header.content;
+    @include timer.content;
+    @include block.content;
 }

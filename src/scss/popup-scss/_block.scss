@@ -1,7 +1,7 @@
 @use "../general";
 @use "../flexbox";
 
-@mixin block {
+@mixin content {
     section.popup.block {
         @include general.section-items($padding-y: 10px);
         @include flexbox.center(column);

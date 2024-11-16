@@ -3,7 +3,7 @@
 
 $nav-btn-size: 24px;
 
-@mixin header {
+@mixin content {
     header.popup {
         @include general.section-items();
 
