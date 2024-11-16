@@ -3,43 +3,45 @@
  * @description The backend of the Chrome extension that has access to Chrome APIs.
  */
 
-import { optionsOps } from "../options/controller";
-import keyFiles from "../scripts/key-files";
-import * as msg from "../scripts/messaging";
+import optionsOps from "../options/controller/operations";
+import sendMessage from "../scripts/messaging";
+import * as files from "../scripts/files";
+
 import * as stg from "./storage";
 
 chrome.runtime.onInstalled.addListener(async () => {
-    await stg.initSettings();
+    const initStatus = await stg.initSettings();
 });
+
 
 chrome.runtime.onMessage.addListener(async (message, sender) => {
 
     // Only ACCEPT messages from Optimus extension components
     const optimusId = chrome.runtime.id;
-    if (sender.id === optimusId) {
+    if (sender.id === optimusId && sender.url) {
         
         // CASE 1: Message from content.js
-        if (sender.url && sender.url.includes(`${keyFiles.CT}.js`)) {
+        if (sender.url.includes(files.scripts.CT)) {
 
-            console.log(`Message received from ${keyFiles.CT}.js`);
+            console.log(`Message received from ${files.scripts.CT}`);
 
-            // CASE 1A: get website blocking settings
+            // CASE 1A: get session timer settings
+
         }
         // CASE 2: Message from popup.html
-        if (sender.url && sender.url.includes(`${keyFiles.PP}.html`)) {
+        if (sender.url.includes(files.markup.PP)) {
 
-            console.log(`Message recieved from ${keyFiles.PP}.html`);
+            console.log(`Message received from ${files.markup.PP}`);
 
             // CASE 2A: get session timer settings
 
-
             // CASE 2B: get website blocking settings
 
-
             // CASE 2C: set website blocking settings
+
         }
         // CASE 3: Message from options.html
-        if (sender.url && sender.url.includes(`${keyFiles.OS}.html`)) {
+        if (sender.url.includes(files.markup.OS)) {
             
             // CASE 3A: set session timer settings
             if (message.operation === optionsOps.TIMER_S) {
@@ -48,27 +50,26 @@ chrome.runtime.onMessage.addListener(async (message, sender) => {
             // CASE 3B: get session timer settings
             if (message.operation === optionsOps.TIMER_G) {
                 const timerData = await stg.getSessionTimerSettings();
-                await msg.sendMessage(optionsOps.TIMER_G, timerData);
+                await sendMessage(optionsOps.TIMER_G, timerData);
             }
             // CASE 3C: set website blocking settings
 
             // CASE 3D: get website blocking settings
+
         }
     }
 });
 
 chrome.storage.onChanged.addListener(async (changes, namespace) => {
 
-    for (let [key, ] of Object.entries(changes)) {
+    for (let [key, {oldValue, newValue}] of Object.entries(changes)) {
         
         // CASE A: Send updated session timer settings to options.js and popup.js UI
         if (key === stg.settingsKeys.TIMER) {
             const timerData = await stg.getSessionTimerSettings();
-            await msg.sendMessage(optionsOps.TIMER_S, timerData);
-            //await msg.sendMessage(popupOps. UNKNWON , timerData);
-
-        // CASE B: Send updated website blocking settings to options.js UI
+            await sendMessage(optionsOps.TIMER_S, timerData);
         }
-
+        // CASE B: Send updated website blocking settings to options.js UI
+        
     }
 });
