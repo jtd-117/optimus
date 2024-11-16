@@ -1,7 +1,7 @@
 @use "../../../node_modules/scss-reset/reset";
-@use "./options-header";
-@use "./options-main";
 @use "../general";
+@use "./header";
+@use "./main";
 
 body {
     display: flex;
@@ -10,8 +10,8 @@ body {
     color: general.$white;
     background-color: general.$dark-gray;
 
-    @include options-header.header();
-    @include options-main.main();
+    @include header.content();
+    @include main.content();
 }
 
 ol,

@@ -1,6 +1,6 @@
 @use "../../general";
 @use "../../flexbox";
-@use "./options-forms";
+@use "./forms";
 
 @mixin content {
     section#content {
@@ -56,13 +56,13 @@
                     margin-block-start: 5px;
                     margin-block-end: 20px;
                 }
-                @include options-forms.all();
+                @include forms.all();
 
                 @include general.btn($inline: 140px);
                 button {
                     margin-block-start: 10px;
                 }
-                @include options-forms.finish();
+                @include forms.finish();
 
                 details#block-list-container {
                     max-width: 750px;

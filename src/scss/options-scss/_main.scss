@@ -1,14 +1,14 @@
-@use "./options-nav";
-@use "./content/options-content";
+@use "./nav";
+@use "./content/content";
 
-@mixin main {
+@mixin content {
     main.options {
         display: flex;
         flex-flow: row nowrap;
         flex: 1;
 
-        @include options-nav.nav();
-        @include options-content.content();
+        @include nav.content();
+        @include content.content();
 
         @media (max-width: 650px) {
             flex-flow: column wrap;
