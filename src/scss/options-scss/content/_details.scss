@@ -1,21 +1,37 @@
 @use "../../general";
 @use "../../flexbox";
 
-@mixin manual {
+@mixin common($summary-color: general.$white, $summary-font-size: general.$text-size) {
     details {
-        inline-size: 100%;
-        padding-inline: 10px;
-        padding-block: 5px;
-        margin-block-end: 10px;
-
+        padding: 0;
         background-color: general.$light-gray;
         border-right: 1px solid general.$white;
         border-bottom: 1px solid general.$white;
 
         summary {
-            color: general.$fluro-yellow;
-            font-size: general.$sub-header-size;
+                inline-size: 100%;
+                padding: 10px;
+
+                color: $summary-color;
+                font-size: $summary-font-size;
+                
+                background-color: general.$light-gray;
+                position: sticky;
+                top: 0;
         }
+    }
+
+    details[open] > summary {
+        border-bottom: 1px solid general.$white;
+    }
+}
+
+@mixin manual {
+    @include common($summary-color: general.$fluro-yellow, $summary-font-size: general.$sub-header-size);
+
+    details {
+        inline-size: 100%;
+        margin-block: 15px;
 
         section {
             padding-inline: 20px;
@@ -24,30 +40,14 @@
 }
 
 @mixin block-list {
+    @include common();
+
     details#block-list-container {
         max-width: 750px;
         max-height: 460px;
-        padding: 0;
         margin-block-start: 5px;
         overflow-y: auto;
-
-        background-color: general.$light-gray;
-        border-right: 1px solid general.$white;
-        border-bottom: 1px solid general.$white;
-
         @include general.scrollbar-styles();
-
-        summary {
-            inline-size: 100%;
-            padding: 10px;
-
-            color: general.$white;
-            font-size: general.$text-size;
-
-            background-color: general.$light-gray;
-            position: sticky;
-            top: 0;
-        }
 
         ul#block-list {
             padding-block: 10px;
@@ -65,8 +65,28 @@
             max-height: 400px;
         }
     }
+}
 
-    details[open]#block-list-container > summary {
-        border-bottom: 1px solid general.$white;
+@mixin block-list-edit {
+    @include common();
+
+    details {
+        margin-block: 10px;
+
+        summary {
+            color: general.$white;
+            font-size: general.$text-size;
+        }
+
+        ul {
+            block-size: 80px;
+            margin-block: 10px;
+            overflow-y: auto;
+            @include general.scrollbar-styles();
+
+            li {
+                color: general.$white;
+            }
+        }
     }
 }

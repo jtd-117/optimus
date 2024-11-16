@@ -1,6 +1,8 @@
 @use "../../general";
 @use "../../flexbox";
 
+@use "./details";
+
 @mixin common {
     dialog {
         @include general.section-items();
@@ -82,29 +84,11 @@
     
     dialog#block-edit-form {
         form {
-            details {
-                padding-inline: 10px;
-                padding-block: 5px;
-                margin-block: 10px;
-                background-color: general.$light-gray;
-                border-right: 1px solid general.$white;
-                border-bottom: 1px solid general.$white;
-
-                summary {
-                    color: general.$white;
-                    font-size: general.$text-size;
-                }
-
-                ul {
-                    li {
-                        color: general.$white;
-                    }
-                }
-            }
+            @include details.block-list-edit();
 
             textarea {
                 inline-size: 100%;
-                min-height: calc(4 * general.$sub-header-size);
+                min-height: calc(6 * general.$sub-header-size);
                 max-height: calc(6 * general.$sub-header-size);
                 padding: 10px;
                 margin-block: 10px;

@@ -18,8 +18,7 @@
 
             border-bottom: 2px solid general.$fluro-purple;
 
-            @media (max-width: 650px) {
-                text-align: center;
+            @media (max-width: 450px) {
                 border-bottom: none;
             }
         }
