@@ -1,5 +1,5 @@
 @use "./options-nav";
-@use "./options-content";
+@use "./content/options-content";
 
 @mixin main {
     main.options {

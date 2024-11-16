@@ -1,5 +1,5 @@
-@use "../general";
-@use "../flexbox";
+@use "../../general";
+@use "../../flexbox";
 
 @mixin all {
     dialog {
@@ -20,7 +20,7 @@
         }
     }
 
-    dialog#timer-form {
+    dialog#timer-edit-form {
         form {
             div.form-container {
                 margin-inline: 5px;
@@ -63,7 +63,7 @@
         }
     }
 
-    dialog#block-form {
+    dialog#block-edit-form {
         form {
             details {
                 padding-inline: 10px;
