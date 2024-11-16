@@ -7,7 +7,7 @@
 import asyncWrapper from "./async-wrapper";
 
 /**
- * @description Makes a message object used by the sender
+ * @description HELPER - Makes a message object used by the sender
  * @param {string} opName The name of the operation to be sent to the target component
  * @param {Object} opData (optional) Any necessary data needed to perform `opName`
  * @returns {Object} The message to be sent via the chrome.runtime API
@@ -31,7 +31,4 @@ const sendMessage = async (opName, opData) => {
     return await asyncWrapper(chrome.runtime.sendMessage(message));
 };
 
-export {
-    makeMessage,
-    sendMessage,
-};
+export default sendMessage;
