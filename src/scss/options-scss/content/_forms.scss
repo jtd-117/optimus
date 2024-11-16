@@ -1,7 +1,7 @@
 @use "../../general";
 @use "../../flexbox";
 
-@mixin all {
+@mixin common {
     dialog {
         @include general.section-items();
         color: general.$white;
@@ -13,12 +13,25 @@
                 color: general.$fluro-yellow;
                 font-size: general.$sub-header-size;
             }
+
+            div.form-finish {
+                display: flex;
+                flex-flow: row wrap;
+
+                button:nth-child(1) {
+                    margin-inline-end: 10px;
+                }
+            }
         }
 
         &::backdrop {
             background-color: rgba(0, 0, 0, 0.8);
         }
     }
+}
+
+@mixin session-timer {
+    @include common();
 
     dialog#timer-edit-form {
         form {
@@ -62,7 +75,11 @@
             }
         }
     }
+}
 
+@mixin website-blocking {
+    @include common();
+    
     dialog#block-edit-form {
         form {
             details {
@@ -103,17 +120,6 @@
 
                 line-height: calc(1.05 * general.$sub-header-size);
             }
-        }
-    }
-}
-
-@mixin finish {
-    div.form-finish {
-        display: flex;
-        flex-flow: row wrap;
-
-        button:nth-child(1) {
-            margin-inline-end: 10px;
         }
     }
 }

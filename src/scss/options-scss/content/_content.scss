@@ -2,6 +2,8 @@
 @use "../../flexbox";
 @use "./forms";
 
+@use "./articles";
+
 @mixin content {
     section#content {
         @include flexbox.center($direction: column);
@@ -11,100 +13,9 @@
 
         @include general.section-items($padding-x: 5%, $padding-y: 20px);
 
-        article {
-            inline-size: 100%;
-            max-width: 1000px;
-
-            h1 {
-                inline-size: fit-content;
-
-                color: general.$fluro-purple;
-                font-size: general.$main-header-size;
-                text-transform: uppercase;
-
-                border-bottom: 2px solid general.$fluro-purple;
-            }
-
-            details > summary,
-            section > h2 {
-                color: general.$fluro-yellow;
-                font-size: general.$sub-header-size;
-            }
-
-            details {
-                inline-size: 100%;
-                padding-inline: 10px;
-                padding-block: 5px;
-                margin-block-end: 10px;
-
-                background-color: general.$light-gray;
-                border-right: 1px solid general.$white;
-                border-bottom: 1px solid general.$white;
-
-                section {
-                    padding-inline: 20px;
-                }
-            }
-
-            section {
-                margin-block: 20px;
-                font-size: general.$text-size;
-
-                @include general.display();
-                h3#timer-display {
-                    inline-size: fit-content;
-                    margin-block-start: 5px;
-                    margin-block-end: 20px;
-                }
-                @include forms.all();
-
-                @include general.btn($inline: 140px);
-                button {
-                    margin-block-start: 10px;
-                }
-                @include forms.finish();
-
-                details#block-list-container {
-                    max-width: 750px;
-                    max-height: 460px;
-                    padding: 0;
-                    margin-block-start: 5px;
-                    overflow-y: auto;
-                    @include general.scrollbar-styles();
-
-                    summary {
-                        inline-size: 100%;
-                        padding: 10px;
-
-                        color: general.$white;
-                        font-size: general.$text-size;
-
-                        background-color: general.$light-gray;
-                        position: sticky;
-                        top: 0;
-                    }
-                    
-                    ul#block-list {
-                        padding-block: 10px;
-                        margin-inline-end: 10px;
-                        overflow-x: auto;
-                        @include general.scrollbar-styles();
-                    }
-
-                    @media (max-width: 1200px) {
-                        max-width: 60vw;
-                    }
-
-                    @media (max-width: 650px) {
-                        max-width: 90vw;
-                        max-height: 400px;
-                    }
-                }
-
-                details[open]#block-list-container > summary {
-                    border-bottom: 1px solid general.$white;
-                }
-            }
-        }
+        @include articles.common();
+        @include articles.manual();
+        @include articles.timer-settings();
+        @include articles.block-settings();
     }
 }

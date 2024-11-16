@@ -1,0 +1,74 @@
+@use "../../general";
+@use "../../flexbox";
+
+@use "./details";
+@use "./forms";
+
+@mixin common {
+    article {
+        inline-size: 100%;
+        max-width: 1000px;
+
+        h1 {
+            inline-size: fit-content;
+            
+            color: general.$fluro-purple;
+            font-size: general.$main-header-size;
+            text-transform: uppercase;
+
+            border-bottom: 2px solid general.$fluro-purple;
+
+            @media (max-width: 650px) {
+                text-align: center;
+                border-bottom: none;
+            }
+        }
+
+        section {
+            margin-block: 20px;
+            font-size: general.$text-size;
+
+            h2 {
+                color: general.$fluro-yellow;
+                font-size: general.$sub-header-size;
+            }
+
+            @include general.btn($inline: 140px);
+            button {
+                    margin-block-start: 10px;
+            }
+        }
+    }
+}
+
+@mixin manual {
+    article.user-manual {
+        @include details.manual();
+    }
+}
+
+@mixin timer-settings {
+    article.session-timer-settings {
+
+        @include general.display();
+
+        h3#timer-display {
+            inline-size: fit-content;
+            margin-block-start: 5px;
+            margin-block-end: 20px;
+        }
+
+        @include forms.session-timer();
+    }
+}
+
+@mixin block-settings {
+    article.website-blocking-settings {
+
+        @include general.display();
+
+        @include details.block-list();
+
+        @include forms.website-blocking();
+    }
+}
