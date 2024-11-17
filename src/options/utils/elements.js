@@ -1,6 +1,6 @@
 /**
  * @file elements.js
- * @description A collection
+ * @description A collection of HTML elements for use within the `options` directory
  */
 
 import * as slr from "./selectors";
