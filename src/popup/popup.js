@@ -4,15 +4,17 @@
  */
 
 import "../scss/popup-scss/popup.scss";
-import * as slr from "./selectors";
-import * as vw from "./view";
 
-const initEventListener = () => {
-    const settingsBtn = document.getElementById(slr.ids.SETTINGS);
-    const closeBtn = document.getElementById(slr.ids.CLOSE);
+import getPopupBtns from "./utils/elements";
+import * as ctr from "./controller/controller";
+import * as vw from "./view/view";
 
-    closeBtn.addEventListener("click", (event) => vw.closePopup(event));
-    settingsBtn.addEventListener("click", (event) => vw.openOptions(event));
-};
+document.addEventListener("DOMContentLoaded", async () => {
 
-document.addEventListener("DOMContentLoaded", initEventListener());
+    getPopupBtns().settings.addEventListener("click", (event) => {
+        vw.openOptions(event);
+    });
+    getPopupBtns().close.addEventListener("click", (event) => {
+        vw.closePopup(event);
+    });
+});
