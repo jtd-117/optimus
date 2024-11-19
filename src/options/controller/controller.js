@@ -6,6 +6,8 @@
  * @see {blocking.js} (same directory) for controller functions exclusive to website blocking
  */
 
+import * as tr from "../../scripts/toaster";
+
 import * as slr from "../utils/selectors";
 import * as ems from "../utils/elements";
 import * as vw from "../view/view";
@@ -34,10 +36,10 @@ const handleTimerEditSubmission = async (event) => {
         };
         const submitStatus = await timer.setSettings(newTimerSettings);
         if (submitStatus === false) {
-            // Generate a RED (i.e. submit fail message) toaster
+            tr.showError("FAILED to update timer settings.");
             console.error("Failed to send 'set-timer-settings' request to 'background.js'");
         } else {
-            // Generate a GREEN (i.e. submit success message) toaster
+            tr.showSuccess("UPDATED timer settings.");
             vw.timer.updateDisplay(newTimerSettings);
         }
         vw.closeForm(slr.timerIds.EDIT_F, event);
@@ -51,7 +53,7 @@ const initTimerDisplay = async () => {
 
     const response = await timer.getSettings();
     if (response === null) {
-        // Generate a RED (i.e. submit fail message) toaster
+        tr.showError("Timer settings update fail");
     } else {
         vw.timer.updateDisplay(response.data);
     }
