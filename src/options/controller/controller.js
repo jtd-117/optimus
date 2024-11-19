@@ -38,7 +38,6 @@ const handleTimerEditSubmission = async (event) => {
             console.error("Failed to send 'set-timer-settings' request to 'background.js'");
         } else {
             // Generate a GREEN (i.e. submit success message) toaster
-            console.log(submitStatus);
             vw.timer.updateDisplay(newTimerSettings);
         }
         vw.closeForm(slr.timerIds.EDIT_F, event);
