@@ -30,7 +30,6 @@ const settingsKeys = Object.freeze({
 /**
  * @description Initialises extension settings upon download or via import
  * @param {Object} data The default settings of the extension
- * @returns {Boolean} `true` if operation was sucessful, `false` otherwise
  */
 const initSettings = async (settings = defaultSettingsTemplate) => {
 
@@ -38,28 +37,26 @@ const initSettings = async (settings = defaultSettingsTemplate) => {
     const [,error] = await asyncWrapper(chrome.storage.local.set(settings));
     if (error) {
         console.error(`Failed to set 'defaultSettingsTemplate' to 'chrome.storage.local'`, error);
-        return false;
     }
-    return true;
 };
 
 /**
  * @description An asynchronous wrapper function for the GET operation in Chrome's storage API
  * @param {settingsKeys} key A string being settingsKeys.TIMER or settingsKeys.BLOCK
- * @returns {Object|Array<string>|null} Object if settingsKeys.TIMER, array of strings of settingsKeys.BLOCK, `null` if reject
+ * @returns {Promise<Object|Array<string>|null>} Object if settingsKeys.TIMER, array of strings of settingsKeys.BLOCK, `null` if reject
  */
 const getLocalStorageWrapper = async (key) => {
-    const [data, error] = await asyncWrapper(chrome.storage.local.get(key));
+    const [storage, error] = await asyncWrapper(chrome.storage.local.get(key));
     if (error) {
         console.error(`Failed to get '${key}' settings from 'chrome.storage.local'`, error);
         return null;
     }
-    return data[key];
+    return storage[key];
 };
 
 /**
  * @description Retrieves session timer settings from storage
- * @returns {Object} Contains the keys 'hours', 'minutes' and 'seconds'
+ * @returns {Promise<Object|null>} Contains the keys 'hours', 'minutes' and 'seconds'
  */
 const getSessionTimerSettings = async () => {
     return await getLocalStorageWrapper(settingsKeys.TIMER);
@@ -67,7 +64,7 @@ const getSessionTimerSettings = async () => {
 
 /**
  * @description Retrieves website blocking settings from storage
- * @returns {Array<string>} Contains user-selected blocked website links as strings
+ * @returns {Promise<Array<string>|null>} Contains user-selected blocked website links as strings
  */
 const getWebsiteBlockingSettings = async () => {
     return await getLocalStorageWrapper(settingsKeys.BLOCK);
@@ -97,7 +94,7 @@ const setLocalStorageWrapper = async (key, data) => {
  */
 const setSessionTimerSettings = async (timerData) => {
     const data = { timer: timerData };
-    return setLocalStorageWrapper(settingsKeys.TIMER, data);
+    return await setLocalStorageWrapper(settingsKeys.TIMER, data);
 };
 
 /**
@@ -107,7 +104,7 @@ const setSessionTimerSettings = async (timerData) => {
  */
 const setWebsiteBlockingSettings = async (blockingData) => {
     const data = { blocking: blockingData };
-    return setLocalStorageWrapper(settingsKeys.BLOCK, data);
+    return await setLocalStorageWrapper(settingsKeys.BLOCK, data);
 };
 
 export {

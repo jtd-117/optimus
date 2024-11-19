@@ -4,13 +4,11 @@
  */
 
 import "../scss/options-scss/options.scss";
-import * as files from "../scripts/files";
 
 import * as slr from "./utils/selectors";
 import * as ems from "./utils/elements";
 import * as ctr from "./controller/controller";
 import * as vw from "./view/view";
-import optionsOps from "./controller/operations";
 
 document.addEventListener("DOMContentLoaded", async () => {
 
@@ -51,23 +49,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
     // STEP 4: Retrieve and display session timer settings and website blocking list
-    ctr.initTimerDisplay();
-    //ctr.initBlockDisplay();
+    await ctr.initTimerDisplay();
+    //await ctr.initBlockDisplay();
 
     // STEP 5: Transfer settings buttons
 
-});
-
-chrome.runtime.onMessage.addListener((message, sender) => {
-
-    const optimusId = chrome.runtime.id;
-    if (sender.id === optimusId && sender.url && sender.url.includes(files.scripts.BD)) {
-        
-        // CASE A: Update session timer display
-        if (message.operation === optionsOps.TIMER_S || message.operation === optionsOps.TIMER_G) {
-            vw.timer.updateDisplay(message.data);
-        }
-        // CASE B: Update the block list display
-        
-    }
 });

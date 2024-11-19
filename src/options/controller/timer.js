@@ -3,11 +3,10 @@
  * @description A collection of session timer CONTROLLER functions for options.js
  */
 
-import sendMessage from "../../scripts/messaging";
+import * as msg from "../../scripts/messaging";
+import operations from "../../scripts/operations";
 
 import * as ems from "../utils/elements";
-
-import optionsOps from "./operations";
 
 /**
  * @description Ensures that sessionn timer settings does not have zero values for hours, minutes and seconds
@@ -26,34 +25,29 @@ const validateEditValues = () => {
 };
 
 /**
- * @description HELPER - Sends a request to the background.js to perform an `operation` on session timer settings
- * @param {optionsOps.TIMER_S|optionsOps.TIMER_G} operation Either GET or SET session timer settings
- * @returns {Boolean} `true` if the `operation` request reaches background.js, `false` otherwise
- */
-const requestSettings = async (operation, data) => {
-    const [, error] = await sendMessage(operation, data);
-    if (error) {
-        console.error(`Failed to ${operation} in background.js`, error);
-        return false;
-    }
-    return true;
-};
-
-/**
  * @description Sends a request to background.js to GET session timer settings
- * @returns {Boolean} `true` if the GET operation request reached background.js, `false` otherwise
+ * @returns {Promise<Object>} An object of the timer data if GET operation was successful, `null` otherwise 
  */
 const getSettings = async () => {
-    return await requestSettings(optionsOps.TIMER_G, null);
+    const [response, error] = await msg.sendMessage(operations.TIMER_G, true, null);
+    if (error || response.status === false) {
+        console.error(`Failed to ${operations.TIMER_G} from background.js.`, error);
+        return null;
+    }
+    return response;
 };
 
 /**
  * @description Sends a request to background.js to SET session timer settings
  * @param {Object} newTimerSettings The new timer settings to send to background.js
- * @returns {Boolean} `true` if the SET operation request reached background.js, `false` otherwise
+ * @returns {Promise<Boolean>} `true` if the SET operation was successful, `false` otherwise
  */
 const setSettings = async (newTimerSettings) => {
-    return await requestSettings(optionsOps.TIMER_S, newTimerSettings);
+    const [response, error] = await msg.sendMessage(operations.TIMER_S, true, newTimerSettings);
+    if (error || response.status === false) {
+        console.error(`Failed to ${operations.TIMER_S} in background.js.`, error);
+    }
+    return response.status;
 };
 
 export {

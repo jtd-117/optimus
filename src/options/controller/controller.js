@@ -27,18 +27,21 @@ const handleTimerEditSubmission = async (event) => {
 
     // STEP 2: Send a request to background.js to update timer settings
     } else {
-        const submitStatus = await timer.setSettings({
+        const newTimerSettings = {
             hours: ems.getTimerElements().editHours.value,
             minutes: ems.getTimerElements().editMinutes.value,
             seconds: ems.getTimerElements().editSeconds.value,
-        });
-        vw.closeForm(slr.timerIds.EDIT_F, event);
+        };
+        const submitStatus = await timer.setSettings(newTimerSettings);
         if (submitStatus === false) {
             // Generate a RED (i.e. submit fail message) toaster
             console.error("Failed to send 'set-timer-settings' request to 'background.js'");
         } else {
             // Generate a GREEN (i.e. submit success message) toaster
+            console.log(submitStatus);
+            vw.timer.updateDisplay(newTimerSettings);
         }
+        vw.closeForm(slr.timerIds.EDIT_F, event);
     }
 };
 
@@ -46,12 +49,12 @@ const handleTimerEditSubmission = async (event) => {
  * @description Initialises the options.html timer display by requesting timer settings
  */
 const initTimerDisplay = async () => {
-    const reqStatus = await timer.getSettings();
-    if (reqStatus === false) {
+
+    const response = await timer.getSettings();
+    if (response === null) {
         // Generate a RED (i.e. submit fail message) toaster
-        console.error("Failed to send 'get-timer-settings' request to 'background.js'");
     } else {
-        // Generate a GREEN (i.e. submit success message) toaster
+        vw.timer.updateDisplay(response.data);
     }
 };
 
