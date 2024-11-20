@@ -62,6 +62,7 @@
                     <h1>User Manual</h1>
                     <section id="manual-contents">
                         <h2>Contents:</h2>
+                        <p>Click on any of the anchor links below to <span class="note">jump</span> to the desired section.</p>
                         <ol>
                             <li><a href="#manual-about">About</a></li>
                             <li><a href="#manual-timer">Session Timer</a></li>
@@ -350,13 +351,8 @@
                                     </ul>
                                 </div>
                                 <div class="form-finish">
-                                    <button id="timer-edit-submit">Submit</button>
-                                    <button
-                                        id="timer-edit-cancel"
-                                        formmethod="dialog"
-                                    >
-                                        Cancel
-                                    </button>
+                                    <button id="timer-edit-submit" formmethod="dialog">Submit</button>
+                                    <button id="timer-edit-cancel" formmethod="dialog">Cancel</button>
                                 </div>
                             </form>
                         </dialog>
@@ -369,6 +365,18 @@
                         <button id="timer-reset" aria-label="reset timer settings">
                             Reset Timer
                         </button>
+                        <dialog id="timer-reset-form">
+                            <form method="dialog">
+                                <h3>Reset Timer Settings:</h3>
+                                <p>
+                                    <span class="note">warning:</span> clicking the 'Submit' will default the session timer back to 25 minutes.
+                                </p>
+                                <div class="form-finish">
+                                    <button id="timer-reset-submit" formmethod="dialog">Submit</button>
+                                    <button id="timer-reset-cancel" formmethod="dialog">Cancel</button>
+                                </div>
+                            </form>
+                        </dialog>
                     </section>
                 </article>
                 <article class="website-blocking-settings" hidden>
@@ -442,13 +450,8 @@
                                     cols="60"
                                 ></textarea>
                                 <div class="form-finish">
-                                    <button id="block-edit-submit">Submit</button>
-                                    <button
-                                        id="block-edit-cancel"
-                                        formmethod="dialog"
-                                    >
-                                        Cancel
-                                    </button>
+                                    <button id="block-edit-submit" formmethod="dialog">Submit</button>
+                                    <button id="block-edit-cancel" formmethod="dialog">Cancel</button>
                                 </div>
                             </form>
                         </dialog>

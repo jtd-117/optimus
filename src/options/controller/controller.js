@@ -6,6 +6,7 @@
  * @see {blocking.js} (same directory) for controller functions exclusive to website blocking
  */
 
+import * as ds from "../../scripts/default-settings";
 import * as tr from "../../scripts/toaster";
 
 import * as slr from "../utils/selectors";
@@ -36,7 +37,7 @@ const handleTimerEditSubmission = async (event) => {
         };
         const submitStatus = await timer.setSettings(newTimerSettings);
         if (submitStatus === false) {
-            tr.showError("FAILED to update timer settings.");
+            tr.showError("Failed to UPDATE timer settings.");
             console.error("Failed to send 'set-timer-settings' request to 'background.js'");
         } else {
             tr.showSuccess("UPDATED timer settings.");
@@ -44,6 +45,23 @@ const handleTimerEditSubmission = async (event) => {
         }
         vw.closeForm(slr.timerIds.EDIT_F, event);
     }
+};
+
+/**
+ * @description 
+ * @param {Event} event 
+ */
+const handleTimerResetSubmission = async (event) => {
+    const defaultTimerSettings = ds.defaultSettings[ds.settingsKeys.TIMER]
+    const submitStatus = await timer.setSettings(defaultTimerSettings);
+    if (submitStatus === false) {
+        tr.showError("Failed to RESET timer settings.");
+        console.error("Failed to send 'set-timer-settings' request to 'background.js'");
+    } else {
+        tr.showSuccess("RESET timer settings.");
+        vw.timer.updateDisplay(defaultTimerSettings);
+    }
+    vw.closeForm(slr.timerIds.EDIT_F, event);
 };
 
 /**
@@ -62,6 +80,7 @@ const initTimerDisplay = async () => {
 export {
     timer,
     handleTimerEditSubmission,
+    handleTimerResetSubmission,
     initTimerDisplay,
 
     block,
