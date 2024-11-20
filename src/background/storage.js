@@ -5,38 +5,18 @@
  */
 
 import asyncWrapper from "../scripts/async-wrapper";
-
-/**
- * @description A template for timer and website blocking settings
- * @note Used for initial bootup of extension
- */
-const defaultSettingsTemplate = Object.freeze({
-    timer: {
-        hours: 0,
-        minutes: 25,
-        seconds: 0,
-    },
-    blocking: []
-});
-
-const settingsKeys = Object.freeze({
-    TIMER: "timer",
-    TIMER_HH: "hours",
-    TIMER_MM: "minutes",
-    TIMER_SS: "seconds",
-    BLOCK: "blocking",
-});
+import * as ds from "../scripts/default-settings";
 
 /**
  * @description Initialises extension settings upon download or via import
  * @param {Object} data The default settings of the extension
  */
-const initSettings = async (settings = defaultSettingsTemplate) => {
+const initSettings = async (settings = ds.defaultSettings) => {
 
     // NOTE: `settings` is validated in `options.js`
     const [,error] = await asyncWrapper(chrome.storage.local.set(settings));
     if (error) {
-        console.error(`Failed to set 'defaultSettingsTemplate' to 'chrome.storage.local'`, error);
+        console.error(`Failed to set 'ds.defaultSettings' to 'chrome.storage.local'.`, error);
     }
 };
 
@@ -59,7 +39,7 @@ const getLocalStorageWrapper = async (key) => {
  * @returns {Promise<Object|null>} Contains the keys 'hours', 'minutes' and 'seconds'
  */
 const getSessionTimerSettings = async () => {
-    return await getLocalStorageWrapper(settingsKeys.TIMER);
+    return await getLocalStorageWrapper(ds.settingsKeys.TIMER);
 };
 
 /**
@@ -67,7 +47,7 @@ const getSessionTimerSettings = async () => {
  * @returns {Promise<Array<string>|null>} Contains user-selected blocked website links as strings
  */
 const getWebsiteBlockingSettings = async () => {
-    return await getLocalStorageWrapper(settingsKeys.BLOCK);
+    return await getLocalStorageWrapper(ds.settingsKeys.BLOCK);
 };
 
 /**
@@ -93,8 +73,7 @@ const setLocalStorageWrapper = async (key, data) => {
  * @returns {Boolean} `true` if update was successful, `false` otherwise
  */
 const setSessionTimerSettings = async (timerData) => {
-    const data = { timer: timerData };
-    return await setLocalStorageWrapper(settingsKeys.TIMER, data);
+    return await setLocalStorageWrapper(ds.settingsKeys.TIMER, { timer: timerData });
 };
 
 /**
@@ -103,13 +82,10 @@ const setSessionTimerSettings = async (timerData) => {
  * @returns {Boolean} `true` if update was successful, `false` otherwise
  */
 const setWebsiteBlockingSettings = async (blockingData) => {
-    const data = { blocking: blockingData };
-    return await setLocalStorageWrapper(settingsKeys.BLOCK, data);
+    return await setLocalStorageWrapper(ds.settingsKeys.BLOCK, { blocking: blockingData });
 };
 
 export {
-    defaultSettingsTemplate,
-    settingsKeys,
     initSettings,
     getSessionTimerSettings,
     getWebsiteBlockingSettings,
