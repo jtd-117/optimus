@@ -18,7 +18,7 @@ import * as block from "./blocking";
 
 /**
  * @description Logic for the session timer edit settings submit button
- * @param {Event} event Occures when the timer editing form is submitted
+ * @param {Event} event Occurs when the timer editing form is submitted
  */
 const handleTimerEditSubmission = async (event) => {
 
@@ -48,8 +48,8 @@ const handleTimerEditSubmission = async (event) => {
 };
 
 /**
- * @description 
- * @param {Event} event 
+ * @description Logic for the session timer reset settings submit button
+ * @param {Event} event Occurs when the timer reset form is submitted
  */
 const handleTimerResetSubmission = async (event) => {
     const defaultTimerSettings = ds.defaultSettings[ds.settingsKeys.TIMER]
