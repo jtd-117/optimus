@@ -39,11 +39,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     ems.getTimerElements().editCancel.addEventListener("click", (event) => {
         vw.closeForm(slr.timerIds.EDIT_F, event);
     });
-
-    
-
-
-    
     ems.getTimerElements().reset.addEventListener("click", (event) => {
        vw.openForm(slr.timerIds.RESET_F, event); 
     });
@@ -56,14 +51,15 @@ document.addEventListener("DOMContentLoaded", async () => {
         vw.closeForm(slr.timerIds.RESET_F, event);
     });
 
-
-
-
-
     // STEP 3: Block settings buttons
     ems.getBlockingElements().edit.addEventListener("click", (event) => {
         vw.openForm(slr.blockingIds.EDIT_F, event);
     });
+
+
+    
+
+
     ems.getBlockingElements().editCancel.addEventListener("click", (event) => {
         vw.closeForm(slr.blockingIds.EDIT_F, event);
     });
