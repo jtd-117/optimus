@@ -31,7 +31,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
         // CASE 4: Block GET   
         } else if (message.operation === operations.BLOCK_G) {
-            console.log(`Operation received: ${operations.BLOCK_G}`);
+            rps.getBlockListResponse(sendResponse);
 
         // CASE 5: Block SET
         } else if (message.operation === operations.BLOCK_S) {

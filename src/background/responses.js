@@ -38,7 +38,23 @@ const setTimerResponse = async (sendResponse, data) => {
     }
 };
 
+/**
+ * @description Sends website blocking settings back to requesting file
+ * @param {Callback} sendResponse The parameter callback part of chrome.runtime.onMessage
+ */
+const getBlockListResponse = async (sendResponse) => {
+    const blockList = await stg.getWebsiteBlockingSettings();
+    const opName = operations.BLOCK_G;
+    if (blockList === null) {
+        sendResponse(msg.makeMessage(opName, false, blockList));
+    } else {
+        sendResponse(msg.makeMessage(opName, true, blockList));
+    }
+};
+
 export {
     getTimerResponse,
     setTimerResponse,
+    
+    getBlockListResponse,
 };
