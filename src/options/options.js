@@ -65,8 +65,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
     // STEP 4: Retrieve and display session timer settings and website blocking list
-    await ctr.initTimerDisplay();
-    //await ctr.initBlockDisplay();
+    await ctr.initSessionTimerDisplay();
+    await ctr.initBlockListDisplay();
 
     // STEP 5: Transfer settings buttons
 

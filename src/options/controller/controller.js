@@ -65,15 +65,28 @@ const handleTimerResetSubmission = async (event) => {
 };
 
 /**
- * @description Initialises the options.html timer display by requesting timer settings
+ * @description Initialises the options.html timer display
  */
-const initTimerDisplay = async () => {
+const initSessionTimerDisplay = async () => {
 
     const response = await timer.getSettings();
     if (response === null) {
-        tr.showError("Timer settings update fail");
+        tr.showError("Failed to GET timer settings");
     } else {
         vw.timer.updateDisplay(response.data);
+    }
+};
+
+/**
+ * @description Initialises the options.html block list display
+ */
+const initBlockListDisplay = async () => {
+
+    const response = await block.getSettings();
+    if (response === null) {
+        tr.showError("Failed to GET block list");
+    } else {
+        vw.block.updateDisplay(response.data);
     }
 };
 
@@ -81,7 +94,8 @@ export {
     timer,
     handleTimerEditSubmission,
     handleTimerResetSubmission,
-    initTimerDisplay,
+    initSessionTimerDisplay,
 
     block,
+    initBlockListDisplay,
 };
