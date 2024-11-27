@@ -6,11 +6,32 @@
 import * as ems from "../utils/elements";
 
 /**
- * @description HELPER - Removes all bullet point list tags in the block list element
+ * @description HELPER - Resets the value of a blocking element
+ * @param {HTMLElement} element The element to reset the value of
  */
-const clearBlockList = () => {
-    const blockList = ems.getBlockingElements().list;
-    blockList.textContent = "";
+const clearValue = (element) => {
+    element.value = "";
+};
+
+/**
+ * @description HELPER - Resets the text content of a blocking element
+ * @param {HTMLElement} element The element to reset the text content of
+ */
+const clearTextContent = (element) => {
+    element.textContent = "";
+};
+
+/**
+ * @description Loads the website blocking textarea 
+ * @param {Array<string>} websites An array of strings representing user-selected blocked websites
+ */
+const updateEditTextArea = (websites) => {
+    const textArea = ems.getBlockingElements().editTextArea;
+    clearValue(textArea);
+
+    if (websites.length > 0) {
+        textArea.value = websites.join("\n");
+    }
 };
 
 /**
@@ -19,7 +40,7 @@ const clearBlockList = () => {
  */
 const updateDisplay = (websites) => {
     const blockList = ems.getBlockingElements().list;
-    clearBlockList();
+    clearTextContent(blockList);
 
     if (websites.length === 0) {
         const emptyList = document.createElement("li");
@@ -36,6 +57,6 @@ const updateDisplay = (websites) => {
 };
 
 export {
-    clearBlockList,
+    updateEditTextArea,
     updateDisplay,
 };

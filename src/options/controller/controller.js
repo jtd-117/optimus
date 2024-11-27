@@ -67,7 +67,7 @@ const handleTimerResetSubmission = async (event) => {
 /**
  * @description Initialises the options.html timer display
  */
-const initSessionTimerDisplay = async () => {
+const initTimerDisplay = async () => {
 
     const response = await timer.getSettings();
     if (response === null) {
@@ -78,9 +78,22 @@ const initSessionTimerDisplay = async () => {
 };
 
 /**
+ * @description Loads blocked websites as strings in the textarea block edit form
+ */
+const loadBlockEditTextArea = async () => {
+
+    const response = await block.getSettings();
+    if (response === null) {
+        tr.showError("Failed to GET block list");
+    } else {
+        vw.block.updateEditTextArea(response.data);
+    }
+};
+
+/**
  * @description Initialises the options.html block list display
  */
-const initBlockListDisplay = async () => {
+const initBlockDisplay = async () => {
 
     const response = await block.getSettings();
     if (response === null) {
@@ -94,8 +107,9 @@ export {
     timer,
     handleTimerEditSubmission,
     handleTimerResetSubmission,
-    initSessionTimerDisplay,
+    initTimerDisplay,
 
     block,
-    initBlockListDisplay,
+    loadBlockEditTextArea,
+    initBlockDisplay,
 };
