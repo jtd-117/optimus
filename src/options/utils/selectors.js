@@ -10,7 +10,6 @@ const timerIds = Object.freeze({
     DISPLAY: "timer-display",
 
     EDIT: "timer-edit",
-    EDIT_F: "timer-edit-form",
     EDIT_HH: "timer-edit-hours",
     EDIT_MM: "timer-edit-minutes",
     EDIT_SS: "timer-edit-seconds",
@@ -19,7 +18,6 @@ const timerIds = Object.freeze({
     EDIT_C: "timer-edit-cancel",
 
     RESET: "timer-reset",
-    RESET_F: "timer-reset-form",
     RESET_S: "timer-reset-submit",
     RESET_C: "timer-reset-cancel",
 });
@@ -31,12 +29,11 @@ const blockingIds = Object.freeze({
     LIST: "block-list",
 
     EDIT: "block-edit",
-    EDIT_F: "block-edit-form",
+    EDIT_TA: "block-list-edit",
     EDIT_S: "block-edit-submit",
     EDIT_C: "block-edit-cancel",
 
     RESET: "block-reset",
-    RESET_F: "block-reset-form",
     RESET_S: "block-reset-submit",
     RESET_C: "block-reset-cancel",
 });

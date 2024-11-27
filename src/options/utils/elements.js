@@ -31,6 +31,7 @@ const getBlockingElements = () => ({
     list: document.getElementById(slr.blockingIds.LIST),
 
     edit: document.getElementById(slr.blockingIds.EDIT),
+    editTextArea: document.getElementById(slr.blockingIds.EDIT_TA),
     editSubmit: document.getElementById(slr.blockingIds.EDIT_S),
     editCancel: document.getElementById(slr.blockingIds.EDIT_C),
 
