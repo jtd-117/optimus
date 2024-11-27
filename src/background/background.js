@@ -35,7 +35,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
         // CASE 5: Block SET
         } else if (message.operation === operations.BLOCK_S) {
-            console.log(`Operation received: ${operations.BLOCK_S}`);
+            rps.setBlockListResponse(sendResponse, message.data);
 
         // CASE 6: Export Settings
         } else if (message.operation === operations.EXPORT) {

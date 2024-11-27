@@ -1,6 +1,6 @@
 /**
  * @file controller.js
- * @description Updates storage in background.js and user interface in option.html
+ * @description Updates storage in background.js and user interface in options.html
  * @note Functions in this file are exclusive to cases where both view and controller functions are needed
  * @see {timer.js} (same directory) for controller functions exclusive to the session timer
  * @see {blocking.js} (same directory) for controller functions exclusive to website blocking
@@ -91,6 +91,28 @@ const loadBlockEditTextArea = async () => {
 };
 
 /**
+ * @description Logic for the website blocking edit settings submit button
+ * @param {Event} event Occurs when the website blocking edit form is submitted
+ */
+const handleBlockEditSubmission = async (event) => {
+
+    // STEP 1: Extract textarea content into array and filter invalid regex
+    const websites = ems.getBlockingElements().editTextArea.value.split('\n');
+    const blockList = websites.filter((website) => block.isValidRegex(website)).sort();
+
+    // STEP 2: Send request to background.js to update website blocking settings
+    const submitStatus = await block.setSettings(blockList);
+    if (submitStatus === false) {
+        tr.showError("Failed to UPDATE block list.");
+        console.error("Failed to send 'set-block-settings' request to 'background.js'");
+    } else {
+        tr.showSuccess("UPDATED block list.");
+        vw.block.updateDisplay(blockList);
+    }
+    vw.closeForm(slr.blockingIds.EDIT_F, event);
+};
+
+/**
  * @description Initialises the options.html block list display
  */
 const initBlockDisplay = async () => {
@@ -111,5 +133,6 @@ export {
 
     block,
     loadBlockEditTextArea,
+    handleBlockEditSubmission,
     initBlockDisplay,
 };

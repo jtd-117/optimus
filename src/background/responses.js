@@ -52,9 +52,25 @@ const getBlockListResponse = async (sendResponse) => {
     }
 };
 
+/**
+ * @description Sends a boolean back to the file requesting to update the block list
+ * @param {Callback} sendResponse The parameter callback part of chrome.runtime.onMessage
+ * @param {Object} data Updated block list
+ */
+const setBlockListResponse = async (sendResponse, data) => {
+    const setStatus = await stg.setWebsiteBlockingSettings(data);
+    const opName = operations.BLOCK_S;
+    if (setStatus === false) {
+        sendResponse(msg.makeMessage(opName, false, null));
+    } else {
+        sendResponse(msg.makeMessage(opName, true, null));
+    }
+};
+
 export {
     getTimerResponse,
     setTimerResponse,
     
     getBlockListResponse,
+    setBlockListResponse,
 };

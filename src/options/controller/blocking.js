@@ -6,7 +6,19 @@
 import * as msg from "../../scripts/messaging";
 import operations from "../../scripts/operations";
 
-//import * as ems from "../utils/elements";
+/**
+ * @description Checks if a given string is a valid regex pattern
+ * @param {string} str A string of the url to check the validity of
+ * @returns {Boolean} `true` is the url is valid, `false` otherwise
+ */
+const isValidRegex = (str) => {
+    try {
+        new RegExp(str);
+        return true;
+    } catch (_) {
+        return false;
+    }
+};
 
 /**
  * @description Sends a request to background.js to GET website blocking settings
@@ -27,7 +39,7 @@ const getSettings = async () => {
  * @returns {Promise<Boolean>} `true` if the SET operation was successful, `false` otherwise
  */
 const setSettings = async (newBlockSettings) => {
-    const [response, error] = await msg.sendMessage(operations.TIMER_S, true, newBlockSettings);
+    const [response, error] = await msg.sendMessage(operations.BLOCK_S, true, newBlockSettings);
     if (error || response.status === false) {
         console.error(`Failed to ${operations.BLOCK_S} in background.js.`, error);
     }
@@ -35,6 +47,7 @@ const setSettings = async (newBlockSettings) => {
 };
 
 export {
+    isValidRegex,
     getSettings,
     setSettings,
 };

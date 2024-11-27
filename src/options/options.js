@@ -54,6 +54,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         await ctr.loadBlockEditTextArea();
         vw.openForm(slr.blockingIds.EDIT_F, event);
     });
+    ems.getBlockingElements().editSubmit.addEventListener("click", async (event) => {
+        ctr.handleBlockEditSubmission(event);
+    });
     ems.getBlockingElements().editCancel.addEventListener("click", (event) => {
         vw.closeForm(slr.blockingIds.EDIT_F, event);
     });
