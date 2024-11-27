@@ -12,7 +12,6 @@ const getTimerElements = () => ({
     display: document.getElementById(slr.timerIds.DISPLAY),
 
     edit: document.getElementById(slr.timerIds.EDIT),
-    editForm: document.getElementById(slr.timerIds.EDIT_F),
     editHours: document.getElementById(slr.timerIds.EDIT_HH),
     editMinutes: document.getElementById(slr.timerIds.EDIT_MM),
     editSeconds: document.getElementById(slr.timerIds.EDIT_SS),
@@ -21,7 +20,6 @@ const getTimerElements = () => ({
     editCancel: document.getElementById(slr.timerIds.EDIT_C),
 
     reset: document.getElementById(slr.timerIds.RESET),
-    resetForm: document.getElementById(slr.timerIds.RESET_F),
     resetSubmit: document.getElementById(slr.timerIds.RESET_S),
     resetCancel: document.getElementById(slr.timerIds.RESET_C),
 });
@@ -33,12 +31,10 @@ const getBlockingElements = () => ({
     list: document.getElementById(slr.blockingIds.LIST),
 
     edit: document.getElementById(slr.blockingIds.EDIT),
-    editForm: document.getElementById(slr.blockingIds.EDIT_F),
     editSubmit: document.getElementById(slr.blockingIds.EDIT_S),
     editCancel: document.getElementById(slr.blockingIds.EDIT_C),
 
     reset: document.getElementById(slr.blockingIds.RESET),
-    resetForm: document.getElementById(slr.blockingIds.RESET_F),
     resetSubmit: document.getElementById(slr.blockingIds.RESET_S),
     resetCancel: document.getElementById(slr.blockingIds.RESET_C),
 });
