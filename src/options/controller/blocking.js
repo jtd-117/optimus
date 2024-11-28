@@ -6,9 +6,8 @@
 import * as msg from "../../scripts/messaging";
 import operations from "../../scripts/operations";
 
-
 /**
- * @description Checks if a website's domain and path is valid
+ * @description HELPER - Checks if a website's domain and path is valid
  * @param {string} website a string representing the website's domain and path
  * @returns {Boolean} `true` if website is valid, `false` otherwise
  */
@@ -16,6 +15,15 @@ const validateWebsite = (website) => {
     const pattern = /^((?!www\.)[a-z0-9-]+\.)+[a-z0-9]{2,6}(\/[^\s]*)?$/i;
     return pattern.test(website);
 };
+
+/**
+ * @description Takes an array of websites to be blocked, filters invalid domains (and paths), and sorts them alphabetically
+ * @param {Array<string>} websites An array of strings that represent the domain and path (optional) of a website
+ * @returns {Array<string>} An array of processed websites ready for storage
+ */
+const processWebsites = (websites) => {
+    return [...new Set(websites)].filter((website) => validateWebsite(website)).sort();
+}
 
 /**
  * @description Sends a request to background.js to GET website blocking settings
@@ -44,7 +52,7 @@ const setSettings = async (newBlockSettings) => {
 };
 
 export {
-    validateWebsite,
+    processWebsites,
     getSettings,
     setSettings,
 };
