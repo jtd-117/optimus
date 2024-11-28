@@ -305,7 +305,7 @@
                             <form method="dialog">
                                 <h3>Edit Timer Settings:</h3>
                                 <p>
-                                    Click the 'Submit' button to update timer settings.
+                                    Enter your <span class="note">new</span> timer settings below:
                                 </p>
                                 <div class="form-container">
                                     <label for="timer-edit-hours">HOUR(S):<span class="note">*</span></label>
@@ -370,7 +370,10 @@
                                 <h3>Reset Timer Settings:</h3>
                                 <br>
                                 <p>
-                                    <span class="note">warning:</span> clicking the 'Submit' will default the session timer back to 25 minutes.
+                                    <span class="note">warning:</span>
+                                </p>
+                                <p>
+                                    Clicking the 'Submit' button will default the session timer back to 25 minutes.
                                 </p>
                                 <br>
                                 <div class="form-finish">
@@ -408,43 +411,20 @@
                             <form method="dialog">
                                 <h3>Edit Blocked Website(s):</h3>
                                 <p>
-                                    Click the 'Submit' button to update the block list.
+                                    Violating <span class="note">any</span> of the rules <span class="note">below</span> will cause the <span class="note">line</span> to be <span class="note">rejected</span>.
                                 </p>
                                 <details>
                                     <summary>Rules For Entering URLs</summary>
                                     <ul>
-                                        <li>
-                                            <span class="note">one</span> 
-                                            line per website
-                                        </li>
-                                        <li>
-                                            Do
-                                            <span class="note">not</span> enter www.
-                                        </li>
-                                        <li>
-                                            Do 
-                                            <span class="note">not</span> enter https:// or http://
-                                        </li>
-                                        <li>
-                                            Blocking an
-                                            <span class="note">entire</span>
-                                            website: websiteName
-                                        </li>
-                                        <li>
-                                            Blocking a website <span class="note">page</span>: websiteName/page
-                                        </li>
-                                        <li>
-                                            Blocking
-                                            <span class="note">all</span>
-                                            subpages: websiteName/*
-                                        </li>
+                                        <li><span class="note">one</span> line per website</li>
+                                        <li>Do <span class="note">not</span> include the <span class="note">protocol</span> (e.g. http:// or https://)</li>
+                                        <li>Do <span class="note">not</span> include the www. <span class="note">sub-domain</span></li>
+                                        <li>Blocking an <span class="note">entire</span> website: domain</li>
+                                        <li>Blocking a website's <span class="note">page</span>: domainName/path/to/page</li>
                                     </ul>
                                 </details>
                                 <p>
-                                    Below is an
-                                    <span class="note">editable</span> form of
-                                    the <span class="note">current</span> block
-                                    list:
+                                    Edit your block list <span class="note">below</span>:
                                 </p>
                                 <textarea
                                     id="block-list-edit"
