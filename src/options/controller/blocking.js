@@ -6,18 +6,15 @@
 import * as msg from "../../scripts/messaging";
 import operations from "../../scripts/operations";
 
+
 /**
- * @description Checks if a given string is a valid regex pattern
- * @param {string} str A string of the url to check the validity of
- * @returns {Boolean} `true` is the url is valid, `false` otherwise
+ * @description Checks if a website's domain and path is valid
+ * @param {string} website a string representing the website's domain and path
+ * @returns {Boolean} `true` if website is valid, `false` otherwise
  */
-const isValidRegex = (str) => {
-    try {
-        new RegExp(str);
-        return true;
-    } catch (_) {
-        return false;
-    }
+const validateWebsite = (website) => {
+    const pattern = /^((?!www\.)[a-z0-9-]+\.)+[a-z0-9]{2,6}(\/[^\s]*)?$/i;
+    return pattern.test(website);
 };
 
 /**
@@ -47,7 +44,7 @@ const setSettings = async (newBlockSettings) => {
 };
 
 export {
-    isValidRegex,
+    validateWebsite,
     getSettings,
     setSettings,
 };

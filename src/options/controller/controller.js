@@ -98,7 +98,7 @@ const handleBlockEditSubmission = async (event) => {
 
     // STEP 1: Extract textarea content into array and filter invalid regex
     const websites = ems.getBlockingElements().editTextArea.value.split('\n');
-    const blockList = websites.filter((website) => block.isValidRegex(website)).sort();
+    const blockList = websites.filter((website) => block.validateWebsite(website)).sort();
 
     // STEP 2: Send request to background.js to update website blocking settings
     const submitStatus = await block.setSettings(blockList);
