@@ -88,6 +88,11 @@
             li {
                 color: general.$white;
             }
+
+            ul {
+                block-size: fit-content;
+                margin-block: 0px;
+            }
         }
     }
 }
