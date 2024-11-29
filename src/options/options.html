@@ -418,9 +418,24 @@
                                     <ul>
                                         <li><span class="note">one</span> line per website</li>
                                         <li>Do <span class="note">not</span> include the <span class="note">protocol</span> (e.g. http:// or https://)</li>
-                                        <li>Do <span class="note">not</span> include the www. <span class="note">sub-domain</span></li>
-                                        <li>Blocking an <span class="note">entire</span> website: domain</li>
-                                        <li>Blocking a website's <span class="note">page</span>: domainName/path/to/page</li>
+                                        <li>Do <span class="note">not</span> include the "www." <span class="note">sub-domain</span></li>
+                                        <ul>
+                                            <li>❌ https://www.google.com</li>
+                                            <li>❌ www.google.com</li>
+                                            <li>✅ google.com</li>
+                                        </ul>
+                                        <li>Blocking an <span class="note">entire</span> website: "domain.tld"</li>
+                                        <ul>
+                                            <li>google.com</li>
+                                            <li>wikipedia.org</li>
+                                            <li>govt.nz</li>
+                                        </ul>
+                                        <li>Blocking a website's <span class="note">page</span>: "domain.tld/path/to/page"</li>
+                                        <ul>
+                                            <li>chrome.com/docs/extensions/get-started</li>
+                                            <li>formula1.com/en/results/2024/drivers</li>
+                                            <li>openai.com/en/collections/3742473-chatgpt</li>
+                                        </ul>
                                     </ul>
                                 </details>
                                 <p>
