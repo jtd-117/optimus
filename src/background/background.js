@@ -17,35 +17,39 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     // Only ACCEPT messages from Optimus extension components
     if (sender.id === chrome.runtime.id && sender.url) {
         
-        // CASE 1: Timer ACTIVATE
-        if (message.operation === operations.TIMER_A) {
-            console.log(`Operation received: ${operations.TIMER_A}`);
+        // CASE 1: activeStatus GET
+        if (message.operation === operations.STATUS_G) {
+            console.log(`Operation received: ${operations.STATUS_G}`);
 
-        // CASE 2: Timer GET
+        // CASE 2: activeStatus SET
+        } else if (message.operation === operations.STATUS_S) {
+            console.log(`Operation received: ${operations.STATUS_S}`);
+
+        // CASE 3: Timer GET
         } else if (message.operation === operations.TIMER_G) {
             rps.getTimerResponse(sendResponse);
 
-        // CASE 3: Timer SET
+        // CASE 4: Timer SET
         } else if (message.operation === operations.TIMER_S) {
             rps.setTimerResponse(sendResponse, message.data);
 
-        // CASE 4: Block GET   
+        // CASE 5: Block GET   
         } else if (message.operation === operations.BLOCK_G) {
             rps.getBlockListResponse(sendResponse);
 
-        // CASE 5: Block SET
+        // CASE 6: Block SET
         } else if (message.operation === operations.BLOCK_S) {
             rps.setBlockListResponse(sendResponse, message.data);
 
-        // CASE 6: Export Settings
+        // CASE 7: Export Settings
         } else if (message.operation === operations.EXPORT) {
             console.log(`Operation received: ${operations.EXPORT}`);
 
-        // CASE 7: Import Settings
+        // CASE 8: Import Settings
         } else if (message.operation === operations.IMPORT) {
             console.log(`Operation received: ${operations.IMPORT}`);
 
-        // CASE 8: Total Settings Reset
+        // CASE 9: Total Settings Reset
         } else if (message.operation === operations.RESET) {
             console.log(`Operation received: ${operations.RESET}`);
         }

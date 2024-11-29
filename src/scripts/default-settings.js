@@ -7,6 +7,7 @@
  * @description An enumeration of keys for accessing `defaultSettings`
  */
 const settingsKeys = Object.freeze({
+    STATUS: "activeStatus",
     TIMER: "timer",
     TIMER_HH: "hours",
     TIMER_MM: "minutes",
@@ -18,6 +19,7 @@ const settingsKeys = Object.freeze({
  * @description Provides the keys and initial data for the extension's settings
  */
 const defaultSettings = {
+    activeStatus: false,
     timer: {
         hours: 0,
         minutes: 25,

@@ -51,10 +51,18 @@ const getWebsiteBlockingSettings = async () => {
 };
 
 /**
+ * @description Retrieves the status of the chrome extension
+ * @returns {Promise<Boolean>|null} `true` if the session timer and block list is active, `false` otherwise
+ */
+const getActiveStatus = async () => {
+    return await getLocalStorageWrapper(ds.settingsKeys.STATUS);
+};
+
+/**
  * @description An asynchronous wrapper function for the SET operation in Chrome's storage API
  * @param {settingsKeys} key A string being settingsKeys.TIMER or settingsKeys.BLOCK
  * @param {Object/Array<string>} data If settingsKeys.TIMER an Object, otherwise an array for settingsKeys.BLOCK
- * @returns {Boolean} `true` if update was successful, `false` otherwise
+ * @returns {Promise<Boolean>} `true` if update was successful, `false` otherwise
  */
 const setLocalStorageWrapper = async (key, data) => {
 
@@ -70,7 +78,7 @@ const setLocalStorageWrapper = async (key, data) => {
 /**
  * @description Updates session timer settings
  * @param {Object} timerData Contains the keys 'hours', 'minutes' and 'seconds'
- * @returns {Boolean} `true` if update was successful, `false` otherwise
+ * @returns {Promise<Boolean>} `true` if update was successful, `false` otherwise
  */
 const setSessionTimerSettings = async (timerData) => {
     return await setLocalStorageWrapper(ds.settingsKeys.TIMER, { timer: timerData });
@@ -79,16 +87,27 @@ const setSessionTimerSettings = async (timerData) => {
 /**
  * @description Updates website blocking settings
  * @param {Array<string>} newSettings Contains user-selected blocked website links as strings
- * @returns {Boolean} `true` if update was successful, `false` otherwise
+ * @returns {Promise<Boolean>} `true` if update was successful, `false` otherwise
  */
 const setWebsiteBlockingSettings = async (blockingData) => {
     return await setLocalStorageWrapper(ds.settingsKeys.BLOCK, { blocking: blockingData });
+};
+
+/**
+ * @description Updates the active status of the extension
+ * @param {Boolean} status `true` if the session timer and block list is active, `false` otherwise
+ * @returns {Promise<Boolean>} `true` if update was successful, `false` otherwise
+ */
+const setActiveStatus = async (status) => {
+    return await setLocalStorageWrapper(ds.settingsKeys.STATUS, { activeStatus: status })
 };
 
 export {
     initSettings,
     getSessionTimerSettings,
     getWebsiteBlockingSettings,
+    getActiveStatus,
     setSessionTimerSettings,
     setWebsiteBlockingSettings,
+    setActiveStatus,
 };
