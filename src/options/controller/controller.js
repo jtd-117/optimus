@@ -52,7 +52,7 @@ const handleTimerEditSubmission = async (event) => {
  * @param {Event} event Occurs when the timer reset form is submitted
  */
 const handleTimerResetSubmission = async (event) => {
-    const defaultTimerSettings = ds.defaultSettings[ds.settingsKeys.TIMER]
+    const defaultTimerSettings = ds.defaultSettings[ds.settingsKeys.TIMER];
     const submitStatus = await timer.setSettings(defaultTimerSettings);
     if (submitStatus === false) {
         tr.showError("Failed to RESET timer settings.");
@@ -113,6 +113,23 @@ const handleBlockEditSubmission = async (event) => {
 };
 
 /**
+ * @description Logic for the website blocking reset settings submit button
+ * @param {Event} event Occurs when the website blocking reset form is submitted
+ */
+const handleBlockResetSubmission = async (event) => {
+    const defaultBlockSettings = ds.defaultSettings[ds.settingsKeys.BLOCK];
+    const submitStatus = await block.setSettings(defaultBlockSettings);
+    if (submitStatus === false) {
+        tr.showError("Failed to RESET block list.");
+        console.error("Failed to send 'set-block-settings' request to 'background.js'");
+    } else {
+        tr.showSuccess("RESET block list.");
+        vw.block.updateDisplay(defaultBlockSettings);
+    }
+    vw.closeForm(slr.blockingIds.EDIT_F, event);
+};
+
+/**
  * @description Initialises the options.html block list display
  */
 const initBlockDisplay = async () => {
@@ -134,5 +151,6 @@ export {
     block,
     loadBlockEditTextArea,
     handleBlockEditSubmission,
+    handleBlockResetSubmission,
     initBlockDisplay,
 };

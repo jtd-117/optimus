@@ -60,11 +60,20 @@ document.addEventListener("DOMContentLoaded", async () => {
     ems.getBlockingElements().editCancel.addEventListener("click", (event) => {
         vw.closeForm(slr.blockingIds.EDIT_F, event);
     });
+    ems.getBlockingElements().reset.addEventListener("click", (event) => {
+        vw.openForm(slr.blockingIds.RESET_F, event);
+    });
+    ems.getBlockingElements().resetSubmit.addEventListener("click", async (event) => {
+        await ctr.handleBlockResetSubmission(event);
+    });
+    ems.getBlockingElements().resetCancel.addEventListener("click", (event) => {
+        vw.closeForm(slr.blockingIds.RESET_F, event);
+    });
 
     // STEP 4: Retrieve and display session timer settings and website blocking list
     await ctr.initTimerDisplay();
     await ctr.initBlockDisplay();
 
     // STEP 5: Transfer settings buttons
-
+    
 });
