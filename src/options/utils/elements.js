@@ -46,7 +46,10 @@ const getBlockingElements = () => ({
 const getTransferElements = () => ({
     export: document.getElementById(slr.transferIds.EXPORT),
     import: document.getElementById(slr.transferIds.IMPORT),
+
     totalReset: document.getElementById(slr.transferIds.RESET),
+    totalResetSubmit: document.getElementById(slr.transferIds.RESET_S),
+    totalResetCancel: document.getElementById(slr.transferIds.RESET_C),
 });
 
 /**

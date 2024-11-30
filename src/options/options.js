@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
     });
     ems.getTimerElements().editSubmit.addEventListener("click", async (event) => {
-        await ctr.handleTimerEditSubmission(event);
+        await ctr.handleTimerEdit(event);
     });
     ems.getTimerElements().editCancel.addEventListener("click", (event) => {
         vw.closeForm(slr.timerIds.EDIT_F, event);
@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", async () => {
        vw.openForm(slr.timerIds.RESET_F, event); 
     });
     ems.getTimerElements().resetSubmit.addEventListener("click", async (event) => {
-        await ctr.handleTimerResetSubmission(event);
+        await ctr.handleTimerReset(event);
     });
     ems.getTimerElements().resetCancel.addEventListener("click", (event) => {
         vw.closeForm(slr.timerIds.RESET_F, event);
@@ -51,11 +51,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // STEP 3: Block settings buttons
     ems.getBlockingElements().edit.addEventListener("click", async (event) => {
-        await ctr.loadBlockEditTextArea();
+        await ctr.loadEditableBlockList();
         vw.openForm(slr.blockingIds.EDIT_F, event);
     });
     ems.getBlockingElements().editSubmit.addEventListener("click", async (event) => {
-        ctr.handleBlockEditSubmission(event);
+        ctr.handleBlockEdit(event);
     });
     ems.getBlockingElements().editCancel.addEventListener("click", (event) => {
         vw.closeForm(slr.blockingIds.EDIT_F, event);
@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         vw.openForm(slr.blockingIds.RESET_F, event);
     });
     ems.getBlockingElements().resetSubmit.addEventListener("click", async (event) => {
-        await ctr.handleBlockResetSubmission(event);
+        await ctr.handleBlockReset(event);
     });
     ems.getBlockingElements().resetCancel.addEventListener("click", (event) => {
         vw.closeForm(slr.blockingIds.RESET_F, event);
@@ -75,5 +75,13 @@ document.addEventListener("DOMContentLoaded", async () => {
     await ctr.initBlockDisplay();
 
     // STEP 5: Transfer settings buttons
-    
+    ems.getTransferElements().totalReset.addEventListener("click", (event) => {
+        vw.openForm(slr.transferIds.RESET_F, event);
+    });
+    ems.getTransferElements().totalResetSubmit.addEventListener("click", async (event) => {
+        await ctr.handleTotalReset(event);
+    });
+    ems.getTransferElements().totalResetCancel.addEventListener("click", (event) => {
+        vw.closeForm(slr.transferIds.RESET_F, event);
+    });
 });

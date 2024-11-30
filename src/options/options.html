@@ -373,15 +373,15 @@
                                     <span class="note">warning:</span>
                                 </p>
                                 <p>
-                                    Clicking the 'Submit' button will default the session timer back to 25 minutes.
+                                    Clicking the 'Yes' button will default the session timer back to 25 minutes.
                                 </p>
                                 <p>
-                                    Only proceed if you wish to do so.
+                                    Do you still wish to proceed?
                                 </p>
                                 <br>
                                 <div class="form-finish">
-                                    <button id="timer-reset-submit" formmethod="dialog">Submit</button>
-                                    <button id="timer-reset-cancel" formmethod="dialog">Cancel</button>
+                                    <button id="timer-reset-submit" formmethod="dialog">Yes</button>
+                                    <button id="timer-reset-cancel" formmethod="dialog">No</button>
                                 </div>
                             </form>
                         </dialog>
@@ -470,15 +470,15 @@
                                     <span class="note">warning:</span>
                                 </p>
                                 <p>
-                                    Clicking the 'Submit' button will clear the block list.
+                                    Clicking the 'Yes' button will clear the block list.
                                 </p>
                                 <p>
-                                    Only proceed if you wish to do so.
+                                    Do you still wish to proceed?
                                 </p>
                                 <br>
                                 <div class="form-finish">
-                                    <button id="block-reset-submit" formmethod="dialog">Submit</button>
-                                    <button id="block-reset-cancel" formmethod="dialog">Cancel</button>
+                                    <button id="block-reset-submit" formmethod="dialog">Yes</button>
+                                    <button id="block-reset-cancel" formmethod="dialog">No</button>
                                 </div>
                             </form>
                         </dialog>
@@ -518,6 +518,26 @@
                             <li>Remove all blocked websites from the block list</li>
                         </ul>
                         <button id="total-reset">Reset Settings</button>
+                        <dialog id="total-reset-form">
+                            <form method="dialog">
+                                <h3>Reset Block List:</h3>
+                                <br>
+                                <p>
+                                    <span class="note">warning:</span>
+                                </p>
+                                <p>
+                                    Clicking the 'Yes' button will reset settings for both the session timer and block list.
+                                </p>
+                                <p>
+                                    Do you still wish to proceed?
+                                </p>
+                                <br>
+                                <div class="form-finish">
+                                    <button id="total-reset-submit" formmethod="dialog">Yes</button>
+                                    <button id="total-reset-cancel" formmethod="dialog">No</button>
+                                </div>
+                            </form>
+                        </dialog>
                     </section>
                 </article>
             </section>

@@ -48,7 +48,11 @@ const blockingIds = Object.freeze({
 const transferIds = Object.freeze({
     EXPORT: "export-submit",
     IMPORT: "import-cancel",
+
     RESET: "total-reset",
+    RESET_F: "total-reset-form",
+    RESET_S: "total-reset-submit",
+    RESET_C: "total-reset-cancel",
 });
 
 /**

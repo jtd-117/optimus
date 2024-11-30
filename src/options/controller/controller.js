@@ -20,7 +20,7 @@ import * as block from "./blocking";
  * @description Logic for the session timer edit settings submit button
  * @param {Event} event Occurs when the timer editing form is submitted
  */
-const handleTimerEditSubmission = async (event) => {
+const handleTimerEdit = async (event) => {
 
     // STEP 1: Ensure TIMER form has valid values
     const formValidity = timer.validateEditValues();
@@ -51,7 +51,7 @@ const handleTimerEditSubmission = async (event) => {
  * @description Logic for the session timer reset settings submit button
  * @param {Event} event Occurs when the timer reset form is submitted
  */
-const handleTimerResetSubmission = async (event) => {
+const handleTimerReset = async (event) => {
     const defaultTimerSettings = ds.defaultSettings[ds.settingsKeys.TIMER];
     const submitStatus = await timer.setSettings(defaultTimerSettings);
     if (submitStatus === false) {
@@ -80,7 +80,7 @@ const initTimerDisplay = async () => {
 /**
  * @description Loads blocked websites as strings in the textarea block edit form
  */
-const loadBlockEditTextArea = async () => {
+const loadEditableBlockList = async () => {
 
     const response = await block.getSettings();
     if (response === null) {
@@ -94,7 +94,7 @@ const loadBlockEditTextArea = async () => {
  * @description Logic for the website blocking edit settings submit button
  * @param {Event} event Occurs when the website blocking edit form is submitted
  */
-const handleBlockEditSubmission = async (event) => {
+const handleBlockEdit = async (event) => {
 
     // STEP 1: Extract textarea content into array and filter invalid regex
     const websites = ems.getBlockingElements().editTextArea.value.split('\n');
@@ -116,7 +116,7 @@ const handleBlockEditSubmission = async (event) => {
  * @description Logic for the website blocking reset settings submit button
  * @param {Event} event Occurs when the website blocking reset form is submitted
  */
-const handleBlockResetSubmission = async (event) => {
+const handleBlockReset = async (event) => {
     const defaultBlockSettings = ds.defaultSettings[ds.settingsKeys.BLOCK];
     const submitStatus = await block.setSettings(defaultBlockSettings);
     if (submitStatus === false) {
@@ -142,15 +142,34 @@ const initBlockDisplay = async () => {
     }
 };
 
+/**
+ * @description Logic for resetting both the session timer and website blocking settings
+ * @param {Event} event Occurs when the website total reset form is submitted
+ */
+const handleTotalReset = async (event) => {
+    const submitStatus = await block.setSettings(ds.defaultSettings);
+    if (submitStatus === false) {
+        tr.showError("Failed to RESET extension settings.");
+        console.error("Failed to send 'set-block-settings' request to 'background.js'");
+    } else {
+        tr.showSuccess("RESET extension settings.");
+        vw.timer.updateDisplay(ds.defaultSettings[ds.settingsKeys.TIMER]);
+        vw.block.updateDisplay(ds.defaultSettings[ds.settingsKeys.BLOCK]);
+    }
+    vw.closeForm(slr.transferIds.RESET_F, event);
+};
+
 export {
     timer,
-    handleTimerEditSubmission,
-    handleTimerResetSubmission,
+    handleTimerEdit,
+    handleTimerReset,
     initTimerDisplay,
 
     block,
-    loadBlockEditTextArea,
-    handleBlockEditSubmission,
-    handleBlockResetSubmission,
+    loadEditableBlockList,
+    handleBlockEdit,
+    handleBlockReset,
     initBlockDisplay,
+
+    handleTotalReset,
 };
