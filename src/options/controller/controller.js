@@ -38,7 +38,7 @@ const handleTimerEdit = async (event) => {
         const submitStatus = await timer.setSettings(newTimerSettings);
         if (submitStatus === false) {
             tr.showError("Failed to UPDATE timer settings.");
-            console.error("Failed to send 'set-timer-settings' request to 'background.js'");
+            console.error("Failed to send 'set-timer-settings' request to 'background.js'.");
         } else {
             tr.showSuccess("UPDATED timer settings.");
             vw.timer.updateDisplay(newTimerSettings);
@@ -56,7 +56,7 @@ const handleTimerReset = async (event) => {
     const submitStatus = await timer.setSettings(defaultTimerSettings);
     if (submitStatus === false) {
         tr.showError("Failed to RESET timer settings.");
-        console.error("Failed to send 'set-timer-settings' request to 'background.js'");
+        console.error("Failed to send 'set-timer-settings' request to 'background.js'.");
     } else {
         tr.showSuccess("RESET timer settings.");
         vw.timer.updateDisplay(defaultTimerSettings);
@@ -71,7 +71,8 @@ const initTimerDisplay = async () => {
 
     const response = await timer.getSettings();
     if (response === null) {
-        tr.showError("Failed to GET timer settings");
+        tr.showError("Failed to GET timer settings.");
+        console.error("Failed to send 'get-timer-settings' request to 'background.js'.");
     } else {
         vw.timer.updateDisplay(response.data);
     }
@@ -84,7 +85,8 @@ const loadEditableBlockList = async () => {
 
     const response = await block.getSettings();
     if (response === null) {
-        tr.showError("Failed to GET block list");
+        tr.showError("Failed to GET block list.");
+        console.error("Failed to send 'get-block-settings' request to 'background.js'.");
     } else {
         vw.block.updateEditTextArea(response.data);
     }
@@ -104,7 +106,7 @@ const handleBlockEdit = async (event) => {
     const submitStatus = await block.setSettings(blockList);
     if (submitStatus === false) {
         tr.showError("Failed to UPDATE block list.");
-        console.error("Failed to send 'set-block-settings' request to 'background.js'");
+        console.error("Failed to send 'set-block-settings' request to 'background.js'.");
     } else {
         tr.showSuccess("UPDATED block list.");
         vw.block.updateDisplay(blockList);
@@ -121,7 +123,7 @@ const handleBlockReset = async (event) => {
     const submitStatus = await block.setSettings(defaultBlockSettings);
     if (submitStatus === false) {
         tr.showError("Failed to RESET block list.");
-        console.error("Failed to send 'set-block-settings' request to 'background.js'");
+        console.error("Failed to send 'set-block-settings' request to 'background.js'.");
     } else {
         tr.showSuccess("RESET block list.");
         vw.block.updateDisplay(defaultBlockSettings);
@@ -136,7 +138,8 @@ const initBlockDisplay = async () => {
 
     const response = await block.getSettings();
     if (response === null) {
-        tr.showError("Failed to GET block list");
+        tr.showError("Failed to GET block list.");
+        console.error("Failed to send 'get-block-settings' request to 'background.js'.");
     } else {
         vw.block.updateDisplay(response.data);
     }
@@ -147,14 +150,30 @@ const initBlockDisplay = async () => {
  * @param {Event} event Occurs when the website total reset form is submitted
  */
 const handleTotalReset = async (event) => {
-    const submitStatus = await block.setSettings(ds.defaultSettings);
-    if (submitStatus === false) {
-        tr.showError("Failed to RESET extension settings.");
-        console.error("Failed to send 'set-block-settings' request to 'background.js'");
+
+    const defaultTimerSettings = ds.defaultSettings[ds.settingsKeys.TIMER];
+    const submitTimerStatus = await timer.setSettings(defaultTimerSettings);
+
+    const defaultBlockSettings = ds.defaultSettings[ds.settingsKeys.BLOCK];
+    const submitBlockStatus = await block.setSettings(defaultBlockSettings);
+
+    if (submitTimerStatus === false || submitBlockStatus === false) {
+
+        if (submitTimerStatus === false && submitBlockStatus === false) {
+            tr.showError("Failed to RESET extension settings.");
+
+        } else if (submitTimerStatus === false) {
+            tr.showError("Failed to RESET timer settings.");
+
+        } else {
+            tr.showError("Failed to RESET block list.");
+        }
+        console.error("Failed to send 'set-timer-settings' or 'set-block-settings' request to 'background.js'.");
+
     } else {
         tr.showSuccess("RESET extension settings.");
-        vw.timer.updateDisplay(ds.defaultSettings[ds.settingsKeys.TIMER]);
-        vw.block.updateDisplay(ds.defaultSettings[ds.settingsKeys.BLOCK]);
+        vw.timer.updateDisplay(defaultTimerSettings);
+        vw.block.updateDisplay(defaultBlockSettings);
     }
     vw.closeForm(slr.transferIds.RESET_F, event);
 };
